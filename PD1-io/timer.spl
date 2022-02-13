@@ -1,0 +1,9 @@
+[Inputs]
+clk
+rst
+[Outputs]
+result
+[BiDir]
+[ATTRIBUTES]
+VeriModel timer
+
