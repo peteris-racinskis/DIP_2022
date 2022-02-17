@@ -87,9 +87,6 @@
         <block symbolname="pulldown" name="XLXI_6">
             <blockpin signalname="PB" name="O" />
         </block>
-        <block symbolname="pulldown" name="XLXI_7">
-            <blockpin signalname="PB_debounced" name="O" />
-        </block>
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
         <branch name="XLXN_1">
@@ -127,11 +124,9 @@
             <wire x2="1424" y1="992" y2="1344" x1="1424" />
             <wire x2="1472" y1="1344" y2="1344" x1="1424" />
             <wire x2="1520" y1="1344" y2="1344" x1="1472" />
-            <wire x2="1472" y1="1344" y2="1440" x1="1472" />
             <wire x2="1424" y1="1344" y2="1344" x1="1296" />
         </branch>
         <iomarker fontsize="28" x="240" y="1312" name="PB" orien="R180" />
-        <instance x="1408" y="1600" name="XLXI_7" orien="R0" />
         <instance x="304" y="1616" name="XLXI_6" orien="R0" />
     </sheet>
 </drawing>

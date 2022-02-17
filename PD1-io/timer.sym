@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="timer">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2022-2-13T15:44:36</timestamp>
+    <timestamp>2022-2-17T8:6:59</timestamp>
     <attr value="timer" name="VeriModel" />
     <pin polarity="Input" x="0" y="-32" name="clk" />
     <pin polarity="Input" x="0" y="96" name="rst" />

@@ -7,7 +7,7 @@
 // \   \   \/     Version : 14.7
 //  \   \         Application : sch2hdl
 //  /   /         Filename : debounce.vf
-// /___/   /\     Timestamp : 02/13/2022 18:09:20
+// /___/   /\     Timestamp : 02/17/2022 09:54:35
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -79,5 +79,4 @@ module debounce(CLK,
                                   .Q(), 
                                   .TC(PB_debounced_DUMMY));
    PULLDOWN  XLXI_6 (.O(PB_DUMMY));
-   PULLDOWN  XLXI_7 (.O(PB_debounced_DUMMY));
 endmodule

@@ -16,21 +16,8 @@
         <signal name="LD1" />
         <signal name="SW3" />
         <signal name="LD2" />
-        <signal name="XLXN_59" />
-        <signal name="XLXN_62" />
-        <signal name="XLXN_64" />
-        <signal name="XLXN_69" />
-        <signal name="XLXN_70" />
-        <signal name="XLXN_72" />
-        <signal name="XLXN_76" />
-        <signal name="XLXN_77" />
-        <signal name="XLXN_80" />
-        <signal name="XLXN_82" />
-        <signal name="XLXN_84" />
-        <signal name="XLXN_85" />
         <signal name="XLXN_86" />
         <signal name="XLXN_87" />
-        <signal name="XLXN_88" />
         <port polarity="Input" name="CLK" />
         <port polarity="Input" name="SW2" />
         <port polarity="Input" name="SW0" />
@@ -40,7 +27,7 @@
         <port polarity="Input" name="SW3" />
         <port polarity="Output" name="LD2" />
         <blockdef name="debounce">
-            <timestamp>2022-2-13T16:9:12</timestamp>
+            <timestamp>2022-2-17T7:54:17</timestamp>
             <rect width="256" x="64" y="-192" height="100" />
             <line x2="0" y1="-160" y2="-160" x1="64" />
             <line x2="320" y1="-144" y2="-144" x1="384" />
@@ -59,7 +46,7 @@
             <arc ex="208" ey="-96" sx="128" sy="-48" r="88" cx="132" cy="-136" />
         </blockdef>
         <blockdef name="timer">
-            <timestamp>2022-2-13T15:44:36</timestamp>
+            <timestamp>2022-2-17T8:6:59</timestamp>
             <line x2="0" y1="96" y2="96" x1="64" />
             <line x2="384" y1="32" y2="32" x1="320" />
             <line x2="0" y1="-32" y2="-32" x1="64" />
@@ -97,16 +84,16 @@
         <block symbolname="debounce" name="XLXI_33">
             <blockpin signalname="CLK" name="CLK" />
             <blockpin signalname="SW3" name="PB" />
-            <blockpin signalname="XLXN_85" name="PB_debounced" />
+            <blockpin signalname="XLXN_86" name="PB_debounced" />
         </block>
         <block symbolname="timer" name="XLXI_35">
             <blockpin signalname="CLK" name="clk" />
-            <blockpin signalname="XLXN_82" name="rst" />
+            <blockpin signalname="XLXN_87" name="rst" />
             <blockpin signalname="LD2" name="result" />
         </block>
         <block symbolname="inv" name="XLXI_36">
-            <blockpin signalname="XLXN_85" name="I" />
-            <blockpin signalname="XLXN_82" name="O" />
+            <blockpin signalname="XLXN_86" name="I" />
+            <blockpin signalname="XLXN_87" name="O" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
@@ -158,8 +145,7 @@
         </branch>
         <iomarker fontsize="28" x="1760" y="1792" name="LD1" orien="R0" />
         <branch name="SW3">
-            <wire x2="944" y1="2336" y2="2336" x1="784" />
-            <wire x2="960" y1="2336" y2="2336" x1="944" />
+            <wire x2="960" y1="2336" y2="2336" x1="784" />
         </branch>
         <branch name="LD2">
             <wire x2="2080" y1="2240" y2="2240" x1="2064" />
@@ -175,16 +161,16 @@
         <iomarker fontsize="28" x="784" y="2288" name="CLK" orien="R180" />
         <instance x="960" y="2448" name="XLXI_33" orien="R0">
         </instance>
-        <branch name="XLXN_82">
-            <wire x2="1680" y1="2304" y2="2304" x1="1600" />
-        </branch>
-        <branch name="XLXN_85">
-            <wire x2="1376" y1="2304" y2="2304" x1="1344" />
-        </branch>
-        <instance x="1376" y="2336" name="XLXI_36" orien="R0" />
         <instance x="1680" y="2208" name="XLXI_35" orien="R0">
         </instance>
         <iomarker fontsize="28" x="2080" y="2240" name="LD2" orien="R0" />
         <iomarker fontsize="28" x="784" y="2336" name="SW3" orien="R180" />
+        <branch name="XLXN_86">
+            <wire x2="1424" y1="2304" y2="2304" x1="1344" />
+        </branch>
+        <branch name="XLXN_87">
+            <wire x2="1680" y1="2304" y2="2304" x1="1648" />
+        </branch>
+        <instance x="1424" y="2336" name="XLXI_36" orien="R0" />
     </sheet>
 </drawing>

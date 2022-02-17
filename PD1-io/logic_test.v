@@ -57,9 +57,10 @@ module logic_logic_sch_tb();
 		SW1 = 0;
 		#1000;
 		SW1 = 1;
-		SW2 = 0;
 		#1000;
 		SW2 = 0;
+		#2000;
+		SW1 = 0;
 		SW3 = 0;
 	end
 	

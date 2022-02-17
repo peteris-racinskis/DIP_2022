@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="debounce">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2022-2-13T16:9:12</timestamp>
+    <timestamp>2022-2-17T7:54:17</timestamp>
     <pin polarity="Input" x="0" y="-160" name="CLK" />
     <pin polarity="Input" x="0" y="-112" name="PB" />
     <pin polarity="Output" x="384" y="-144" name="PB_debounced" />

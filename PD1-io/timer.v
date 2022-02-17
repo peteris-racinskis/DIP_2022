@@ -31,16 +31,10 @@ module timer(
 	
 	always @(posedge clk)
 	begin
-		if (rst & !reset_last) begin
-			cnt <= 0;
-			reset_last <= 1;
-		end else if (cnt > FREQ + FREQ) begin
+		if (cnt > FREQ + FREQ || rst) begin
 			cnt <= 0;
 		end else begin
 			cnt <= cnt + 1;
-		end
-		if (!rst) begin
-			reset_last <= 0;
 		end
 		if (cnt > FREQ) begin
 			res = 1;
