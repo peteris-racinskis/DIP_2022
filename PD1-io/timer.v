@@ -26,8 +26,6 @@ module timer(
 	
 	localparam [32:0] FREQ = 20;
 	reg [32:0] cnt;
-	reg res;
-	reg reset_last;
 	
 	always @(posedge clk)
 	begin
@@ -36,13 +34,8 @@ module timer(
 		end else begin
 			cnt <= cnt + 1;
 		end
-		if (cnt > FREQ) begin
-			res = 1;
-		end else begin
-			res = 0;
-		end
 	end
 
-	assign result = res;
+	assign result = (cnt > FREQ);
 
 endmodule
