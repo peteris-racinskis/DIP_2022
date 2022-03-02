@@ -1,27 +1,5 @@
 `timescale 1ns / 1ps
 
-////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer:
-//
-// Create Date:   16:30:45 02/28/2022
-// Design Name:   ALU
-// Module Name:   /home/user/repos/DIP_2022/RISCV_CPU/ALU_test.v
-// Project Name:  RISCV_CPU
-// Target Device:  
-// Tool versions:  
-// Description: 
-//
-// Verilog Test Fixture created by ISE for module: ALU
-//
-// Dependencies:
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-////////////////////////////////////////////////////////////////////////////////
-
 module ALU_test;
 	
 	parameter ADD = 1;
