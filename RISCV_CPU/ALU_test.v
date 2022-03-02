@@ -137,11 +137,11 @@ module ALU_test;
 			#10 OP = ADD;
 			result = AA + BB;
 			#10;
-			if ((result == 0) & !Z) begin
-				$display("Error: %0d + %0d = %0d; Zero flag not triggered",AA,BB,R);
+			if (((result == 0) & !Z) | ((result != 0) & Z)) begin
+				$display("Error: %0d + %0d = %0d; Zero flag issue",AA,BB,R);
 			end
-			if ((result < 0) & !N) begin
-				$display("Error: %0d + %0d = %0d; Negative flag not triggered",AA,BB,R);
+			if (((result < 0) & !N) | ((result >= 0) & N)) begin
+				$display("Error: %0d + %0d = %0d; Negative flag issue",AA,BB,R);
 			end
 			if ((result > maxint_u) & !C) begin
 				$display("Error: %0b + %0b = %0b; Carry flag not triggered",AA,BB,R);
@@ -153,16 +153,16 @@ module ALU_test;
 			result = AA - BB;
 			#10;
 			if ((result == 0) & !Z) begin
-				$display("Error: %0d + %0d = %0d; Zero flag not triggered",AA,BB,R);
+				$display("Error: %0d - %0d = %0d; Zero flag not triggered",AA,BB,R);
 			end
 			if ((result < 0) & !N) begin
-				$display("Error: %0d + %0d = %0d; Negative flag not triggered",AA,BB,R);
+				$display("Error: %0d - %0d = %0d; Negative flag not triggered",AA,BB,R);
 			end
 			if ((result > maxint_u) & !C) begin
-				$display("Error: %0b + %0b = %0b; Carry flag not triggered",AA,BB,R);
+				$display("Error: %0b - %0b = %0b; Carry flag not triggered",AA,BB,R);
 			end
 			if ((result > maxint_s) & !V) begin
-				$display("Info: %0b + %0b = %0b; Overflow flag not triggered",AA,BB,R);
+				$display("Info: %0b - %0b = %0b; Overflow flag not triggered",AA,BB,R);
 			end
 		end
 	endtask
