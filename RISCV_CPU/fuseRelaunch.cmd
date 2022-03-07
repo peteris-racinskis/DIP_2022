@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "/home/user/repos/DIP_2022/RISCV_CPU/ALU_test_isim_beh.exe" -prj "/home/user/repos/DIP_2022/RISCV_CPU/ALU_test_beh.prj" "work.ALU_test" "work.glbl" 
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "/home/user/repos/DIP_2022/RISCV_CPU/InstrDecode_test_isim_beh.exe" -prj "/home/user/repos/DIP_2022/RISCV_CPU/InstrDecode_test_beh.prj" "work.InstrDecode_test" "work.glbl" 
