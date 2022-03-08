@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/user/repos/DIP_2022/RISCV_CPU/top_top_sch_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="top_top_sch_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="41" />
+   <wvobject fp_name="/top_top_sch_tb/B" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">B[31:0]</obj_property>
+      <obj_property name="ObjectShortName">B[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/A" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">A[31:0]</obj_property>
+      <obj_property name="ObjectShortName">A[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/IMM" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">IMM[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IMM[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/AR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">AR[4:0]</obj_property>
+      <obj_property name="ObjectShortName">AR[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/BR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">BR[4:0]</obj_property>
+      <obj_property name="ObjectShortName">BR[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/AW" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">AW[4:0]</obj_property>
+      <obj_property name="ObjectShortName">AW[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/WE" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">WE</obj_property>
+      <obj_property name="ObjectShortName">WE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/DBO" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DBO[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DBO[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/V" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">V</obj_property>
+      <obj_property name="ObjectShortName">V</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/Z" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">Z</obj_property>
+      <obj_property name="ObjectShortName">Z</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/N" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">N</obj_property>
+      <obj_property name="ObjectShortName">N</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/C" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">C</obj_property>
+      <obj_property name="ObjectShortName">C</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/D" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">D[31:0]</obj_property>
+      <obj_property name="ObjectShortName">D[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/CLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/INSTR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INSTR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">INSTR[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/DBR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DBR[4:0]</obj_property>
+      <obj_property name="ObjectShortName">DBR[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/constant1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">constant1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">constant1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/constant2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">constant2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">constant2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/LUI" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">LUI[6:0]</obj_property>
+      <obj_property name="ObjectShortName">LUI[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/AUIPC" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">AUIPC[6:0]</obj_property>
+      <obj_property name="ObjectShortName">AUIPC[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/JAL" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">JAL[6:0]</obj_property>
+      <obj_property name="ObjectShortName">JAL[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/JALR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">JALR[6:0]</obj_property>
+      <obj_property name="ObjectShortName">JALR[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/BTYPE" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">BTYPE[6:0]</obj_property>
+      <obj_property name="ObjectShortName">BTYPE[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/LOADS" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">LOADS[6:0]</obj_property>
+      <obj_property name="ObjectShortName">LOADS[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/STORES" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">STORES[6:0]</obj_property>
+      <obj_property name="ObjectShortName">STORES[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/ARITHM_I" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ARITHM_I[6:0]</obj_property>
+      <obj_property name="ObjectShortName">ARITHM_I[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/ARITHM_R" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ARITHM_R[6:0]</obj_property>
+      <obj_property name="ObjectShortName">ARITHM_R[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/FUNCT3_ADD_SUB" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">FUNCT3_ADD_SUB[2:0]</obj_property>
+      <obj_property name="ObjectShortName">FUNCT3_ADD_SUB[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/FUNCT3_SLL" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">FUNCT3_SLL[2:0]</obj_property>
+      <obj_property name="ObjectShortName">FUNCT3_SLL[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/FUNCT3_SLT" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">FUNCT3_SLT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">FUNCT3_SLT[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/FUNCT3_SLU" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">FUNCT3_SLU[2:0]</obj_property>
+      <obj_property name="ObjectShortName">FUNCT3_SLU[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/FUNCT3_XOR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">FUNCT3_XOR[2:0]</obj_property>
+      <obj_property name="ObjectShortName">FUNCT3_XOR[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/FUNCT3_SRX" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">FUNCT3_SRX[2:0]</obj_property>
+      <obj_property name="ObjectShortName">FUNCT3_SRX[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/FUNCT3_OR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">FUNCT3_OR[2:0]</obj_property>
+      <obj_property name="ObjectShortName">FUNCT3_OR[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/FUNCT3_AND" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">FUNCT3_AND[2:0]</obj_property>
+      <obj_property name="ObjectShortName">FUNCT3_AND[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/FUNCT7_DEF" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">FUNCT7_DEF[6:0]</obj_property>
+      <obj_property name="ObjectShortName">FUNCT7_DEF[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/FUNCT7_MOD" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">FUNCT7_MOD[6:0]</obj_property>
+      <obj_property name="ObjectShortName">FUNCT7_MOD[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/rs0" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rs0[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rs0[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/rs1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rs1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rs1[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/rs2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rs2[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rs2[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/rs3" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rs3[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rs3[4:0]</obj_property>
+   </wvobject>
+</wave_config>

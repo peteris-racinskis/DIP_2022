@@ -1,0 +1,14 @@
+[Inputs]
+WE
+CLK
+=AW[0:0]=
+=AR[0:0]=
+=BR[0:0]=
+=D[31:0]=
+[Outputs]
+=A[31:0]=
+=B[31:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel reg_file
+

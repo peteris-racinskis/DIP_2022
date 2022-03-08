@@ -1,0 +1,14 @@
+[Inputs]
+=INSTR[31:0]=
+[Outputs]
+=FUNCT7[6:0]=
+=FUNCT3[3:0]=
+=OPCODE[6:0]=
+=IMM[31:0]=
+=RS1[4:0]=
+=RS2_SHAMT[4:0]=
+=RD[4:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel InstrDecode
+

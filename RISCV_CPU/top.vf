@@ -1,0 +1,125 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.7
+//  \   \         Application : sch2hdl
+//  /   /         Filename : top.vf
+// /___/   /\     Timestamp : 03/08/2022 14:36:31
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family spartan6 -verilog /home/user/repos/DIP_2022/RISCV_CPU/top.vf -w /home/user/repos/DIP_2022/RISCV_CPU/top.sch
+//Design Name: top
+//Device: spartan6
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module top(CLK, 
+           DBR, 
+           INSTR, 
+           A, 
+           AR, 
+           AW, 
+           B, 
+           BR, 
+           C, 
+           D, 
+           DBO, 
+           IMM, 
+           N, 
+           V, 
+           WE, 
+           Z);
+
+    input CLK;
+    input [4:0] DBR;
+    input [31:0] INSTR;
+   output [31:0] A;
+   output [4:0] AR;
+   output [4:0] AW;
+   output [31:0] B;
+   output [4:0] BR;
+   output C;
+   output [31:0] D;
+   output [31:0] DBO;
+   output [31:0] IMM;
+   output N;
+   output V;
+   output WE;
+   output Z;
+   
+   wire [31:0] XLXN_7;
+   wire [31:0] XLXN_9;
+   wire [3:0] XLXN_12;
+   wire [6:0] XLXN_25;
+   wire [3:0] XLXN_26;
+   wire [6:0] XLXN_27;
+   wire [31:0] XLXN_42;
+   wire XLXN_64;
+   wire XLXN_65;
+   wire [31:0] A_DUMMY;
+   wire [31:0] B_DUMMY;
+   wire [31:0] D_DUMMY;
+   wire WE_DUMMY;
+   wire [4:0] AR_DUMMY;
+   wire [4:0] AW_DUMMY;
+   wire [31:0] IMM_DUMMY;
+   wire [4:0] BR_DUMMY;
+   
+   assign XLXN_7 = 32'h00000420;
+   assign A[31:0] = A_DUMMY[31:0];
+   assign AR[4:0] = AR_DUMMY[4:0];
+   assign AW[4:0] = AW_DUMMY[4:0];
+   assign B[31:0] = B_DUMMY[31:0];
+   assign BR[4:0] = BR_DUMMY[4:0];
+   assign D[31:0] = D_DUMMY[31:0];
+   assign IMM[31:0] = IMM_DUMMY[31:0];
+   assign WE = WE_DUMMY;
+   InstrDecode  XLXI_2 (.INSTR(INSTR[31:0]), 
+                       .FUNCT3(XLXN_26[3:0]), 
+                       .FUNCT7(XLXN_25[6:0]), 
+                       .IMM(IMM_DUMMY[31:0]), 
+                       .OPCODE(XLXN_27[6:0]), 
+                       .RD(AW_DUMMY[4:0]), 
+                       .RS1(AR_DUMMY[4:0]), 
+                       .RS2_SHAMT(BR_DUMMY[4:0]));
+   Controller  XLXI_3 (.FUNCT3(XLXN_26[3:0]), 
+                      .FUNCT7(XLXN_25[6:0]), 
+                      .OPCODE(XLXN_27[6:0]), 
+                      .OP(XLXN_12[3:0]), 
+                      .SELA(XLXN_65), 
+                      .SELB(XLXN_64), 
+                      .WE(WE_DUMMY));
+   RegFile  XLXI_5 (.AR(AR_DUMMY[4:0]), 
+                   .AW(AW_DUMMY[4:0]), 
+                   .BR(BR_DUMMY[4:0]), 
+                   .CLK(CLK), 
+                   .D(D_DUMMY[31:0]), 
+                   .DBR(DBR[4:0]), 
+                   .WE(WE_DUMMY), 
+                   .A(A_DUMMY[31:0]), 
+                   .B(B_DUMMY[31:0]), 
+                   .DBO(DBO[31:0]));
+   ALU  XLXI_10 (.A(XLXN_9[31:0]), 
+                .B(XLXN_42[31:0]), 
+                .OP(XLXN_12[3:0]), 
+                .C(C), 
+                .N(N), 
+                .R(D_DUMMY[31:0]), 
+                .V(V), 
+                .Z(Z));
+   BusMux2  XLXI_17 (.IN1(B_DUMMY[31:0]), 
+                    .IN2(IMM_DUMMY[31:0]), 
+                    .SEL(XLXN_64), 
+                    .R(XLXN_42[31:0]));
+   BusMux2  XLXI_18 (.IN1(A_DUMMY[31:0]), 
+                    .IN2(XLXN_7[31:0]), 
+                    .SEL(XLXN_65), 
+                    .R(XLXN_9[31:0]));
+endmodule

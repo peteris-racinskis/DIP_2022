@@ -16,7 +16,7 @@ module InstrDecode(INSTR,FUNCT7,FUNCT3,OPCODE,IMM,RS1,RS2_SHAMT,RD);
 	output [6:0] FUNCT7;
 	output [3:0] FUNCT3;
 	output [6:0] OPCODE;
-	output reg signed [32:0] IMM;
+	output reg signed [31:0] IMM;
 	output [4:0] RS1;
 	output [4:0] RS2_SHAMT;
 	output [4:0] RD;

@@ -1,0 +1,14 @@
+[Inputs]
+=A[31:0]=
+=B[31:0]=
+=OP[3:0]=
+[Outputs]
+V
+Z
+N
+C
+=R[31:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel ALU
+
