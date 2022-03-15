@@ -25,7 +25,7 @@ module InstrDecode(INSTR,FUNCT7,FUNCT3,OPCODE,IMM,RS1,RS2_SHAMT,RD);
 	wire signed [11:0] IMM_S;
 	wire signed [12:0] IMM_B;
 	wire signed [19:0] IMM_U;
-	wire signed [19:0] IMM_J;
+	wire signed [20:0] IMM_J;
 
 	// thank god this is always in the same place
 	assign OPCODE = INSTR[6:0];
@@ -40,7 +40,7 @@ module InstrDecode(INSTR,FUNCT7,FUNCT3,OPCODE,IMM,RS1,RS2_SHAMT,RD);
 	assign IMM_S = {INSTR[31:25],INSTR[11:7]};
 	assign IMM_B = {INSTR[31],INSTR[7],INSTR[30:25],INSTR[11:8],1'b0};
 	assign IMM_U = INSTR[31:12];
-	assign IMM_J = {INSTR[31],INSTR[19:12],INSTR[20],INSTR[30:21]};
+	assign IMM_J = {INSTR[31],INSTR[19:12],INSTR[20],INSTR[30:21],1'b0}; // fixed - this is actually 21 bits! last bit is always 0
 	
 	always @(*)
 	begin

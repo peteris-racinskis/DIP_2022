@@ -1,0 +1,10 @@
+[Inputs]
+CLK
+RST
+=INCR[31:0]=
+[Outputs]
+=PC[31:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel PC
+

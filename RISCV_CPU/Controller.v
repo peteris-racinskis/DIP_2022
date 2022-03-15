@@ -7,7 +7,8 @@ module Controller(
     output SELA,
     output SELB,
 	 output WE,
-    output reg [3:0] OP
+    output reg [3:0] OP,
+	 output reg [2:0] OP_B
     );
 	
 	// Instruction opcodes
@@ -20,6 +21,12 @@ module Controller(
 	parameter STORES = 7'b0100011;
 	parameter ARITHM_I = 7'b0010011;
 	parameter ARITHM_R = 7'b0110011;
+	// Branch logic opcodes
+	parameter ZER = 1;
+	parameter NZR = 2;
+	parameter DAT = 3;
+	parameter NDT = 4;
+	parameter JMP = 5;
 	// ALU opcodes
 	parameter ADD = 1;
 	parameter SUB = 2;
@@ -44,6 +51,13 @@ module Controller(
 	parameter FUNCT3_AND = 3'b111;
 	parameter FUNCT7_DEF = 7'b0000000;
 	parameter FUNCT7_MOD = 7'b0100000;
+	// remapping for B-type instructions
+	parameter BEQ = FUNCT3_ADD_SUB;
+	parameter BNE = FUNCT3_SLL;
+	parameter BLT = FUNCT3_XOR;
+	parameter BGE = FUNCT3_SRX;
+	parameter BLTU = FUNCT3_OR;
+	parameter BGEU = FUNCT3_AND;
 
 	// SELA == 1 => A register, else PC
 	assign SELA = !((OPCODE == LUI) | (OPCODE == AUIPC));
@@ -54,11 +68,36 @@ module Controller(
 	
 	always @(*)
 	begin
+	
+		// Branch logic opcode setter
+		if (OPCODE == BTYPE) begin
+			case (FUNCT3)
+				BEQ: OP_B = ZER;
+				BNE: OP_B = NZR;
+				BLT, BLTU: OP_B = DAT;
+				BGE, BGEU: OP_B = NDT;
+				default: OP = 0;			
+			endcase
+		end else if ((OPCODE == JAL) | (OPCODE == JALR)) begin
+			OP_B = JMP;
+		end else begin
+			OP_B = 0;
+		end
+	
+		// ALU opcode setter
 		if (OPCODE == AUIPC) begin
 			OP = AIU;
 		end else if (OPCODE == LUI) begin
 			OP = SIU;
+		end else if (OPCODE == BTYPE) begin
+			case (FUNCT3)
+				BEQ, BNE: OP = SUB;
+				BLT, BGE: OP = SLT;
+				BLTU,BGEU:OP = SLU;
+				default: OP = 0;
+			endcase
 		end else begin
+			OP_B = 0;
 			case(FUNCT3)
 				FUNCT3_ADD_SUB: if ((OPCODE == ARITHM_R) & (FUNCT7 == FUNCT7_MOD)) begin
 					OP = SUB;
@@ -79,6 +118,7 @@ module Controller(
 				default: OP = 0;
 			endcase
 		end
-	end
+		
+	end // always @(*)
 
 endmodule

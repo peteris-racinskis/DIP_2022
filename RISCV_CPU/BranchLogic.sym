@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="BranchLogic">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2022-3-15T12:41:12</timestamp>
+    <attr value="BranchLogic" name="VeriModel" />
+    <pin polarity="Output" x="384" y="-224" name="INCR(31:0)" />
+    <pin polarity="Input" x="0" y="-224" name="PC(31:0)" />
+    <pin polarity="Input" x="0" y="-176" name="Z" />
+    <pin polarity="Input" x="0" y="-112" name="IMM(31:0)" />
+    <pin polarity="Input" x="0" y="-48" name="D(31:0)" />
+    <pin polarity="Input" x="192" y="80" name="OPCODE(2:0)" />
+    <graph>
+        <attrtext style="alignment:BCENTER;fontsize:56;fontname:Arial" attrname="SymbolName" x="192" y="-264" type="symbol" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-224" type="pin INCR(31:0)" />
+        <rect width="64" x="320" y="-236" height="24" />
+        <line x2="384" y1="-224" y2="-224" x1="320" />
+        <rect width="256" x="64" y="-256" height="288" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="68" y="-224" type="pin PC(31:0)" />
+        <rect width="64" x="0" y="-236" height="24" />
+        <line x2="0" y1="-224" y2="-224" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-176" type="pin Z" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-112" type="pin IMM(31:0)" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-48" type="pin D(31:0)" />
+        <line x2="0" y1="-176" y2="-176" x1="64" />
+        <rect width="64" x="0" y="-124" height="24" />
+        <line x2="0" y1="-112" y2="-112" x1="64" />
+        <rect width="64" x="0" y="-60" height="24" />
+        <line x2="0" y1="-48" y2="-48" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="128" y="16" type="pin OPCODE(2:0)" />
+        <line x2="192" y1="80" y2="32" x1="192" />
+        <rect width="24" x="180" y="32" height="48" />
+    </graph>
+</symbol>
