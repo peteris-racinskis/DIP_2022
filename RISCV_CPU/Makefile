@@ -10,7 +10,7 @@ code-short.bin: code.out
 	riscv64-linux-gnu-objcopy -O binary --only-section=.text code.out code-short.bin
 
 code.out: code.s
-	riscv64-linux-gnu-as -o code.out code.s
+	riscv64-linux-gnu-as -march=rv32e -o code.out code.s
 
 clean:
 	rm code.mem
