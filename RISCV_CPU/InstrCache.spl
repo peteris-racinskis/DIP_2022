@@ -1,4 +1,5 @@
 [Inputs]
+CLK
 =PC[31:0]=
 [Outputs]
 =INSTR[31:0]=

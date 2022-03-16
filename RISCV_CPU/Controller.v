@@ -76,7 +76,7 @@ module Controller(
 				BNE: OP_B = NZR;
 				BLT, BLTU: OP_B = DAT;
 				BGE, BGEU: OP_B = NDT;
-				default: OP = 0;			
+				default: OP_B = 0;
 			endcase
 		end else if ((OPCODE == JAL) | (OPCODE == JALR)) begin
 			OP_B = JMP;

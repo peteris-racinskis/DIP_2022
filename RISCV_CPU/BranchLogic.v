@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module BranchLogic(IMM,PC,D,Z,OPCODE,INCR);
+module BranchLogic(IMM,PC,D,Z,RST,OPCODE,INCR);
 	
 	parameter ZER = 1;
 	parameter NZR = 2;
@@ -10,8 +10,8 @@ module BranchLogic(IMM,PC,D,Z,OPCODE,INCR);
 	
 	input [31:0] IMM, PC, D;
    input [2:0] OPCODE;
-   input Z;
-   output [31:0] INCR;
+   input Z, RST;
+   output reg [31:0] INCR;
 	reg ADD_IMMEDIATE;
 	wire DATA_NULL;
 		
@@ -39,7 +39,9 @@ module BranchLogic(IMM,PC,D,Z,OPCODE,INCR);
 			JMP: ADD_IMMEDIATE = 1'b1;
 			default: ADD_IMMEDIATE = 1'b0;
 		endcase
-		if (ADD_IMMEDIATE) begin
+		if (RST) begin
+			INCR = 0;
+		end else if (ADD_IMMEDIATE) begin
 			INCR = PC + IMM;
 		end else begin
 			INCR = PC + 4;

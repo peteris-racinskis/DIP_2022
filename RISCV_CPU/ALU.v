@@ -36,20 +36,22 @@ module ALU(A,B,OP,R,V,Z,N,C);
 	
 	always @(*)
 	begin
+		// To avoid latch generation, the carry flag
+		// must be toggle on every case.
 		case (OP)
 			ADD: {C,R} = A + B;
 			SUB: {C,R} = A - B;
-			SLL: R = A << B;
-			SRL: R = A >> B;
-			SRA: R = A >>> B;
-			SLU: R = A < B;
-			SLT: R = AA < BB;
-			OR : R = A | B;
-			AND: R = A & B;
-			XOR: R = A ^ B;
-			SIU: R = B << UI;
-			AIU: R = A + (B << UI);
-			default: R = 0;
+			SLL: {C,R} = A << B;
+			SRL: {C,R} = A >> B;
+			SRA: {C,R} = A >>> B;
+			SLU: {C,R} = A < B;
+			SLT: {C,R} = AA < BB;
+			OR : {C,R} = A | B;
+			AND: {C,R} = A & B;
+			XOR: {C,R} = A ^ B;
+			SIU: {C,R} = B << UI;
+			AIU: {C,R} = A + (B << UI);
+			default: {C,R} = 0;
 		endcase
 	end
 	

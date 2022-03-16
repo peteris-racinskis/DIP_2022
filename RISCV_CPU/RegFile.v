@@ -1,21 +1,22 @@
 `timescale 1ns / 1ps
+/*
+ Updated spec:
+	1. Write on rising edge;
+	2. Output COMBINATORICALLY!!!!!!!!!!!!!!!!!!!!
+	Trying to output like a RAM - on clock cycles - 
+	induces a delay of 1 clock cycle. Meaning that
+	when the output of an instruction depends on the
+	register file contents, we're loading the result of
+	f(rs1(t), rs2(t)) into rd(t+1)
+*/
 
-module RegFile(AW,AR,BR,WE,CLK,D,A,B,DBR,DBO);
+module RegFile(AW,AR,BR,WE,CLK,D,A,B);
 	
-	parameter WORDSIZE = 32;
-	parameter BLOCKSIZE = 32;
-	parameter ADDRSIZE = $clog2(BLOCKSIZE);
 	input WE, CLK;
-	input [4:0] AW, AR, BR,DBR;
+	reg AWW;
+	input [4:0] AW, AR, BR;
 	input [31:0] D;
-	output reg [31:0] A,B,DBO;
-	// Parameters don't work right with schematics.
-	// Will probably port the top module to verilog next week.
-	//input [ADDRSIZE-1:0] AW, AR, BR,DBR;
-	//input [WORDSIZE-1:0] D;
-	//output reg [WORDSIZE-1:0] A,B,DBO;
-
-	//reg [WORDSIZE-1:0] memory [BLOCKSIZE-1:0];
+	output [31:0] A, B;
 	reg [31:0] memory [31:0];
 	
 	always @(posedge CLK)
@@ -23,10 +24,10 @@ module RegFile(AW,AR,BR,WE,CLK,D,A,B,DBR,DBO);
 		memory[0] <= 0;
 		if (WE & AW != 0) begin
 			memory[AW] <= D;
-		end
-		A <= memory[AR];
-		B <= memory[BR];
-		DBO <= memory[DBR]; // debug
+		end		
 	end
+	
+	assign A = memory[AR];
+	assign B = memory[BR];
 
 endmodule

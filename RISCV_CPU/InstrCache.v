@@ -1,17 +1,18 @@
 `timescale 1ns / 1ps
 
-module InstrCache(PC,INSTR);
+module InstrCache(PC,CLK,INSTR);
 	
-	parameter INIT_FLAG = 0;
-	parameter INIT_FILE = "code.bin";
+	parameter INIT_FLAG = 1;
+	parameter INIT_FILE = "code.mem";
 	
 	input [31:0] PC;
+	input CLK;
 	output reg [31:0] INSTR;
 	reg [31:0] memory [255:0];
 	
-	always @(PC)
+	always @(posedge CLK)
 	begin
-		INSTR = memory[PC];
+		INSTR = memory[PC >> 2];
 	end
 	
 	initial
