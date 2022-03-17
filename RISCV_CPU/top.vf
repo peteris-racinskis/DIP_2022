@@ -7,7 +7,7 @@
 // \   \   \/     Version : 14.7
 //  \   \         Application : sch2hdl
 //  /   /         Filename : top.vf
-// /___/   /\     Timestamp : 03/16/2022 16:10:20
+// /___/   /\     Timestamp : 03/17/2022 10:27:25
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -99,6 +99,7 @@ module top(CLK,
                    .BR(BR_DUMMY[4:0]), 
                    .CLK(CLK), 
                    .D(D_DUMMY[31:0]), 
+                   .RST(RST), 
                    .WE(WE_DUMMY), 
                    .A(A_DUMMY[31:0]), 
                    .B(B_DUMMY[31:0]));

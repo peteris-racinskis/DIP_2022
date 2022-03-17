@@ -30,10 +30,9 @@
         <signal name="RST" />
         <signal name="XLXN_118(31:0)" />
         <signal name="D(31:0)" />
-        <signal name="XLXN_123(31:0)" />
-        <signal name="XLXN_124(31:0)" />
         <signal name="XLXN_125(31:0)" />
         <signal name="XLXN_126(31:0)" />
+        <signal name="XLXN_127" />
         <port polarity="Output" name="B(31:0)" />
         <port polarity="Output" name="A(31:0)" />
         <port polarity="Output" name="AR(4:0)" />
@@ -85,7 +84,8 @@
             <rect width="256" x="64" y="-192" height="320" />
         </blockdef>
         <blockdef name="RegFile">
-            <timestamp>2022-3-16T12:46:39</timestamp>
+            <timestamp>2022-3-17T8:27:16</timestamp>
+            <line x2="0" y1="32" y2="32" x1="64" />
             <line x2="0" y1="-352" y2="-352" x1="64" />
             <line x2="0" y1="-288" y2="-288" x1="64" />
             <rect width="64" x="0" y="-236" height="24" />
@@ -100,7 +100,7 @@
             <line x2="384" y1="-352" y2="-352" x1="320" />
             <rect width="64" x="320" y="-44" height="24" />
             <line x2="384" y1="-32" y2="-32" x1="320" />
-            <rect width="256" x="64" y="-384" height="384" />
+            <rect width="256" x="64" y="-384" height="448" />
         </blockdef>
         <blockdef name="BusMux2">
             <timestamp>2022-3-8T12:36:23</timestamp>
@@ -186,6 +186,7 @@
         <block symbolname="RegFile" name="XLXI_5">
             <blockpin signalname="WE" name="WE" />
             <blockpin signalname="CLK" name="CLK" />
+            <blockpin signalname="RST" name="RST" />
             <blockpin signalname="AW(4:0)" name="AW(4:0)" />
             <blockpin signalname="AR(4:0)" name="AR(4:0)" />
             <blockpin signalname="BR(4:0)" name="BR(4:0)" />
@@ -392,9 +393,12 @@
             <wire x2="848" y1="1728" y2="1728" x1="784" />
             <wire x2="848" y1="1728" y2="1968" x1="848" />
         </branch>
-        <iomarker fontsize="28" x="1200" y="1120" name="RST" orien="R180" />
         <branch name="RST">
-            <wire x2="1312" y1="1120" y2="1120" x1="1200" />
+            <wire x2="1200" y1="1120" y2="1120" x1="1152" />
+            <wire x2="1296" y1="1120" y2="1120" x1="1200" />
+            <wire x2="1312" y1="1120" y2="1120" x1="1296" />
+            <wire x2="1200" y1="1120" y2="2288" x1="1200" />
+            <wire x2="2048" y1="2288" y2="2288" x1="1200" />
         </branch>
         <branch name="XLXN_118(31:0)">
             <wire x2="1232" y1="1472" y2="1472" x1="320" />
@@ -438,5 +442,6 @@
             <wire x2="1760" y1="1056" y2="1056" x1="1696" />
         </branch>
         <iomarker fontsize="28" x="784" y="1728" name="CLK" orien="R180" />
+        <iomarker fontsize="28" x="1152" y="1120" name="RST" orien="R180" />
     </sheet>
 </drawing>
