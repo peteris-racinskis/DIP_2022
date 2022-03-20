@@ -1,0 +1,13 @@
+[Inputs]
+RD1
+RD2
+SEL
+=IN1[31:0]=
+=IN2[31:0]=
+[Outputs]
+OUTRD
+=OUTD[31:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel BusMux2_32
+

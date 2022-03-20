@@ -1,0 +1,14 @@
+
+
+
+// Instantiate the module
+CacheLookup instance_name (
+    .ADDR(ADDR), 
+    .WIC(WIC), 
+    .WE(WE), 
+    .CLK(CLK), 
+    .CADDR(CADDR), 
+    .FOUND(FOUND)
+    );
+
+

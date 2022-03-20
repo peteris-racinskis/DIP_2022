@@ -1,0 +1,12 @@
+[Inputs]
+CLK
+WE
+=ADDR[31:0]=
+=DIN[31:0]=
+[Outputs]
+RDY
+=DO[31:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel ExternalMemory
+

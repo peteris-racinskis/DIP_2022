@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/user/repos/DIP_2022/RISCV_CPU/CacheDummyTopSch_CacheDummyTopSch_sch_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="CacheDummyTopSch_CacheDummyTopSch_sch_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="21" />
+   <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/RDY" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RDY</obj_property>
+      <obj_property name="ObjectShortName">RDY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/DOUT" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DOUT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DOUT[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/WE" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">WE</obj_property>
+      <obj_property name="ObjectShortName">WE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/CLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/ADDR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR[31:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/DIN" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DIN[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DIN[31:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/FOUND" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">FOUND</obj_property>
+      <obj_property name="ObjectShortName">FOUND</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/lookup[10]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[10,63:0]</obj_property>
+      <obj_property name="ObjectShortName">lookup[10,63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/lookup[9]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[9,63:0]</obj_property>
+      <obj_property name="ObjectShortName">lookup[9,63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/lookup[8]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[8,63:0]</obj_property>
+      <obj_property name="ObjectShortName">lookup[8,63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/lookup[7]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[7,63:0]</obj_property>
+      <obj_property name="ObjectShortName">lookup[7,63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/lookup[6]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[6,63:0]</obj_property>
+      <obj_property name="ObjectShortName">lookup[6,63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/lookup[5]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[5,63:0]</obj_property>
+      <obj_property name="ObjectShortName">lookup[5,63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/lookup[4]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[4,63:0]</obj_property>
+      <obj_property name="ObjectShortName">lookup[4,63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/lookup[3]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[3,63:0]</obj_property>
+      <obj_property name="ObjectShortName">lookup[3,63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/lookup[2]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[2,63:0]</obj_property>
+      <obj_property name="ObjectShortName">lookup[2,63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/lookup[1]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[1,63:0]</obj_property>
+      <obj_property name="ObjectShortName">lookup[1,63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/lookup[0]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[0,63:0]</obj_property>
+      <obj_property name="ObjectShortName">lookup[0,63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/above" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">above[31:0]</obj_property>
+      <obj_property name="ObjectShortName">above[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/DOUT" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DOUT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DOUT[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">found_row[31:0,31:0]</obj_property>
+      <obj_property name="ObjectShortName">found_row[31:0,31:0]</obj_property>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[31]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[31,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[31,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[30]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[30,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[30,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[29]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[29,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[29,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[28]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[28,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[28,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[27]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[27,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[27,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[26]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[26,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[26,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[25]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[25,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[25,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[24]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[24,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[24,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[23]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[23,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[23,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[22]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[22,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[22,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[21]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[21,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[21,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[20]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[20,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[20,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[19]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[19,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[19,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[18]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[18,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[18,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[17]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[17,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[17,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[16]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[16,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[16,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[15]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[15,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[15,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[14]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[14,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[14,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[13]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[13,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[13,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[12]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[12,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[12,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[11]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[11,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[11,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[10]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[10,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[10,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[9]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[9,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[9,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[8]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[8,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[8,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[7]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[7,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[7,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[6]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[6,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[6,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[5]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[5,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[5,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[4]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[4,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[4,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[3]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[3,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[3,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[2]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[2,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[2,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[1]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[1,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[1,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheDummyTopSch_CacheDummyTopSch_sch_tb/UUT/XLXI_1/found_row[0]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[0,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[0,31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

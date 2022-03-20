@@ -1,0 +1,63 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.7
+//  \   \         Application : sch2hdl
+//  /   /         Filename : CacheDummyTopSch.vf
+// /___/   /\     Timestamp : 03/20/2022 17:31:14
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family spartan6 -verilog /home/user/repos/DIP_2022/RISCV_CPU/CacheDummyTopSch.vf -w /home/user/repos/DIP_2022/RISCV_CPU/CacheDummyTopSch.sch
+//Design Name: CacheDummyTopSch
+//Device: spartan6
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module CacheDummyTopSch(ADDR, 
+                        CLK, 
+                        DIN, 
+                        WE, 
+                        DOUT, 
+                        RDY);
+
+    input [31:0] ADDR;
+    input CLK;
+    input [31:0] DIN;
+    input WE;
+   output [31:0] DOUT;
+   output RDY;
+   
+   wire [31:0] XLXN_15;
+   wire XLXN_16;
+   wire XLXN_19;
+   wire XLXN_22;
+   wire [31:0] XLXN_23;
+   
+   CacheLookup  XLXI_1 (.ADDR(ADDR[31:0]), 
+                       .CLK(CLK), 
+                       .DIN(DIN[31:0]), 
+                       .WE(WE), 
+                       .DOUT(XLXN_23[31:0]), 
+                       .FOUND(XLXN_19), 
+                       .RD(XLXN_22));
+   ExternalMemory  XLXI_3 (.ADDR(ADDR[31:0]), 
+                          .CLK(CLK), 
+                          .DIN(DIN[31:0]), 
+                          .WE(WE), 
+                          .DO(XLXN_15[31:0]), 
+                          .RDY(XLXN_16));
+   BusMux2_32  XLXI_5 (.IN1(XLXN_23[31:0]), 
+                      .IN2(XLXN_15[31:0]), 
+                      .RD1(XLXN_22), 
+                      .RD2(XLXN_16), 
+                      .SEL(XLXN_19), 
+                      .OUTD(DOUT[31:0]), 
+                      .OUTRD(RDY));
+endmodule

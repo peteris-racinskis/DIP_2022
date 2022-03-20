@@ -1,0 +1,9 @@
+[Inputs]
+WE
+CLK
+[Outputs]
+=WIC[4:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel WriteIncrementCounter
+
