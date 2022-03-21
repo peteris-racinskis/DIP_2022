@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="InstrDecode">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2022-3-8T12:20:24</timestamp>
+    <timestamp>2022-3-21T14:26:15</timestamp>
     <attr value="InstrDecode" name="VeriModel" />
     <pin polarity="Input" x="0" y="-416" name="INSTR(31:0)" />
     <pin polarity="Output" x="464" y="-416" name="FUNCT7(6:0)" />

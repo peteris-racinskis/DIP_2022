@@ -32,7 +32,8 @@
         <signal name="D(31:0)" />
         <signal name="XLXN_125(31:0)" />
         <signal name="XLXN_126(31:0)" />
-        <signal name="XLXN_127" />
+        <signal name="XLXN_128" />
+        <signal name="XLXN_129" />
         <port polarity="Output" name="B(31:0)" />
         <port polarity="Output" name="A(31:0)" />
         <port polarity="Output" name="AR(4:0)" />
@@ -47,7 +48,7 @@
         <port polarity="Input" name="RST" />
         <port polarity="Output" name="D(31:0)" />
         <blockdef name="InstrDecode">
-            <timestamp>2022-3-8T12:20:24</timestamp>
+            <timestamp>2022-3-21T14:26:15</timestamp>
             <rect width="336" x="64" y="-448" height="448" />
             <rect width="64" x="0" y="-428" height="24" />
             <line x2="0" y1="-416" y2="-416" x1="64" />
@@ -67,7 +68,7 @@
             <line x2="464" y1="-32" y2="-32" x1="400" />
         </blockdef>
         <blockdef name="Controller">
-            <timestamp>2022-3-15T13:33:51</timestamp>
+            <timestamp>2022-3-21T14:26:19</timestamp>
             <rect width="64" x="320" y="84" height="24" />
             <line x2="384" y1="96" y2="96" x1="320" />
             <line x2="384" y1="32" y2="32" x1="320" />
@@ -84,7 +85,8 @@
             <rect width="256" x="64" y="-192" height="320" />
         </blockdef>
         <blockdef name="RegFile">
-            <timestamp>2022-3-17T8:27:16</timestamp>
+            <timestamp>2022-3-21T14:26:8</timestamp>
+            <line x2="0" y1="96" y2="96" x1="64" />
             <line x2="0" y1="32" y2="32" x1="64" />
             <line x2="0" y1="-352" y2="-352" x1="64" />
             <line x2="0" y1="-288" y2="-288" x1="64" />
@@ -100,10 +102,10 @@
             <line x2="384" y1="-352" y2="-352" x1="320" />
             <rect width="64" x="320" y="-44" height="24" />
             <line x2="384" y1="-32" y2="-32" x1="320" />
-            <rect width="256" x="64" y="-384" height="448" />
+            <rect width="256" x="64" y="-384" height="512" />
         </blockdef>
         <blockdef name="BusMux2">
-            <timestamp>2022-3-8T12:36:23</timestamp>
+            <timestamp>2022-3-21T14:26:22</timestamp>
             <rect width="256" x="64" y="-192" height="192" />
             <rect width="64" x="320" y="-172" height="24" />
             <line x2="384" y1="-160" y2="-160" x1="320" />
@@ -114,7 +116,7 @@
             <line x2="0" y1="-64" y2="-64" x1="64" />
         </blockdef>
         <blockdef name="ALU">
-            <timestamp>2022-3-8T12:28:11</timestamp>
+            <timestamp>2022-3-21T14:26:26</timestamp>
             <rect width="64" x="320" y="20" height="24" />
             <line x2="384" y1="32" y2="32" x1="320" />
             <rect width="64" x="0" y="-300" height="24" />
@@ -130,16 +132,17 @@
             <rect width="256" x="64" y="-320" height="384" />
         </blockdef>
         <blockdef name="PC">
-            <timestamp>2022-3-16T12:53:52</timestamp>
-            <rect width="256" x="64" y="-192" height="192" />
+            <timestamp>2022-3-21T14:26:29</timestamp>
+            <line x2="0" y1="96" y2="96" x1="64" />
             <line x2="0" y1="-160" y2="-160" x1="64" />
             <rect width="64" x="0" y="-44" height="24" />
             <line x2="0" y1="-32" y2="-32" x1="64" />
             <rect width="64" x="320" y="-172" height="24" />
             <line x2="384" y1="-160" y2="-160" x1="320" />
+            <rect width="256" x="64" y="-192" height="320" />
         </blockdef>
         <blockdef name="BranchLogic">
-            <timestamp>2022-3-16T12:53:57</timestamp>
+            <timestamp>2022-3-21T14:26:32</timestamp>
             <rect width="256" x="64" y="-384" height="384" />
             <line x2="0" y1="-352" y2="-352" x1="64" />
             <line x2="0" y1="-288" y2="-288" x1="64" />
@@ -155,13 +158,28 @@
             <line x2="384" y1="-352" y2="-352" x1="320" />
         </blockdef>
         <blockdef name="InstrCache">
-            <timestamp>2022-3-16T12:50:32</timestamp>
+            <timestamp>2022-3-21T14:26:35</timestamp>
+            <line x2="0" y1="96" y2="96" x1="64" />
             <line x2="0" y1="32" y2="32" x1="64" />
             <rect width="64" x="0" y="-44" height="24" />
             <line x2="0" y1="-32" y2="-32" x1="64" />
             <rect width="64" x="320" y="-44" height="24" />
             <line x2="384" y1="-32" y2="-32" x1="320" />
-            <rect width="256" x="64" y="-64" height="192" />
+            <rect width="256" x="64" y="-64" height="256" />
+        </blockdef>
+        <blockdef name="CacheTop">
+            <timestamp>2022-3-21T14:10:2</timestamp>
+            <rect width="256" x="64" y="-320" height="320" />
+            <line x2="0" y1="-288" y2="-288" x1="64" />
+            <line x2="0" y1="-224" y2="-224" x1="64" />
+            <line x2="0" y1="-160" y2="-160" x1="64" />
+            <rect width="64" x="0" y="-108" height="24" />
+            <line x2="0" y1="-96" y2="-96" x1="64" />
+            <rect width="64" x="0" y="-44" height="24" />
+            <line x2="0" y1="-32" y2="-32" x1="64" />
+            <line x2="384" y1="-288" y2="-288" x1="320" />
+            <rect width="64" x="320" y="-44" height="24" />
+            <line x2="384" y1="-32" y2="-32" x1="320" />
         </blockdef>
         <block symbolname="Controller" name="XLXI_3">
             <blockpin signalname="XLXN_25(6:0)" name="FUNCT7(6:0)" />
@@ -193,6 +211,7 @@
             <blockpin signalname="D(31:0)" name="D(31:0)" />
             <blockpin signalname="A(31:0)" name="A(31:0)" />
             <blockpin signalname="B(31:0)" name="B(31:0)" />
+            <blockpin signalname="XLXN_129" name="CE" />
         </block>
         <block symbolname="ALU" name="XLXI_10">
             <blockpin signalname="XLXN_9(31:0)" name="A(31:0)" />
@@ -229,11 +248,22 @@
             <blockpin signalname="CLK" name="CLK" />
             <blockpin signalname="XLXN_126(31:0)" name="INCR(31:0)" />
             <blockpin signalname="XLXN_125(31:0)" name="PC(31:0)" />
+            <blockpin signalname="XLXN_129" name="CE" />
         </block>
         <block symbolname="InstrCache" name="XLXI_21">
+            <blockpin signalname="CLK" name="CLK" />
             <blockpin signalname="XLXN_126(31:0)" name="PC(31:0)" />
             <blockpin signalname="XLXN_108(31:0)" name="INSTR(31:0)" />
-            <blockpin signalname="CLK" name="CLK" />
+            <blockpin signalname="XLXN_129" name="CE" />
+        </block>
+        <block symbolname="CacheTop" name="XLXI_22">
+            <blockpin name="WE" />
+            <blockpin name="RST" />
+            <blockpin name="CLK" />
+            <blockpin name="ADDR(31:0)" />
+            <blockpin name="DIN(31:0)" />
+            <blockpin signalname="XLXN_129" name="RDY" />
+            <blockpin name="DOUT(31:0)" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="5382" height="3801">
@@ -395,17 +425,16 @@
         </branch>
         <branch name="RST">
             <wire x2="1200" y1="1120" y2="1120" x1="1152" />
-            <wire x2="1296" y1="1120" y2="1120" x1="1200" />
-            <wire x2="1312" y1="1120" y2="1120" x1="1296" />
             <wire x2="1200" y1="1120" y2="2288" x1="1200" />
             <wire x2="2048" y1="2288" y2="2288" x1="1200" />
+            <wire x2="1312" y1="1120" y2="1120" x1="1200" />
         </branch>
         <branch name="XLXN_118(31:0)">
-            <wire x2="1232" y1="1472" y2="1472" x1="320" />
-            <wire x2="320" y1="1472" y2="3232" x1="320" />
+            <wire x2="320" y1="1520" y2="3232" x1="320" />
             <wire x2="1680" y1="3232" y2="3232" x1="320" />
+            <wire x2="1232" y1="1520" y2="1520" x1="320" />
             <wire x2="1312" y1="1184" y2="1184" x1="1232" />
-            <wire x2="1232" y1="1184" y2="1472" x1="1232" />
+            <wire x2="1232" y1="1184" y2="1520" x1="1232" />
             <wire x2="1680" y1="2688" y2="2688" x1="1568" />
             <wire x2="2336" y1="2688" y2="2688" x1="1680" />
             <wire x2="1680" y1="2688" y2="3232" x1="1680" />
@@ -443,5 +472,20 @@
         </branch>
         <iomarker fontsize="28" x="784" y="1728" name="CLK" orien="R180" />
         <iomarker fontsize="28" x="1152" y="1120" name="RST" orien="R180" />
+        <instance x="4512" y="3008" name="XLXI_22" orien="R0">
+        </instance>
+        <branch name="XLXN_129">
+            <wire x2="624" y1="1440" y2="1440" x1="608" />
+            <wire x2="608" y1="1440" y2="2624" x1="608" />
+            <wire x2="608" y1="2624" y2="2640" x1="608" />
+            <wire x2="608" y1="2640" y2="3200" x1="608" />
+            <wire x2="1920" y1="3200" y2="3200" x1="608" />
+            <wire x2="4976" y1="3200" y2="3200" x1="1920" />
+            <wire x2="688" y1="2624" y2="2624" x1="608" />
+            <wire x2="2048" y1="2352" y2="2352" x1="1920" />
+            <wire x2="1920" y1="2352" y2="3200" x1="1920" />
+            <wire x2="4976" y1="2720" y2="2720" x1="4896" />
+            <wire x2="4976" y1="2720" y2="3200" x1="4976" />
+        </branch>
     </sheet>
 </drawing>

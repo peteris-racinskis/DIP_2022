@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="Controller">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2022-3-15T13:33:51</timestamp>
+    <timestamp>2022-3-21T14:26:19</timestamp>
     <attr value="Controller" name="VeriModel" />
     <pin polarity="Input" x="0" y="-160" name="FUNCT7(6:0)" />
     <pin polarity="Input" x="0" y="-96" name="FUNCT3(3:0)" />

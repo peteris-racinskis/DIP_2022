@@ -1,5 +1,6 @@
 [Inputs]
 CLK
+CE
 =INCR[31:0]=
 [Outputs]
 =PC[31:0]=

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="BusMux2">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2022-3-8T12:36:23</timestamp>
+    <timestamp>2022-3-21T14:26:22</timestamp>
     <attr value="BusMux2" name="VeriModel" />
     <pin polarity="Input" x="192" y="32" name="SEL" />
     <pin polarity="Input" x="0" y="-160" name="IN1(31:0)" />
