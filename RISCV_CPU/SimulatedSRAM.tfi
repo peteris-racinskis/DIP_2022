@@ -2,13 +2,12 @@
 
 
 // Instantiate the module
-CacheLookup instance_name (
+SimulatedSRAM instance_name (
     .ADDR(ADDR), 
-    .DIN(DIN), 
+    .D(D), 
     .WE(WE), 
     .CLK(CLK), 
-    .DOUT(DOUT), 
-    .FOUND(FOUND)
+    .RDY(RDY)
     );
 
 

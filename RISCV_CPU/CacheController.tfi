@@ -1,0 +1,23 @@
+
+
+
+// Instantiate the module
+CacheController instance_name (
+    .WE(WE), 
+    .ADDR(ADDR), 
+    .DIN(DIN), 
+    .FOUND(FOUND), 
+    .MD(MD), 
+    .RST(RST), 
+    .CLK(CLK), 
+    .MADDR(MADDR), 
+    .MWE(MWE), 
+    .MRDY(MRDY), 
+    .CDOUT(CDOUT), 
+    .CDIN(CDIN), 
+    .CWE(CWE), 
+    .DOUT(DOUT), 
+    .RDY(RDY)
+    );
+
+

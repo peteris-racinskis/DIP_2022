@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/user/repos/DIP_2022/RISCV_CPU/CacheTopTest_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="CacheTopTest" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="18" />
+   <wvobject fp_name="/CacheTopTest/DOUT" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DOUT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DOUT[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheTopTest/RDY" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RDY</obj_property>
+      <obj_property name="ObjectShortName">RDY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheTopTest/ADDR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheTopTest/DIN" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DIN[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DIN[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheTopTest/WE" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">WE</obj_property>
+      <obj_property name="ObjectShortName">WE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheTopTest/RST" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RST</obj_property>
+      <obj_property name="ObjectShortName">RST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheTopTest/CLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheTopTest/uut/controller/state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">state[2:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheTopTest/uut/cache/lookup" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">lookup[31:0,63:0]</obj_property>
+      <obj_property name="ObjectShortName">lookup[31:0,63:0]</obj_property>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[31]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[31,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[31,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[30]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[30,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[30,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[29]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[29,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[29,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[28]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[28,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[28,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[27]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[27,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[27,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[26]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[26,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[26,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[25]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[25,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[25,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[24]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[24,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[24,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[23]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[23,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[23,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[22]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[22,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[22,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[21]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[21,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[21,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[20]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[20,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[20,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[19]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[19,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[19,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[18]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[18,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[18,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[17]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[17,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[17,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[16]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[16,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[16,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[15]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[15,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[15,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[14]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[14,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[14,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[13]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[13,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[13,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[12]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[12,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[12,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[11]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[11,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[11,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[10]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[10,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[10,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[9]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[9,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[9,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[8]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[8,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[8,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[7]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[7,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[7,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[6]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[6,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[6,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[5]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[5,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[5,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[4]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[4,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[4,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[3]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[3,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[3,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[2]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[2,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[2,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[1]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[1,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[1,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/lookup[0]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[0,63:0]</obj_property>
+         <obj_property name="ObjectShortName">lookup[0,63:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/CacheTopTest/uut/cache/found_row" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">found_row[31:0,31:0]</obj_property>
+      <obj_property name="ObjectShortName">found_row[31:0,31:0]</obj_property>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[31]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[31,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[31,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[30]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[30,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[30,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[29]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[29,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[29,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[28]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[28,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[28,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[27]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[27,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[27,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[26]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[26,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[26,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[25]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[25,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[25,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[24]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[24,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[24,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[23]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[23,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[23,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[22]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[22,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[22,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[21]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[21,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[21,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[20]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[20,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[20,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[19]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[19,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[19,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[18]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[18,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[18,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[17]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[17,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[17,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[16]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[16,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[16,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[15]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[15,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[15,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[14]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[14,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[14,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[13]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[13,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[13,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[12]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[12,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[12,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[11]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[11,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[11,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[10]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[10,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[10,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[9]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[9,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[9,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[8]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[8,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[8,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[7]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[7,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[7,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[6]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[6,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[6,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[5]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[5,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[5,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[4]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[4,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[4,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[3]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[3,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[3,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[2]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[2,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[2,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[1]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[1,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[1,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTopTest/uut/cache/found_row[0]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[0,31:0]</obj_property>
+         <obj_property name="ObjectShortName">found_row[0,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/CacheTopTest/uut/cache/above" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">above[31:0]</obj_property>
+      <obj_property name="ObjectShortName">above[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheTopTest/uut/external_memory/dout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dout[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheTopTest/uut/cache/FOUND" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">FOUND</obj_property>
+      <obj_property name="ObjectShortName">FOUND</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheTopTest/uut/controller/CWE" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CWE</obj_property>
+      <obj_property name="ObjectShortName">CWE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheTopTest/uut/controller/CDIN" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">CDIN[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CDIN[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheTopTest/uut/controller/MRDY" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">MRDY</obj_property>
+      <obj_property name="ObjectShortName">MRDY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheTopTest/uut/controller/MD" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">MD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MD[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheTopTest/uut/cache/ADDR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+</wave_config>
