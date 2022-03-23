@@ -1,4 +1,5 @@
 [Inputs]
+HOLD
 Z
 RST
 =IMM[31:0]=

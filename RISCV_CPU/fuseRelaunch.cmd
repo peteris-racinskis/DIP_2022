@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "/home/user/repos/DIP_2022/RISCV_CPU/CacheTopTest_isim_beh.exe" -prj "/home/user/repos/DIP_2022/RISCV_CPU/CacheTopTest_beh.prj" "work.CacheTopTest" "work.glbl" 
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "/home/user/repos/DIP_2022/RISCV_CPU/top_top_sch_tb_isim_beh.exe" -prj "/home/user/repos/DIP_2022/RISCV_CPU/top_top_sch_tb_beh.prj" "work.top_top_sch_tb" "work.glbl" 

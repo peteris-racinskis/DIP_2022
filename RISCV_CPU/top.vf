@@ -7,7 +7,7 @@
 // \   \   \/     Version : 14.7
 //  \   \         Application : sch2hdl
 //  /   /         Filename : top.vf
-// /___/   /\     Timestamp : 03/17/2022 10:27:25
+// /___/   /\     Timestamp : 03/23/2022 18:50:46
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -59,8 +59,15 @@ module top(CLK,
    wire [31:0] XLXN_108;
    wire [2:0] XLXN_110;
    wire [31:0] XLXN_118;
-   wire [31:0] XLXN_125;
-   wire [31:0] XLXN_126;
+   wire XLXN_226;
+   wire [31:0] XLXN_232;
+   wire [31:0] XLXN_233;
+   wire XLXN_237;
+   wire XLXN_241;
+   wire [31:0] XLXN_243;
+   wire [31:0] XLXN_245;
+   wire XLXN_247;
+   wire XLXN_248;
    wire [31:0] A_DUMMY;
    wire [31:0] B_DUMMY;
    wire [31:0] D_DUMMY;
@@ -89,8 +96,13 @@ module top(CLK,
    Controller  XLXI_3 (.FUNCT3(XLXN_26[3:0]), 
                       .FUNCT7(XLXN_25[6:0]), 
                       .OPCODE(XLXN_27[6:0]), 
+                      .RDY(XLXN_247), 
+                      .CMUXSEL(XLXN_237), 
+                      .CWE(XLXN_226), 
+                      .HOLD(XLXN_248), 
                       .OP(XLXN_12[3:0]), 
                       .OP_B(XLXN_110[2:0]), 
+                      .RREQ(XLXN_241), 
                       .SELA(XLXN_65), 
                       .SELB(XLXN_64), 
                       .WE(WE_DUMMY));
@@ -108,7 +120,7 @@ module top(CLK,
                 .OP(XLXN_12[3:0]), 
                 .C(C), 
                 .N(N), 
-                .R(D_DUMMY[31:0]), 
+                .R(XLXN_232[31:0]), 
                 .V(V), 
                 .Z(Z_DUMMY));
    BusMux2  XLXI_17 (.IN1(B_DUMMY[31:0]), 
@@ -116,20 +128,34 @@ module top(CLK,
                     .SEL(XLXN_64), 
                     .R(XLXN_42[31:0]));
    BusMux2  XLXI_18 (.IN1(A_DUMMY[31:0]), 
-                    .IN2(XLXN_125[31:0]), 
+                    .IN2(), 
                     .SEL(XLXN_65), 
                     .R(XLXN_9[31:0]));
    PC  XLXI_19 (.CLK(CLK), 
-               .INCR(XLXN_126[31:0]), 
-               .PC(XLXN_125[31:0]));
+               .INCR(XLXN_243[31:0]), 
+               .RST(RST), 
+               .PC(XLXN_245[31:0]));
    BranchLogic  XLXI_20 (.D(D_DUMMY[31:0]), 
+                        .HOLD(XLXN_248), 
                         .IMM(XLXN_118[31:0]), 
                         .OPCODE(XLXN_110[2:0]), 
-                        .PC(XLXN_125[31:0]), 
+                        .PC(XLXN_245[31:0]), 
                         .RST(RST), 
                         .Z(Z_DUMMY), 
-                        .INCR(XLXN_126[31:0]));
+                        .INCR(XLXN_243[31:0]));
    InstrCache  XLXI_21 (.CLK(CLK), 
-                       .PC(XLXN_126[31:0]), 
+                       .PC(XLXN_243[31:0]), 
                        .INSTR(XLXN_108[31:0]));
+   CacheTop  XLXI_22 (.ADDR(XLXN_232[31:0]), 
+                     .CLK(CLK), 
+                     .DIN(B_DUMMY[31:0]), 
+                     .RREQ(XLXN_241), 
+                     .RST(RST), 
+                     .WE(XLXN_226), 
+                     .DOUT(XLXN_233[31:0]), 
+                     .RDY(XLXN_247));
+   BusMux2  XLXI_53 (.IN1(XLXN_232[31:0]), 
+                    .IN2(XLXN_233[31:0]), 
+                    .SEL(XLXN_237), 
+                    .R(D_DUMMY[31:0]));
 endmodule

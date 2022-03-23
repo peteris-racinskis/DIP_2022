@@ -1,20 +1,25 @@
 `timescale 1ns / 1ps
 
-module CacheController(WE,ADDR,DIN,FOUND,MD,RST,CLK,MADDR,MWE,MRDY,CDOUT,CDIN,CWE,DOUT,RDY);
+module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CDIN,CWE,DOUT,RDY);
 	
 	parameter START = 1;
-	parameter CHECK_CACHE = 2;
-	parameter WAIT_MREAD = 3;
-	parameter CACHE_UPDATE = 4;
-	parameter WAIT_MWRITE = 5;
+	parameter WAIT = 3;
+	parameter CHECK_CACHE = 4;
+	parameter WAIT_MREAD = 5;
+	parameter CACHE_UPDATE = 6;
+	parameter WAIT_MWRITE = 7;
 	
 	input [31:0] ADDR, DIN, CDOUT;
 	inout [31:0] MD;
 	output reg[31:0] MADDR, CDIN, DOUT;
-	input WE, CLK, FOUND, MRDY, RST;
+	input WE, CLK, FOUND, RREQ, MRDY, RST;
 	output reg MWE, CWE, RDY;
 	reg [2:0] state;
-	reg [31:0] laddr, mdin;
+	reg [31:0] mdin;
+	
+	// MAYBE SET THE MUX WITH CACHE CONTROLLER?
+	// HOLD IT FOR 1 CYCLE, THEN GO TO WAIT AND SET RDY
+	// Need to draw a state machine for this.
 	
 	// Tristate the memory data channel
 	// Not strictly necessary in this homework
@@ -25,27 +30,32 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RST,CLK,MADDR,MWE,MRDY,CDOUT,CDIN,CW
 	
 	always @(posedge CLK)
 	begin
-		laddr <= ADDR;
 		if (RST) begin
 			state <= START;
 		end else begin
 			case (state)
+			// give the rest of the CPU 1 cycle to react
+			// This needs to happen after the output is set
+			// output ready for a single cycle, combinatorial
+			// otherwise.
 				START: begin
 						RDY <= 1;
 						CWE <= 0;
 						MWE <= 0;
+						state <= WAIT;
+					end
+				WAIT: begin
+						RDY <= 0;
 						// start the write loop on WE
 						if (WE) begin
-							RDY <= 0;
 							CWE <= 1;
 							CDIN <= DIN;
 							MWE <= 1;
 							MADDR <= ADDR;
 							mdin <= DIN;
 							state <= WAIT_MWRITE;
-						// start the read loop on address change
-						end else if (laddr != ADDR) begin
-							RDY <= 0;
+						// start the read loop on READ REQUEST signal
+						end else if (RREQ) begin
 							state <= CHECK_CACHE;
 						end
 					end
@@ -54,7 +64,6 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RST,CLK,MADDR,MWE,MRDY,CDOUT,CDIN,CW
 						if (FOUND) begin
 							DOUT <= CDOUT;
 							state <= START;
-							RDY <= 1;
 						// Cache miss
 						end else begin
 							MADDR <= ADDR;
@@ -69,12 +78,11 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RST,CLK,MADDR,MWE,MRDY,CDOUT,CDIN,CW
 				// Need one cycle delay for the 
 				// memory value to propagate.
 				CACHE_UPDATE: begin
-					CWE <= 1;
-					CDIN <= MD;
-					DOUT <= MD;
-					RDY <= 1;
-					state <= START;
-				end
+						CWE <= 1;
+						CDIN <= MD;
+						DOUT <= MD;
+						state <= START;
+					end
 				WAIT_MWRITE: begin
 						if (MRDY) begin
 							state <= START;

@@ -1,14 +1,19 @@
 `timescale 1ns / 1ps
 
-module CacheTop(ADDR,DIN,WE,RST,CLK,DOUT,RDY);
+module CacheTop(ADDR,DIN,WE,RREQ,RST,CLK,DOUT,RDY);
 
 	input [31:0] ADDR, DIN;
-	input WE, CLK, RST;
+	input WE, CLK, RREQ, RST;
 	output [31:0] DOUT;
 	output RDY;
 	
 	wire [31:0] MD, MADDR, CDIN, CDOUT;
 	wire FOUND, MWE, CWE, MRDY;
+	
+	// Ready should drop immediately when
+	// a read or write is requested, but 
+	// raise for a single cycle from internal
+	// state
 	
 	////////////////////////////
 	/// Finite state machine ///
@@ -19,6 +24,7 @@ module CacheTop(ADDR,DIN,WE,RST,CLK,DOUT,RDY);
     .DIN(DIN), 
     .FOUND(FOUND), 
     .MD(MD), 
+	 .RREQ(RREQ),
     .RST(RST), 
     .CLK(CLK), 
     .MADDR(MADDR), 

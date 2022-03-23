@@ -6,6 +6,7 @@ module CacheTopTest;
 	reg [31:0] ADDR;
 	reg [31:0] DIN;
 	reg WE;
+	reg RREQ;
 	reg RST;
 	reg CLK;
 
@@ -20,11 +21,41 @@ module CacheTopTest;
 		.ADDR(ADDR), 
 		.DIN(DIN), 
 		.WE(WE), 
-		.RST(RST), 
+		.RST(RST),
+		.RREQ(RREQ),
 		.CLK(CLK), 
 		.DOUT(DOUT), 
 		.RDY(RDY)
 	);
+	
+	task read_address(input integer addr);
+		begin 
+			WE = 0;
+			ADDR = addr;
+			RREQ = 1;
+			#20;
+			RREQ = 0;
+			while (!(RDY)) begin
+				#10;
+			end
+			#20;
+		end
+	endtask
+	
+	task write_address(input integer addr, value);
+		begin 
+			ADDR = addr;
+			RREQ = 0;
+			WE = 1;
+			DIN = value;
+			#20;
+			WE = 0;
+			while (!(RDY)) begin
+				#10;
+			end
+			#20;
+		end
+	endtask
 	
 	always
 	begin
@@ -38,47 +69,32 @@ module CacheTopTest;
 		ADDR = 0;
 		DIN = 0;
 		WE = 0;
+		RREQ = 0;
 		RST = 1;
 		#100;
-		ADDR = 22;
 		RST = 0;
-		#100;
-		DIN = -5942;
-		WE = 1;
-		#10;
-		WE = 0;
-		#80;
-		ADDR = 2;
-		#100;
-		ADDR = 22;
+		read_address(22);
+		write_address(22, -5942);
+		read_address(2);
 		for (i=0;i<20;i=i+1) begin
-			ADDR = i;
-			#50;
+			read_address(i);
 		end
 		for (i=0;i<10;i=i+1) begin
-			ADDR = i;
-			#50;
+			write_address(i,-i);
 		end
 		for (i=0;i<10;i=i+1) begin
-			ADDR = i;
-			DIN = -i;
-			WE = 1;
-			#20;
-			WE = 0;
-			#30;
+			read_address(i);
 		end
 		for (i=0;i<10;i=i+1) begin
-			ADDR = i;
-			#50;
+			write_address(2,i);
 		end
-		#50;
+		read_address(2);
+		// what is the value at 2 here?
 		RST = 1;
-		#50;
+		#100;
 		RST = 0;
-		#10;
 		for (i=0;i<10;i=i+1) begin
-			ADDR = i;
-			#50;
+			read_address(i);
 		end
 	end
       

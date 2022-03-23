@@ -4,9 +4,14 @@ module Controller(
     input [6:0] FUNCT7,
     input [3:0] FUNCT3,
     input [6:0] OPCODE,
+	 input RDY,
+	 output HOLD,
     output SELA,
     output SELB,
 	 output WE,
+	 output CWE,
+	 output RREQ,
+	 output CMUXSEL,
     output reg [3:0] OP,
 	 output reg [2:0] OP_B
     );
@@ -62,9 +67,19 @@ module Controller(
 	// SELA == 1 => A register, else PC
 	assign SELA = !((OPCODE == LUI) | (OPCODE == AUIPC));
 	// SELB == 1 => B register, else Immediate
-	assign SELB = (OPCODE == BTYPE) | (OPCODE == STORES) | (OPCODE == ARITHM_R);
+	assign SELB = (OPCODE == BTYPE) | (OPCODE == ARITHM_R);
 	// Write Enable for most instructions
 	assign WE = !((OPCODE == STORES) | (OPCODE == BTYPE)); 
+	// Cache Write Enable for stores only
+	assign CWE = (OPCODE == STORES);
+	// Select cache output for loads only (1 = data, 0 = cache out)
+	assign CMUXSEL = !(OPCODE == LOADS);
+	// Actively trigger reads to prevent cache from halting
+	// processor execution on normal instructions (which happens
+	// if we try to simply monitor the address line for changes)
+	assign RREQ = (OPCODE == LOADS);
+	// Hold PC value constant when data access instruction and no RDY signal.
+	assign HOLD = (((OPCODE == LOADS) | (OPCODE == STORES)) & !RDY);
 	
 	always @(*)
 	begin
@@ -85,8 +100,10 @@ module Controller(
 		end
 	
 		// ALU opcode setter
-		if (OPCODE == AUIPC) begin
+		if ((OPCODE == AUIPC)) begin
 			OP = AIU;
+		end else if ((OPCODE == STORES) | (OPCODE == LOADS)) begin
+			OP = ADD;
 		end else if (OPCODE == LUI) begin
 			OP = SIU;
 		end else if (OPCODE == BTYPE) begin

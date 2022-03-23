@@ -10,10 +10,15 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="18" />
+   <WVObjectSize size="20" />
    <wvobject fp_name="/CacheTopTest/DOUT" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">DOUT[31:0]</obj_property>
       <obj_property name="ObjectShortName">DOUT[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheTopTest/uut/external_memory/D" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">D[31:0]</obj_property>
+      <obj_property name="ObjectShortName">D[31:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/CacheTopTest/RDY" type="logic" db_ref_id="1">
@@ -33,6 +38,10 @@
    <wvobject fp_name="/CacheTopTest/WE" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">WE</obj_property>
       <obj_property name="ObjectShortName">WE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CacheTopTest/RREQ" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RREQ</obj_property>
+      <obj_property name="ObjectShortName">RREQ</obj_property>
    </wvobject>
    <wvobject fp_name="/CacheTopTest/RST" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">RST</obj_property>
@@ -409,6 +418,6 @@
    <wvobject fp_name="/CacheTopTest/uut/cache/ADDR" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">ADDR[31:0]</obj_property>
       <obj_property name="ObjectShortName">ADDR[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
 </wave_config>

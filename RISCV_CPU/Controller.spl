@@ -1,11 +1,16 @@
 [Inputs]
+RDY
 =FUNCT7[6:0]=
 =FUNCT3[3:0]=
 =OPCODE[6:0]=
 [Outputs]
+HOLD
 SELA
 SELB
 WE
+CWE
+RREQ
+CMUXSEL
 =OP[3:0]=
 =OP_B[2:0]=
 [BiDir]
