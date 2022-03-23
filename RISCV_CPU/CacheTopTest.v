@@ -71,6 +71,15 @@ module CacheTopTest;
 			ADDR = i;
 			#50;
 		end
+		#50;
+		RST = 1;
+		#50;
+		RST = 0;
+		#10;
+		for (i=0;i<10;i=i+1) begin
+			ADDR = i;
+			#50;
+		end
 	end
       
 endmodule

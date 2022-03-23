@@ -1,9 +1,9 @@
 `timescale 1ns / 1ps
 
-module CacheLookup(ADDR,DIN,WE,CLK,DOUT,FOUND);
+module CacheLookup(ADDR,DIN,WE,RST,CLK,DOUT,FOUND);
 
 	input [31:0] ADDR, DIN;
-	input WE, CLK;
+	input WE, RST, CLK;
 	output reg [31:0] DOUT;
 	output reg FOUND;
 	
@@ -16,9 +16,15 @@ module CacheLookup(ADDR,DIN,WE,CLK,DOUT,FOUND);
 	
 	// On write, shift in the write address and 
 	// data concatenated as a single vector
+	// Added reset to zero out shift register
+	// contents.
 	always @(posedge CLK)
 	begin
-		if (WE) begin
+		if (RST) begin
+			for (i=0;i<32;i=i+1) begin
+				lookup[i] <= 0;
+			end
+		end else if (WE) begin
 			for (i=31;i>0;i=i-1) begin
 				lookup[i] <= lookup[i-1];
 			end
@@ -59,13 +65,6 @@ module CacheLookup(ADDR,DIN,WE,CLK,DOUT,FOUND);
 			end
 		end
 		DOUT = found_row[31];
-	end
-	
-	initial
-	begin
-		for (i=0;i<32;i=i+1) begin
-			lookup[i] = 0;
-		end
 	end
 	
 endmodule

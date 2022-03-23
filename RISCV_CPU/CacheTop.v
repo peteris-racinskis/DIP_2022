@@ -39,7 +39,8 @@ module CacheTop(ADDR,DIN,WE,RST,CLK,DOUT,RDY);
 	CacheLookup cache (
     .ADDR(ADDR), 
     .DIN(CDIN), 
-    .WE(CWE), 
+    .WE(CWE),
+	 .RST(RST),
     .CLK(CLK), 
     .DOUT(CDOUT), 
     .FOUND(FOUND)
