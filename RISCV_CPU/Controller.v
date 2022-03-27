@@ -5,8 +5,10 @@ module Controller(FUNCT7,FUNCT3,OPCODE,RDY,RST,CLK,HOLD,SELA,SELB,WE,CWE,RREQ,CM
 	input [6:0] FUNCT7, OPCODE;
 	input [3:0] FUNCT3;
 	input RDY, RST, CLK;
-	output HOLD,SELA,SELB,WE;
-	output reg RREQ, CWE, CMUXSEL;
+	output SELA, SELB, WE;
+	output reg HOLD, RREQ, CWE, CMUXSEL;
+	//output HOLD,SELA,SELB,WE;
+	//output reg RREQ, CWE, CMUXSEL;
 	output reg [3:0] OP;
 	output reg [2:0] OP_B;
 	reg [2:0] state;
@@ -71,8 +73,9 @@ module Controller(FUNCT7,FUNCT3,OPCODE,RDY,RST,CLK,HOLD,SELA,SELB,WE,CWE,RREQ,CM
 	assign SELB = (OPCODE == BTYPE) | (OPCODE == ARITHM_R);
 	// Write Enable for most instructions
 	assign WE = !((OPCODE == STORES) | (OPCODE == BTYPE)); 
+	// THIS SHOULDN'T BE NECESSARY WHEN USING OUT OF PHASE CLK
 	// Immediately drop but restart synchronously
-	assign HOLD = (((OPCODE == LOADS) | (OPCODE == STORES)) & !restart);
+	//assign HOLD = (((OPCODE == LOADS) | (OPCODE == STORES)) & !restart);
 	
 	// State machine for multi-cycle memory operations
 	always @(negedge CLK)
@@ -82,15 +85,18 @@ module Controller(FUNCT7,FUNCT3,OPCODE,RDY,RST,CLK,HOLD,SELA,SELB,WE,CWE,RREQ,CM
 		end else begin
 			case (state)
 				START: begin
-						restart <= 0;
+						HOLD <= 0;
+						//restart <= 0;
 						RREQ <= 0;
 						CWE <= 0;
 						CMUXSEL <= 1;
 						if (OPCODE == LOADS) begin
+							HOLD <= 1;
 							RREQ <= 1;
 							CMUXSEL <= 0;
 							state <= R_UNSET;
 						end else if (OPCODE == STORES) begin
+							HOLD <= 1;
 							CWE <= 1;
 							state <= W_UNSET;
 						end
@@ -107,7 +113,8 @@ module Controller(FUNCT7,FUNCT3,OPCODE,RDY,RST,CLK,HOLD,SELA,SELB,WE,CWE,RREQ,CM
 				// Or do I need more steps?
 				WAIT: begin
 						if (RDY) begin
-							restart <= 1;
+							//restart <= 1;
+							HOLD <= 0;
 							state <= START;
 						end
 					end
