@@ -1,5 +1,7 @@
 [Inputs]
 RDY
+RST
+CLK
 =FUNCT7[6:0]=
 =FUNCT3[3:0]=
 =OPCODE[6:0]=

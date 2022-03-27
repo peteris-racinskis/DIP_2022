@@ -7,7 +7,7 @@
 // \   \   \/     Version : 14.7
 //  \   \         Application : sch2hdl
 //  /   /         Filename : top.vf
-// /___/   /\     Timestamp : 03/23/2022 18:50:46
+// /___/   /\     Timestamp : 03/27/2022 16:11:27
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -93,10 +93,12 @@ module top(CLK,
                        .RD(AW_DUMMY[4:0]), 
                        .RS1(AR_DUMMY[4:0]), 
                        .RS2_SHAMT(BR_DUMMY[4:0]));
-   Controller  XLXI_3 (.FUNCT3(XLXN_26[3:0]), 
+   Controller  XLXI_3 (.CLK(CLK), 
+                      .FUNCT3(XLXN_26[3:0]), 
                       .FUNCT7(XLXN_25[6:0]), 
                       .OPCODE(XLXN_27[6:0]), 
                       .RDY(XLXN_247), 
+                      .RST(RST), 
                       .CMUXSEL(XLXN_237), 
                       .CWE(XLXN_226), 
                       .HOLD(XLXN_248), 
@@ -128,7 +130,7 @@ module top(CLK,
                     .SEL(XLXN_64), 
                     .R(XLXN_42[31:0]));
    BusMux2  XLXI_18 (.IN1(A_DUMMY[31:0]), 
-                    .IN2(), 
+                    .IN2(XLXN_245[31:0]), 
                     .SEL(XLXN_65), 
                     .R(XLXN_9[31:0]));
    PC  XLXI_19 (.CLK(CLK), 

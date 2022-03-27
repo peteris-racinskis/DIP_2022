@@ -1,20 +1,16 @@
 `timescale 1ns / 1ps
 
-module Controller(
-    input [6:0] FUNCT7,
-    input [3:0] FUNCT3,
-    input [6:0] OPCODE,
-	 input RDY,
-	 output HOLD,
-    output SELA,
-    output SELB,
-	 output WE,
-	 output CWE,
-	 output RREQ,
-	 output CMUXSEL,
-    output reg [3:0] OP,
-	 output reg [2:0] OP_B
-    );
+module Controller(FUNCT7,FUNCT3,OPCODE,RDY,RST,CLK,HOLD,SELA,SELB,WE,CWE,RREQ,CMUXSEL,OP,OP_B);
+	 
+	input [6:0] FUNCT7, OPCODE;
+	input [3:0] FUNCT3;
+	input RDY, RST, CLK;
+	output HOLD,SELA,SELB,WE;
+	output reg RREQ, CWE, CMUXSEL;
+	output reg [3:0] OP;
+	output reg [2:0] OP_B;
+	reg [2:0] state;
+	reg restart;
 	
 	// Instruction opcodes
 	parameter LUI = 7'b0110111;
@@ -63,6 +59,11 @@ module Controller(
 	parameter BGE = FUNCT3_SRX;
 	parameter BLTU = FUNCT3_OR;
 	parameter BGEU = FUNCT3_AND;
+	// Memory operation state
+	parameter START = 1;
+	parameter R_UNSET = 2;
+	parameter W_UNSET = 3;
+	parameter WAIT = 4;
 
 	// SELA == 1 => A register, else PC
 	assign SELA = !((OPCODE == LUI) | (OPCODE == AUIPC));
@@ -70,17 +71,52 @@ module Controller(
 	assign SELB = (OPCODE == BTYPE) | (OPCODE == ARITHM_R);
 	// Write Enable for most instructions
 	assign WE = !((OPCODE == STORES) | (OPCODE == BTYPE)); 
-	// Cache Write Enable for stores only
-	assign CWE = (OPCODE == STORES);
-	// Select cache output for loads only (1 = data, 0 = cache out)
-	assign CMUXSEL = !(OPCODE == LOADS);
-	// Actively trigger reads to prevent cache from halting
-	// processor execution on normal instructions (which happens
-	// if we try to simply monitor the address line for changes)
-	assign RREQ = (OPCODE == LOADS);
-	// Hold PC value constant when data access instruction and no RDY signal.
-	assign HOLD = (((OPCODE == LOADS) | (OPCODE == STORES)) & !RDY);
+	// Immediately drop but restart synchronously
+	assign HOLD = (((OPCODE == LOADS) | (OPCODE == STORES)) & !restart);
 	
+	// State machine for multi-cycle memory operations
+	always @(negedge CLK)
+	begin
+		if (RST) begin
+			state <= START;
+		end else begin
+			case (state)
+				START: begin
+						restart <= 0;
+						RREQ <= 0;
+						CWE <= 0;
+						CMUXSEL <= 1;
+						if (OPCODE == LOADS) begin
+							RREQ <= 1;
+							CMUXSEL <= 0;
+							state <= R_UNSET;
+						end else if (OPCODE == STORES) begin
+							CWE <= 1;
+							state <= W_UNSET;
+						end
+					end
+				R_UNSET: begin
+						RREQ <= 0;
+						state <= WAIT;
+					end
+				W_UNSET: begin
+						CWE <= 0;
+						state <= WAIT;
+					end
+				// Is this gonna work for loading memory into regfile?
+				// Or do I need more steps?
+				WAIT: begin
+						if (RDY) begin
+							restart <= 1;
+							state <= START;
+						end
+					end
+				default: state <= START;			
+			endcase
+		end
+	end
+	
+	// Combinational logic for setting ALU and BranchLogic opcodes
 	always @(*)
 	begin
 	

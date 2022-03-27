@@ -80,6 +80,9 @@ module CacheTopTest;
 			read_address(i);
 		end
 		for (i=0;i<10;i=i+1) begin
+			read_address(i);
+		end
+		for (i=0;i<10;i=i+1) begin
 			write_address(i,-i);
 		end
 		for (i=0;i<10;i=i+1) begin
