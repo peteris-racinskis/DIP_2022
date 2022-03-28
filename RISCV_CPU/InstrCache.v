@@ -8,7 +8,7 @@ module InstrCache(PC,CLK,INSTR);
 	input [31:0] PC;
 	input CLK;
 	output reg [31:0] INSTR;
-	reg [31:0] memory [255:0];
+	reg [31:0] memory [256:0];
 	
 	always @(posedge CLK)
 	begin
@@ -17,7 +17,11 @@ module InstrCache(PC,CLK,INSTR);
 	
 	initial
 		if (INIT_FLAG) begin
-			$readmemb(INIT_FILE, memory, 0, 255);
+			// Fill with a addi x0, zero instruction
+			// because right now the first instruction
+			// after reset gets missed. Hacky but it works.
+			memory[0] <= {{12{1'b0}},{5{1'b0}},{3{1'b0}},{5{1'b0}},7'b0010011};
+			$readmemb(INIT_FILE, memory, 1, 256);
 		end
 	
 endmodule

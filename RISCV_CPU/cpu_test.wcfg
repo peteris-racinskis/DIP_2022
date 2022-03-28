@@ -10,7 +10,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="52" />
+   <WVObjectSize size="48" />
    <wvobject fp_name="/top_top_sch_tb/B" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">B[31:0]</obj_property>
       <obj_property name="ObjectShortName">B[31:0]</obj_property>
@@ -20,24 +20,6 @@
       <obj_property name="ElementShortName">A[31:0]</obj_property>
       <obj_property name="ObjectShortName">A[31:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_top_sch_tb/AR" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">AR[4:0]</obj_property>
-      <obj_property name="ObjectShortName">AR[4:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_top_sch_tb/BR" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">BR[4:0]</obj_property>
-      <obj_property name="ObjectShortName">BR[4:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_top_sch_tb/AW" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">AW[4:0]</obj_property>
-      <obj_property name="ObjectShortName">AW[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_top_sch_tb/WE" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">WE</obj_property>
-      <obj_property name="ObjectShortName">WE</obj_property>
    </wvobject>
    <wvobject fp_name="/top_top_sch_tb/V" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">V</obj_property>
@@ -54,11 +36,6 @@
    <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_3/CMUXSEL" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">CMUXSEL</obj_property>
       <obj_property name="ObjectShortName">CMUXSEL</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_top_sch_tb/D" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">D[31:0]</obj_property>
-      <obj_property name="ObjectShortName">D[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_10/R" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">R[31:0]</obj_property>
@@ -341,6 +318,10 @@
       <obj_property name="ElementShortName">PC[31:0]</obj_property>
       <obj_property name="ObjectShortName">PC[31:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/ADDRESS_MISALIGNED" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ADDRESS_MISALIGNED</obj_property>
+      <obj_property name="ObjectShortName">ADDRESS_MISALIGNED</obj_property>
    </wvobject>
    <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_20/HOLD" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">HOLD</obj_property>

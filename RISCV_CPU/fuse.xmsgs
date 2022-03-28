@@ -5,5 +5,8 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"/home/user/repos/DIP_2022/RISCV_CPU/test_processor.v" Line 22: Port <arg fmt="%s" index="1">ADDRESS_MISALIGNED</arg> is not connected to this instance
+</msg>
+
 </messages>
 

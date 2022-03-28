@@ -11,14 +11,9 @@ module top_top_sch_tb();
 // Output
    wire [31:0] B;
    wire [31:0] A;
-   wire [4:0] AR;
-   wire [4:0] BR;
-   wire [4:0] AW;
-   wire WE;
    wire V;
    wire N;
    wire C;
-   wire [31:0] D;
    wire Z;
 
 // Bidirs
@@ -27,15 +22,10 @@ module top_top_sch_tb();
    top UUT (
 		.B(B), 
 		.A(A), 
-		.AR(AR), 
-		.BR(BR), 
-		.AW(AW), 
 		.CLK(CLK), 
-		.WE(WE), 
 		.V(V), 
 		.N(N), 
 		.C(C), 
-		.D(D), 
 		.Z(Z), 
 		.RST(RST)
    );

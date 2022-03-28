@@ -19,6 +19,7 @@ module ALU(A,B,OP,R,V,Z,N,C);
 	parameter XOR = 10;
 	parameter SIU = 11; // Shift immediate to upper
 	parameter AIU = 12; // Add upper immediate
+	parameter JLX = 13; // Do PC+4 for unconditional jumps (PC is coming in from mux)
 	
 	input [WORDSIZE-1:0] A,B;
 	input [OPSIZE-1:0]	OP;
@@ -51,6 +52,7 @@ module ALU(A,B,OP,R,V,Z,N,C);
 			XOR: {C,R} = A ^ B;
 			SIU: {C,R} = B << UI;
 			AIU: {C,R} = A + (B << UI);
+			JLX: {C,R} = A + 4;
 			default: {C,R} = 0;
 		endcase
 	end

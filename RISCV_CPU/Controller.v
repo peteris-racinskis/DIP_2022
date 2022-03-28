@@ -29,7 +29,8 @@ module Controller(FUNCT7,FUNCT3,OPCODE,RDY,RST,CLK,HOLD,SELA,SELB,WE,CWE,RREQ,CM
 	parameter NZR = 2;
 	parameter DAT = 3;
 	parameter NDT = 4;
-	parameter JMP = 5;
+	parameter JLI = 5;
+	parameter JLR = 6;
 	// ALU opcodes
 	parameter ADD = 1;
 	parameter SUB = 2;
@@ -43,6 +44,7 @@ module Controller(FUNCT7,FUNCT3,OPCODE,RDY,RST,CLK,HOLD,SELA,SELB,WE,CWE,RREQ,CM
 	parameter XOR = 10;
 	parameter SIU = 11; // Shift immediate to upper
 	parameter AIU = 12; // Add upper immediate
+	parameter JLX = 13;
 	// Constants making up part of the instruction
 	parameter FUNCT3_ADD_SUB = 3'b000;
 	parameter FUNCT3_SLL = 3'b001;
@@ -68,7 +70,7 @@ module Controller(FUNCT7,FUNCT3,OPCODE,RDY,RST,CLK,HOLD,SELA,SELB,WE,CWE,RREQ,CM
 	parameter WAIT = 4;
 
 	// SELA == 1 => A register, else PC
-	assign SELA = !((OPCODE == LUI) | (OPCODE == AUIPC));
+	assign SELA = !((OPCODE == LUI) | (OPCODE == AUIPC) | (OPCODE == JALR) | (OPCODE == JAL));
 	// SELB == 1 => B register, else Immediate
 	assign SELB = (OPCODE == BTYPE) | (OPCODE == ARITHM_R);
 	// Write Enable for most instructions
@@ -136,8 +138,10 @@ module Controller(FUNCT7,FUNCT3,OPCODE,RDY,RST,CLK,HOLD,SELA,SELB,WE,CWE,RREQ,CM
 				BGE, BGEU: OP_B = NDT;
 				default: OP_B = 0;
 			endcase
-		end else if ((OPCODE == JAL) | (OPCODE == JALR)) begin
-			OP_B = JMP;
+		end else if (OPCODE == JAL) begin
+			OP_B = JLI;
+		end else if (OPCODE == JALR) begin
+			OP_B = JLR;
 		end else begin
 			OP_B = 0;
 		end
@@ -145,6 +149,8 @@ module Controller(FUNCT7,FUNCT3,OPCODE,RDY,RST,CLK,HOLD,SELA,SELB,WE,CWE,RREQ,CM
 		// ALU opcode setter
 		if ((OPCODE == AUIPC)) begin
 			OP = AIU;
+		end else if ((OPCODE ==  JAL) | (OPCODE == JALR)) begin
+			OP = JLX;
 		end else if ((OPCODE == STORES) | (OPCODE == LOADS)) begin
 			OP = ADD;
 		end else if (OPCODE == LUI) begin

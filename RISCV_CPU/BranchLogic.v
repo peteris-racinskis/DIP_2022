@@ -1,19 +1,21 @@
 `timescale 1ns / 1ps
 
-module BranchLogic(IMM,PC,HOLD,D,Z,RST,OPCODE,INCR);
+module BranchLogic(IMM,RS1,PC,HOLD,D,Z,RST,OPCODE,INCR,MSL);
 	
 	parameter ZER = 1;
 	parameter NZR = 2;
 	parameter DAT = 3;
 	parameter NDT = 4;
-	parameter JMP = 5;
+	parameter JLI = 5;
+	parameter JLR = 6;
 	
-	input [31:0] IMM, PC, D;
+	input [31:0] IMM, PC, D, RS1;
    input [2:0] OPCODE;
    input Z, RST, HOLD;
    output reg [31:0] INCR;
+	output MSL; // Address misaligned
 	reg ADD_IMMEDIATE;
-	wire DATA_NULL;
+	wire DATA_NULL, ADD_REGISTER;
 		
 	/*
 		Unconditional jumps: separate opcode.
@@ -28,6 +30,8 @@ module BranchLogic(IMM,PC,HOLD,D,Z,RST,OPCODE,INCR);
 	*/
 	
 	assign DATA_NULL = |D;
+	assign ADD_REGISTER = (OPCODE == JLR);
+	assign MSL = |INCR[1:0]; // See if there's anything under 4 bytes lol
 	
 	always @(*)
 	begin
@@ -36,13 +40,18 @@ module BranchLogic(IMM,PC,HOLD,D,Z,RST,OPCODE,INCR);
 			NZR: ADD_IMMEDIATE = !Z;
 			DAT: ADD_IMMEDIATE = DATA_NULL;
 			NDT: ADD_IMMEDIATE = !DATA_NULL;
-			JMP: ADD_IMMEDIATE = 1'b1;
+			JLI: ADD_IMMEDIATE = 1'b1;
+			JLR: ADD_IMMEDIATE = 1'b0;
 			default: ADD_IMMEDIATE = 1'b0;
 		endcase
 		if (HOLD) begin
 			INCR = PC;
 		end else if (ADD_IMMEDIATE) begin
 			INCR = PC + IMM;
+		end else if (ADD_REGISTER) begin
+			// Add 4 to compensate for the empty first instruction and make
+			// this entirely transparent to any compiler or programmer.
+			INCR = IMM + RS1 + 4; // It adds an offset to RS1, not current PC!
 		end else begin
 			INCR = PC + 4;
 		end

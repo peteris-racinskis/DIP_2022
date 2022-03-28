@@ -3,10 +3,12 @@ HOLD
 Z
 RST
 =IMM[31:0]=
+=RS1[31:0]=
 =PC[31:0]=
 =D[31:0]=
 =OPCODE[2:0]=
 [Outputs]
+MSL
 =INCR[31:0]=
 [BiDir]
 [ATTRIBUTES]
