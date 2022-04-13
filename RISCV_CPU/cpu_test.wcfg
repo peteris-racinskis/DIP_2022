@@ -10,7 +10,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="51" />
+   <WVObjectSize size="54" />
    <wvobject fp_name="/top_top_sch_tb/B" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">B[31:0]</obj_property>
       <obj_property name="ObjectShortName">B[31:0]</obj_property>
@@ -121,10 +121,20 @@
       <obj_property name="ObjectShortName">DIN[31:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/controller/CDIN" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">CDIN[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CDIN[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/controller/mask_and_sign_ext/result" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">result[31:0]</obj_property>
+      <obj_property name="ObjectShortName">result[31:0]</obj_property>
+   </wvobject>
    <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/controller/DOUT" type="array" db_ref_id="1">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">DOUT[31:0]</obj_property>
       <obj_property name="ObjectShortName">DOUT[31:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="label">DOUT[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/CDOUT" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">CDOUT[31:0]</obj_property>
@@ -299,6 +309,10 @@
          <obj_property name="Radix">HEXRADIX</obj_property>
       </wvobject>
    </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/controller/flattened" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">flattened[31:0]</obj_property>
+      <obj_property name="ObjectShortName">flattened[31:0]</obj_property>
+   </wvobject>
    <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/controller/rbuf" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">rbuf[3:0,7:0]</obj_property>
       <obj_property name="ObjectShortName">rbuf[3:0,7:0]</obj_property>
@@ -406,6 +420,7 @@
    <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[5]" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">[5,31:0]</obj_property>
       <obj_property name="ObjectShortName">memory[5,31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[4]" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">[4,31:0]</obj_property>

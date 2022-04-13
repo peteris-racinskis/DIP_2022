@@ -19,6 +19,8 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 	reg [7:0] mdin [3:0];
 	reg [7:0] rbuf [3:0];
 	reg [2:0] incr, lim;
+	reg SIGNED;
+	wire [31:0] flattened;
 	
 	// MAYBE SET THE MUX WITH CACHE CONTROLLER?
 	// HOLD IT FOR 1 CYCLE, THEN GO TO WAIT AND SET RDY
@@ -30,11 +32,13 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 	// BRAM, but most external SRAMs have bidirectional
 	// data channels.
 	assign MD = MWE ? mdin[incr] : 8'bZ;
-	
+	assign flattened = {rbuf[3],rbuf[2],rbuf[1],rbuf[0]};
+		
 	always @(posedge CLK)
 	begin
 		// For testing the old code
 		lim <= 3;
+		SIGNED <= 1;
 		if (RST) begin
 			state <= START;
 		end else begin
@@ -58,13 +62,11 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 							CDIN <= DIN;
 							MWE <= 1;
 							MADDR <= ADDR;
-							mdin[0] <= DIN[7:0];
-							mdin[1] <= DIN[15:8];
-							mdin[2] <= DIN[23:16];
-							mdin[3] <= DIN[31:24];
+							{mdin[3],mdin[2],mdin[1],mdin[0]} <= DIN;
 							state <= WAIT_MWRITE;
 						// start the read loop on READ REQUEST signal
 						end else if (RREQ) begin
+							{rbuf[3],rbuf[2],rbuf[1],rbuf[0]} <= {32{1'b0}};
 							state <= CHECK_CACHE;
 						end
 					end
@@ -91,7 +93,7 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 						MADDR <= MADDR + 1;
 						incr <= incr + 1;
 						rbuf[incr] <= MD;
-						if (incr >= 3) begin						
+						if (incr >= lim) begin						
 							state <= CACHE_UPDATE;
 						end else begin
 							state <= WAIT_MREAD;
@@ -101,8 +103,11 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 				// memory value to propagate. 
 				CACHE_UPDATE: begin
 						CWE <= 1;
-						CDIN <= {rbuf[3],rbuf[2],rbuf[1],rbuf[0]};
-						DOUT <= {rbuf[3],rbuf[2],rbuf[1],rbuf[0]};
+						case (lim)
+							1: {CDIN,DOUT} <= {2{{24{(SIGNED & flattened[7])}},flattened[7:0]}};
+							2: {CDIN,DOUT} <= {2{{16{(SIGNED & flattened[15])}},flattened[15:0]}};
+							default: {CDIN,DOUT} <= {2{flattened}};
+						endcase
 						state <= START;
 					end
 				WAIT_MWRITE: begin
@@ -117,7 +122,8 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 					end
 				default: state <= START;
 			endcase
-		end
-	end
+			
+		end // if/else
+	end // always
 
 endmodule
