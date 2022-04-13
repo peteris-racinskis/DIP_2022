@@ -3,15 +3,15 @@
 module SimulatedSRAM(ADDR,D,WE,CLK,RDY);
 	
 	input [31:0] ADDR;
-	inout [31:0] D;
+	inout [7:0] D;
 	input WE, CLK;
 	output RDY;
 	
-	reg [31:0] dout;
-	reg [31:0] memory [1023:0];
+	reg [7:0] dout;
+	reg [7:0] memory [1024*4-1:0];
 	reg welast;
 	
-	assign D = WE ? 32'bZ : dout;
+	assign D = WE ? 8'bZ : dout;
 	assign RDY = 1;
 	
 	always @(posedge CLK)
@@ -27,7 +27,7 @@ module SimulatedSRAM(ADDR,D,WE,CLK,RDY);
 	integer i;
 	initial
 	begin
-		for (i=0;i<1024;i=i+1) begin
+		for (i=0;i<1024*4;i=i+1) begin
 			memory[i] = 2 * i;
 		end
 	end

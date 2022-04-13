@@ -38,7 +38,6 @@
         <signal name="XLXN_261" />
         <signal name="XLXN_263(31:0)" />
         <signal name="XLXN_266(2:0)" />
-        <signal name="XLXN_267" />
         <signal name="ADDRESS_MISALIGNED" />
         <signal name="XLXN_269" />
         <port polarity="Output" name="B(31:0)" />
@@ -180,7 +179,7 @@
             <rect width="256" x="64" y="-64" height="256" />
         </blockdef>
         <blockdef name="CacheTop">
-            <timestamp>2022-3-23T16:50:38</timestamp>
+            <timestamp>2022-4-13T11:31:32</timestamp>
             <line x2="0" y1="32" y2="32" x1="64" />
             <line x2="0" y1="-288" y2="-288" x1="64" />
             <line x2="0" y1="-224" y2="-224" x1="64" />

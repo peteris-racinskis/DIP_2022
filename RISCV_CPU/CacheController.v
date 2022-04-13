@@ -8,14 +8,17 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 	parameter WAIT_MREAD = 5;
 	parameter CACHE_UPDATE = 6;
 	parameter WAIT_MWRITE = 7;
+	parameter MREAD_BUF = 8;
 	
 	input [31:0] ADDR, DIN, CDOUT;
-	inout [31:0] MD;
+	inout [7:0] MD;
 	output reg[31:0] MADDR, CDIN, DOUT;
 	input WE, CLK, FOUND, RREQ, MRDY, RST;
 	output reg MWE, CWE, RDY;
-	reg [2:0] state;
-	reg [31:0] mdin;
+	reg [3:0] state;
+	reg [7:0] mdin [3:0];
+	reg [7:0] rbuf [3:0];
+	reg [2:0] incr, lim;
 	
 	// MAYBE SET THE MUX WITH CACHE CONTROLLER?
 	// HOLD IT FOR 1 CYCLE, THEN GO TO WAIT AND SET RDY
@@ -26,10 +29,12 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 	// design where the memory is just some
 	// BRAM, but most external SRAMs have bidirectional
 	// data channels.
-	assign MD = MWE ? mdin : 32'bZ;
+	assign MD = MWE ? mdin[incr] : 8'bZ;
 	
 	always @(posedge CLK)
 	begin
+		// For testing the old code
+		lim <= 3;
 		if (RST) begin
 			state <= START;
 		end else begin
@@ -42,6 +47,7 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 						RDY <= 1;
 						CWE <= 0;
 						MWE <= 0;
+						incr <= 0;
 						state <= WAIT;
 					end
 				WAIT: begin
@@ -52,7 +58,10 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 							CDIN <= DIN;
 							MWE <= 1;
 							MADDR <= ADDR;
-							mdin <= DIN;
+							mdin[0] <= DIN[7:0];
+							mdin[1] <= DIN[15:8];
+							mdin[2] <= DIN[23:16];
+							mdin[3] <= DIN[31:24];
 							state <= WAIT_MWRITE;
 						// start the read loop on READ REQUEST signal
 						end else if (RREQ) begin
@@ -72,20 +81,38 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 					end
 				WAIT_MREAD: begin
 						if (MRDY) begin
-							state <= CACHE_UPDATE;
+							state <= MREAD_BUF;
 						end
 					end
 				// Need one cycle delay for the 
-				// memory value to propagate.
+				// memory value to propagate. THIS APPLIES
+				// TO BUFFER READS TOO, DUH
+				MREAD_BUF: begin
+						MADDR <= MADDR + 1;
+						incr <= incr + 1;
+						rbuf[incr] <= MD;
+						if (incr >= 3) begin						
+							state <= CACHE_UPDATE;
+						end else begin
+							state <= WAIT_MREAD;
+						end
+					end
+				// Need one cycle delay for the 
+				// memory value to propagate. 
 				CACHE_UPDATE: begin
 						CWE <= 1;
-						CDIN <= MD;
-						DOUT <= MD;
+						CDIN <= {rbuf[3],rbuf[2],rbuf[1],rbuf[0]};
+						DOUT <= {rbuf[3],rbuf[2],rbuf[1],rbuf[0]};
 						state <= START;
 					end
 				WAIT_MWRITE: begin
 						if (MRDY) begin
-							state <= START;
+							if (incr >= lim) begin
+								state <= START;
+							end else begin
+								MADDR <= MADDR + 1;
+								incr <= incr + 1;
+							end
 						end
 					end
 				default: state <= START;

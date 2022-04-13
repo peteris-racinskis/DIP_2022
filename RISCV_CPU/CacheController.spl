@@ -1,0 +1,22 @@
+[Inputs]
+WE
+FOUND
+RREQ
+RST
+CLK
+MRDY
+=ADDR[31:0]=
+=DIN[31:0]=
+=CDOUT[31:0]=
+[Outputs]
+MWE
+CWE
+RDY
+=MADDR[31:0]=
+=CDIN[31:0]=
+=DOUT[31:0]=
+[BiDir]
+=MD[7:0]=
+[ATTRIBUTES]
+VeriModel CacheController
+

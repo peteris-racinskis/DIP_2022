@@ -1,0 +1,11 @@
+[Inputs]
+WE
+CLK
+=ADDR[31:0]=
+[Outputs]
+RDY
+[BiDir]
+=D[7:0]=
+[ATTRIBUTES]
+VeriModel SimulatedSRAM
+
