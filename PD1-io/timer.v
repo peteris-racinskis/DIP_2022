@@ -24,12 +24,12 @@ module timer(
     output result
     );
 	
-	localparam [32:0] FREQ = 20;
-	reg [32:0] cnt;
+	localparam [31:0] FREQ = 100000000;
+	reg [31:0] cnt;
 	
 	always @(posedge clk)
 	begin
-		if (cnt > FREQ + FREQ || rst) begin
+		if ((cnt > FREQ + FREQ) | rst) begin
 			cnt <= 0;
 		end else begin
 			cnt <= cnt + 1;

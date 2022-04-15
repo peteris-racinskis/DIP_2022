@@ -7,7 +7,7 @@
 // \   \   \/     Version : 14.7
 //  \   \         Application : sch2hdl
 //  /   /         Filename : logic.vf
-// /___/   /\     Timestamp : 02/17/2022 11:50:35
+// /___/   /\     Timestamp : 04/15/2022 14:47:25
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -18,68 +18,6 @@
 //    This verilog netlist is translated from an ECS schematic.It can be 
 //    synthesized and simulated, but it should not be modified. 
 //
-`timescale 100 ps / 10 ps
-
-module CB8CE_HXILINX_logic(CEO, Q, TC, C, CE, CLR);
-   
-   localparam TERMINAL_COUNT = 8'b1111_1111;
-   
-   output             CEO;
-   output [7:0]       Q;
-   output             TC;
-
-   input 	      C;	
-   input 	      CE;	
-   input 	      CLR;	
-   
-   reg   [7:0]        Q;
-   
-   always @(posedge C or posedge CLR)
-     begin
-	if (CLR)
-	  Q <= 8'b0000_0000;
-	else if (CE)
-	  Q <= Q + 1;
-     end
-   
-   assign CEO = TC & CE;
-   assign TC = (Q == TERMINAL_COUNT);
-   
-endmodule
-`timescale 1ns / 1ps
-
-module debounce_MUSER_logic(CLK, 
-                            PB, 
-                            PB_debounced);
-
-    input CLK;
-    input PB;
-   output PB_debounced;
-   
-   wire XLXN_1;
-   wire XLXN_5;
-   wire XLXN_9;
-   wire PB_debounced_DUMMY;
-   wire PB_DUMMY;
-   
-   assign PB_debounced = PB_debounced_DUMMY;
-   assign PB_DUMMY = PB;
-   INV  XLXI_2 (.I(PB_DUMMY), 
-               .O(XLXN_1));
-   AND2  XLXI_3 (.I0(PB_DUMMY), 
-                .I1(XLXN_9), 
-                .O(XLXN_5));
-   INV  XLXI_4 (.I(PB_debounced_DUMMY), 
-               .O(XLXN_9));
-   (* HU_SET = "XLXI_5_0" *) 
-   CB8CE_HXILINX_logic  XLXI_5 (.C(CLK), 
-                               .CE(XLXN_5), 
-                               .CLR(XLXN_1), 
-                               .CEO(), 
-                               .Q(), 
-                               .TC(PB_debounced_DUMMY));
-   PULLDOWN  XLXI_6 (.O(PB_DUMMY));
-endmodule
 `timescale 1ns / 1ps
 
 module logic(CLK, 
@@ -100,29 +38,19 @@ module logic(CLK,
    output LD1;
    output LD2;
    
-   wire XLXN_46;
-   wire XLXN_47;
-   wire XLXN_86;
    wire XLXN_87;
+   wire XLXN_89;
    
-   debounce_MUSER_logic  XLXI_17 (.CLK(CLK), 
-                                 .PB(SW2), 
-                                 .PB_debounced(XLXN_47));
-   debounce_MUSER_logic  XLXI_19 (.CLK(CLK), 
-                                 .PB(SW0), 
-                                 .PB_debounced(LD0));
-   XOR2  XLXI_27 (.I0(XLXN_47), 
-                 .I1(XLXN_46), 
+   XOR2  XLXI_27 (.I0(SW2), 
+                 .I1(SW1), 
                  .O(LD1));
-   debounce_MUSER_logic  XLXI_32 (.CLK(CLK), 
-                                 .PB(SW1), 
-                                 .PB_debounced(XLXN_46));
-   debounce_MUSER_logic  XLXI_33 (.CLK(CLK), 
-                                 .PB(SW3), 
-                                 .PB_debounced(XLXN_86));
    timer  XLXI_35 (.clk(CLK), 
                   .rst(XLXN_87), 
                   .result(LD2));
-   INV  XLXI_36 (.I(XLXN_86), 
+   INV  XLXI_36 (.I(SW3), 
                 .O(XLXN_87));
+   INV  XLXI_38 (.I(SW0), 
+                .O(XLXN_89));
+   INV  XLXI_39 (.I(XLXN_89), 
+                .O(LD0));
 endmodule
