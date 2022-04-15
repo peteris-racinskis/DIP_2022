@@ -1,14 +1,31 @@
 `timescale 1ns / 1ps
 
 module CacheLookup(ADDR,DIN,WE,RST,CLK,DOUT,FOUND);
-
-	input [31:0] ADDR, DIN;
+	// 32 bits of address
+	// 3 bits of offset
+	// when writing tests, check this case:
+	// - read/write byte at address
+	// - read/write half at address
+	// - read/write word at address
+	// NOTE: need to use DIN rather than ADDR since it
+	// comes from the controller\
+	// Concatenate as follows: {addr}{offs,data}
+	input [31:0] ADDR;
+	input [31+3:0] DIN;
 	input WE, RST, CLK;
 	output reg [31:0] DOUT;
 	output reg FOUND;
 	
 	// Memory storing {addr,caddr}
-	reg [31+32:0] lookup [31:0];
+	// quick and dirty solution to partial words - 
+	// simply store the access length with the address.
+	// that way if the same address is read as w,h or b
+	// you get different entries in the lookup table.
+	// This isn't optimal but assuming that h,b access is
+	// relatively rare it makes the system already built work
+	// with byte addressed memory spaces.
+	// NOTE: can't use address input. Need 
+	reg [31+32+3:0] lookup [31:0];
 	reg [31:0] found_row [31:0];
 	reg [31:0] above, m_one;
 	integer i;
@@ -42,9 +59,9 @@ module CacheLookup(ADDR,DIN,WE,RST,CLK,DOUT,FOUND);
 		// the elements above it match
 		for (i=0;i<32;i=i+1) begin
 			if (i == 0) begin
-				above[i] = (ADDR == lookup[i][31+32:32]);
+				above[i] = ({ADDR,DIN[31+3:32]} == lookup[i][31+32+3:32]);
 			end else begin
-				above[i] = (above[i-1]) | (ADDR == lookup[i][31+32:32]);
+				above[i] = (above[i-1]) | ({ADDR,DIN[31+3:32]} == lookup[i][31+32+3:32]);
 			end
 		end
 		// OR reduction checks if there are any 1's 

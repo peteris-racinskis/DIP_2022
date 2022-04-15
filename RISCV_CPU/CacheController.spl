@@ -13,7 +13,7 @@ MWE
 CWE
 RDY
 =MADDR[31:0]=
-=CDIN[31:0]=
+=CDIN[34:0]=
 =DOUT[31:0]=
 [BiDir]
 =MD[7:0]=

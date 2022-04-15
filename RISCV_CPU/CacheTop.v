@@ -7,7 +7,8 @@ module CacheTop(ADDR,DIN,WE,RREQ,RST,CLK,DOUT,RDY);
 	output [31:0] DOUT;
 	output RDY;
 	
-	wire [31:0] MADDR, CDIN, CDOUT;
+	wire [31:0] MADDR, CDOUT;
+	wire [31+3:0] CDIN;
 	wire [7:0] MD;
 	wire FOUND, MWE, CWE, MRDY;
 	

@@ -1,11 +1,11 @@
 [Inputs]
 WE
+RST
 CLK
 =ADDR[31:0]=
-=DIN[31:0]=
+=DIN[34:0]=
 [Outputs]
 FOUND
-RD
 =DOUT[31:0]=
 [BiDir]
 [ATTRIBUTES]

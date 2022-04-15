@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="SimulatedSRAM">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2022-4-13T11:31:28</timestamp>
+    <timestamp>2022-4-15T7:47:13</timestamp>
     <attr value="SimulatedSRAM" name="VeriModel" />
     <pin polarity="Input" x="0" y="-160" name="WE" />
     <pin polarity="Input" x="0" y="-96" name="CLK" />

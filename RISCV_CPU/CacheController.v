@@ -12,7 +12,8 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 	
 	input [31:0] ADDR, DIN, CDOUT;
 	inout [7:0] MD;
-	output reg[31:0] MADDR, CDIN, DOUT;
+	output reg[31:0] MADDR, DOUT;
+	output reg[31+3:0] CDIN;
 	input WE, CLK, FOUND, RREQ, MRDY, RST;
 	output reg MWE, CWE, RDY;
 	reg [3:0] state;
@@ -33,12 +34,15 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 	// data channels.
 	assign MD = MWE ? mdin[incr] : 8'bZ;
 	assign flattened = {rbuf[3],rbuf[2],rbuf[1],rbuf[0]};
-		
+	
+	initial
+	begin
+		SIGNED = 1;
+		lim = 3;
+	end
+	
 	always @(posedge CLK)
 	begin
-		// For testing the old code
-		lim <= 3;
-		SIGNED <= 1;
 		if (RST) begin
 			state <= START;
 		end else begin
@@ -59,7 +63,7 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 						// start the write loop on WE
 						if (WE) begin
 							CWE <= 1;
-							CDIN <= DIN;
+							CDIN <= {lim,DIN};
 							MWE <= 1;
 							MADDR <= ADDR;
 							{mdin[3],mdin[2],mdin[1],mdin[0]} <= DIN;
@@ -104,9 +108,10 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 				CACHE_UPDATE: begin
 						CWE <= 1;
 						case (lim)
-							1: {CDIN,DOUT} <= {2{{24{(SIGNED & flattened[7])}},flattened[7:0]}};
-							2: {CDIN,DOUT} <= {2{{16{(SIGNED & flattened[15])}},flattened[15:0]}};
-							default: {CDIN,DOUT} <= {2{flattened}};
+						// put lim in front to extend CDIN
+							1: {CDIN,DOUT} <= {lim,{2{{24{(SIGNED & flattened[7])}},flattened[7:0]}}};
+							2: {CDIN,DOUT} <= {lim,{2{{16{(SIGNED & flattened[15])}},flattened[15:0]}}};
+							default: {CDIN,DOUT} <= {lim,{2{flattened}}};
 						endcase
 						state <= START;
 					end

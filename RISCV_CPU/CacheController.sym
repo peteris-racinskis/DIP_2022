@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="CacheController">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2022-4-13T13:44:3</timestamp>
+    <timestamp>2022-4-15T9:6:4</timestamp>
     <attr value="CacheController" name="VeriModel" />
     <pin polarity="Input" x="0" y="-544" name="WE" />
     <pin polarity="Input" x="0" y="-480" name="FOUND" />
@@ -17,7 +17,7 @@
     <pin polarity="Output" x="432" y="-464" name="CWE" />
     <pin polarity="Output" x="432" y="-384" name="RDY" />
     <pin polarity="Output" x="432" y="-304" name="MADDR(31:0)" />
-    <pin polarity="Output" x="432" y="-224" name="CDIN(31:0)" />
+    <pin polarity="Output" x="432" y="-224" name="CDIN(34:0)" />
     <pin polarity="Output" x="432" y="-144" name="DOUT(31:0)" />
     <graph>
         <attrtext style="alignment:BCENTER;fontsize:56;fontname:Arial" attrname="SymbolName" x="216" y="-584" type="symbol" />
@@ -35,7 +35,7 @@
         <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="360" y="-464" type="pin CWE" />
         <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="360" y="-384" type="pin RDY" />
         <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="360" y="-304" type="pin MADDR(31:0)" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="360" y="-224" type="pin CDIN(31:0)" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="360" y="-224" type="pin CDIN(34:0)" />
         <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="360" y="-144" type="pin DOUT(31:0)" />
         <rect width="304" x="64" y="-576" height="576" />
         <line x2="0" y1="-544" y2="-544" x1="64" />
