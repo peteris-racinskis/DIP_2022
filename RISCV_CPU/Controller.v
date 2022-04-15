@@ -1,11 +1,12 @@
 `timescale 1ns / 1ps
 
-module Controller(FUNCT7,FUNCT3,OPCODE,RDY,RST,CLK,HOLD,SELA,SELB,WE,CWE,RREQ,CMUXSEL,OP,OP_B);
+module Controller(FUNCT7,FUNCT3,OPCODE,RDY,RST,CLK,HOLD,SELA,SELB,WE,CWE,RREQ,SIGNED,LIM,CMUXSEL,OP,OP_B);
 	 
 	input [6:0] FUNCT7, OPCODE;
 	input [3:0] FUNCT3;
 	input RDY, RST, CLK;
-	output SELA, SELB, WE;
+	output reg [2:0] LIM;
+	output SELA, SELB, WE, SIGNED;
 	output reg HOLD, RREQ, CWE, CMUXSEL;
 	//output HOLD,SELA,SELB,WE;
 	//output reg RREQ, CWE, CMUXSEL;
@@ -63,6 +64,16 @@ module Controller(FUNCT7,FUNCT3,OPCODE,RDY,RST,CLK,HOLD,SELA,SELB,WE,CWE,RREQ,CM
 	parameter BGE = FUNCT3_SRX;
 	parameter BLTU = FUNCT3_OR;
 	parameter BGEU = FUNCT3_AND;
+	// remapping for Load instructions
+	parameter LB = FUNCT3_ADD_SUB;
+	parameter LH = FUNCT3_SLL;
+	parameter LW = FUNCT3_SLT;
+	parameter LBU = FUNCT3_XOR;
+	parameter LHU = FUNCT3_SRX;
+	// remapping for Store instructions
+	parameter SB = FUNCT3_ADD_SUB;
+	parameter SH = FUNCT3_SLL;
+	parameter SW = FUNCT3_SLT;
 	// Memory operation state
 	parameter START = 1;
 	parameter R_UNSET = 2;
@@ -78,6 +89,11 @@ module Controller(FUNCT7,FUNCT3,OPCODE,RDY,RST,CLK,HOLD,SELA,SELB,WE,CWE,RREQ,CM
 	// THIS SHOULDN'T BE NECESSARY WHEN USING OUT OF PHASE CLK
 	// Immediately drop but restart synchronously
 	//assign HOLD = (((OPCODE == LOADS) | (OPCODE == STORES)) & !restart);
+	// whether to sign extend data from memory
+	// NOTE: THIS ALSO NEEDS TO GO IN THE CACHE TAG
+	// When storing always assume unsigned (no sign extension in the cached value)
+	// because masked writes fill the excess with 0s
+	assign SIGNED = !((FUNCT3 == LBU) | (FUNCT3 == LHU) | (OPCODE == STORES)); 
 	
 	// State machine for multi-cycle memory operations
 	always @(negedge CLK)
@@ -128,6 +144,13 @@ module Controller(FUNCT7,FUNCT3,OPCODE,RDY,RST,CLK,HOLD,SELA,SELB,WE,CWE,RREQ,CM
 	// Combinational logic for setting ALU and BranchLogic opcodes
 	always @(*)
 	begin
+		
+		// Load/store size setter
+		case (FUNCT3)
+			LB,LBU,SB: LIM = 0;
+			LH,LHU,SH: LIM = 1;
+			default: LIM = 3;
+		endcase
 	
 		// Branch logic opcode setter
 		if (OPCODE == BTYPE) begin

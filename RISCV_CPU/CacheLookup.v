@@ -8,10 +8,11 @@ module CacheLookup(ADDR,DIN,WE,RST,CLK,DOUT,FOUND);
 	// - read/write half at address
 	// - read/write word at address
 	// NOTE: need to use DIN rather than ADDR since it
-	// comes from the controller\
-	// Concatenate as follows: {addr}{offs,data}
+	// comes from the controller
+	// ALSO ADD SIGN INFORMATION!!
+	// Concatenate as follows: {addr}{sign,offs,data}
 	input [31:0] ADDR;
-	input [31+3:0] DIN;
+	input [31+3+1:0] DIN;
 	input WE, RST, CLK;
 	output reg [31:0] DOUT;
 	output reg FOUND;
@@ -25,7 +26,7 @@ module CacheLookup(ADDR,DIN,WE,RST,CLK,DOUT,FOUND);
 	// relatively rare it makes the system already built work
 	// with byte addressed memory spaces.
 	// NOTE: can't use address input. Need 
-	reg [31+32+3:0] lookup [31:0];
+	reg [31+32+3+1:0] lookup [31:0];
 	reg [31:0] found_row [31:0];
 	reg [31:0] above, m_one;
 	integer i;
@@ -59,9 +60,9 @@ module CacheLookup(ADDR,DIN,WE,RST,CLK,DOUT,FOUND);
 		// the elements above it match
 		for (i=0;i<32;i=i+1) begin
 			if (i == 0) begin
-				above[i] = ({ADDR,DIN[31+3:32]} == lookup[i][31+32+3:32]);
+				above[i] = ({ADDR,DIN[31+3+1:32]} == lookup[i][31+32+3+1:32]);
 			end else begin
-				above[i] = (above[i-1]) | ({ADDR,DIN[31+3:32]} == lookup[i][31+32+3:32]);
+				above[i] = (above[i-1]) | ({ADDR,DIN[31+3+1:32]} == lookup[i][31+32+3+1:32]);
 			end
 		end
 		// OR reduction checks if there are any 1's 

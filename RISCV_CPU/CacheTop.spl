@@ -1,10 +1,12 @@
 [Inputs]
 WE
 RREQ
+SIGNED
 RST
 CLK
 =ADDR[31:0]=
 =DIN[31:0]=
+=LIM[2:0]=
 [Outputs]
 RDY
 =DOUT[31:0]=

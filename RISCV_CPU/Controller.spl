@@ -12,7 +12,9 @@ SELB
 WE
 CWE
 RREQ
+SIGNED
 CMUXSEL
+=LIM[2:0]=
 =OP[3:0]=
 =OP_B[2:0]=
 [BiDir]

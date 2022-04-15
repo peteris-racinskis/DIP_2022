@@ -1,14 +1,15 @@
 `timescale 1ns / 1ps
 
-module CacheTop(ADDR,DIN,WE,RREQ,RST,CLK,DOUT,RDY);
+module CacheTop(ADDR,DIN,WE,RREQ,LIM,SIGNED,RST,CLK,DOUT,RDY);
 
 	input [31:0] ADDR, DIN;
-	input WE, CLK, RREQ, RST;
+	input [2:0] LIM; // 0 for b, 1 for h, 3 for w
+	input WE, CLK, RREQ, RST, SIGNED;
 	output [31:0] DOUT;
 	output RDY;
 	
 	wire [31:0] MADDR, CDOUT;
-	wire [31+3:0] CDIN;
+	wire [31+3+1:0] CDIN;
 	wire [7:0] MD;
 	wire FOUND, MWE, CWE, MRDY;
 	
@@ -36,7 +37,9 @@ module CacheTop(ADDR,DIN,WE,RREQ,RST,CLK,DOUT,RDY);
     .CDIN(CDIN), 
     .CWE(CWE), 
     .DOUT(DOUT), 
-    .RDY(RDY)
+    .RDY(RDY),
+	 .LIM(LIM),
+	 .SIGNED(SIGNED)
     );
 	
 	////////////////////////////

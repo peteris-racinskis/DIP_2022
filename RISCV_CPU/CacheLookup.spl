@@ -3,7 +3,7 @@ WE
 RST
 CLK
 =ADDR[31:0]=
-=DIN[34:0]=
+=DIN[35:0]=
 [Outputs]
 FOUND
 =DOUT[31:0]=

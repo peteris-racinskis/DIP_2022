@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CDIN,CWE,DOUT,RDY);
+module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CDIN,CWE,DOUT,RDY,LIM,SIGNED);
 	
 	parameter START = 1;
 	parameter WAIT = 3;
@@ -9,18 +9,26 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 	parameter CACHE_UPDATE = 6;
 	parameter WAIT_MWRITE = 7;
 	parameter MREAD_BUF = 8;
+	// Only part of the register value will get
+	// stored in memory byte by byte, so need
+	// to cover up the irrelevant bits for the 
+	// cache too.
+	parameter W_MASK_B = {{24{1'b0}},{8{1'b1}}};
+	parameter W_MASK_H = {{16{1'b0}},{16{1'b1}}};
+	parameter W_MASK_W = {32{1'b1}};
 	
 	input [31:0] ADDR, DIN, CDOUT;
+	input [2:0] LIM;
 	inout [7:0] MD;
 	output reg[31:0] MADDR, DOUT;
-	output reg[31+3:0] CDIN;
-	input WE, CLK, FOUND, RREQ, MRDY, RST;
+	output reg[31+3+1:0] CDIN;
+	input WE, CLK, FOUND, RREQ, MRDY, RST, SIGNED;
 	output reg MWE, CWE, RDY;
+	reg [31:0] mask; // for masking data in cache writes
 	reg [3:0] state;
 	reg [7:0] mdin [3:0];
 	reg [7:0] rbuf [3:0];
-	reg [2:0] incr, lim;
-	reg SIGNED;
+	reg [2:0] incr;
 	wire [31:0] flattened;
 	
 	// MAYBE SET THE MUX WITH CACHE CONTROLLER?
@@ -35,10 +43,13 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 	assign MD = MWE ? mdin[incr] : 8'bZ;
 	assign flattened = {rbuf[3],rbuf[2],rbuf[1],rbuf[0]};
 	
-	initial
+	always @(*)
 	begin
-		SIGNED = 1;
-		lim = 3;
+		case(LIM)
+			0: mask = W_MASK_B;
+			1: mask = W_MASK_H;
+			default: mask = W_MASK_W;
+		endcase
 	end
 	
 	always @(posedge CLK)
@@ -60,10 +71,12 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 					end
 				WAIT: begin
 						RDY <= 0;
+						// If I'm using the data channel to match for hits,
+						// also need to do this on reads!!!
+						CDIN <= {SIGNED,LIM,(DIN & mask)};
 						// start the write loop on WE
 						if (WE) begin
 							CWE <= 1;
-							CDIN <= {lim,DIN};
 							MWE <= 1;
 							MADDR <= ADDR;
 							{mdin[3],mdin[2],mdin[1],mdin[0]} <= DIN;
@@ -97,7 +110,7 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 						MADDR <= MADDR + 1;
 						incr <= incr + 1;
 						rbuf[incr] <= MD;
-						if (incr >= lim) begin						
+						if (incr >= LIM) begin						
 							state <= CACHE_UPDATE;
 						end else begin
 							state <= WAIT_MREAD;
@@ -107,17 +120,17 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 				// memory value to propagate. 
 				CACHE_UPDATE: begin
 						CWE <= 1;
-						case (lim)
-						// put lim in front to extend CDIN
-							1: {CDIN,DOUT} <= {lim,{2{{24{(SIGNED & flattened[7])}},flattened[7:0]}}};
-							2: {CDIN,DOUT} <= {lim,{2{{16{(SIGNED & flattened[15])}},flattened[15:0]}}};
-							default: {CDIN,DOUT} <= {lim,{2{flattened}}};
+						case (LIM)
+						// put SIGNED and LIM in front to extend CDIN
+							0: {CDIN,DOUT} <= {SIGNED,LIM,{2{{24{(SIGNED & flattened[7])}},flattened[7:0]}}};
+							1: {CDIN,DOUT} <= {SIGNED,LIM,{2{{16{(SIGNED & flattened[15])}},flattened[15:0]}}};
+							default: {CDIN,DOUT} <= {SIGNED,LIM,{2{flattened}}};
 						endcase
 						state <= START;
 					end
 				WAIT_MWRITE: begin
 						if (MRDY) begin
-							if (incr >= lim) begin
+							if (incr >= LIM) begin
 								state <= START;
 							end else begin
 								MADDR <= MADDR + 1;
