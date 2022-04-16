@@ -30,6 +30,7 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 	reg [7:0] rbuf [3:0];
 	reg [2:0] incr;
 	wire [31:0] flattened;
+	wire io_flag;
 	
 	// MAYBE SET THE MUX WITH CACHE CONTROLLER?
 	// HOLD IT FOR 1 CYCLE, THEN GO TO WAIT AND SET RDY
@@ -42,6 +43,7 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 	// data channels.
 	assign MD = MWE ? mdin[incr] : 8'bZ;
 	assign flattened = {rbuf[3],rbuf[2],rbuf[1],rbuf[0]};
+	assign io_flag = ADDR[31];
 	
 	always @(*)
 	begin
@@ -75,14 +77,14 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 						// also need to do this on reads!!!
 						CDIN <= {SIGNED,LIM,(DIN & mask)};
 						// start the write loop on WE
-						if (WE) begin
+						if (WE & !io_flag) begin
 							CWE <= 1;
 							MWE <= 1;
 							MADDR <= ADDR;
 							{mdin[3],mdin[2],mdin[1],mdin[0]} <= DIN;
 							state <= WAIT_MWRITE;
 						// start the read loop on READ REQUEST signal
-						end else if (RREQ) begin
+						end else if (RREQ & !io_flag) begin
 							{rbuf[3],rbuf[2],rbuf[1],rbuf[0]} <= {32{1'b0}};
 							state <= CHECK_CACHE;
 						end

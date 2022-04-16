@@ -1,0 +1,12 @@
+
+
+
+// Instantiate the module
+BaudGenerator instance_name (
+    .RST(RST), 
+    .CLK(CLK), 
+    .MID(MID), 
+    .END(END)
+    );
+
+

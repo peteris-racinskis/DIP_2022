@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/user/repos/DIP_2022/RISCV_CPU/TXBLockTest_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="TXBLockTest" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="7" />
+   <wvobject fp_name="/TXBLockTest/STATUS" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">STATUS[7:0]</obj_property>
+      <obj_property name="ObjectShortName">STATUS[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TXBLockTest/LINE_OUT" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">LINE_OUT</obj_property>
+      <obj_property name="ObjectShortName">LINE_OUT</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TXBLockTest/CONTROL" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">CONTROL[7:0]</obj_property>
+      <obj_property name="ObjectShortName">CONTROL[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TXBLockTest/DATA" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DATA[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TXBLockTest/CLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TXBLockTest/uut/incr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">incr[4:0]</obj_property>
+      <obj_property name="ObjectShortName">incr[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TXBLockTest/uut/state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">state[2:0]</obj_property>
+   </wvobject>
+</wave_config>

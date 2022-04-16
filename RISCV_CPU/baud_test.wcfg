@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/user/repos/DIP_2022/RISCV_CPU/BaudGeneratorTest_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="BaudGeneratorTest" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="4" />
+   <wvobject fp_name="/BaudGeneratorTest/MID" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">MID</obj_property>
+      <obj_property name="ObjectShortName">MID</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BaudGeneratorTest/END" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">END</obj_property>
+      <obj_property name="ObjectShortName">END</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BaudGeneratorTest/RST" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RST</obj_property>
+      <obj_property name="ObjectShortName">RST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/BaudGeneratorTest/CLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+</wave_config>
