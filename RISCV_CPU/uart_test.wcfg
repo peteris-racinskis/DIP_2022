@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/user/repos/DIP_2022/RISCV_CPU/UART_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="UART_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="16" />
+   <wvobject fp_name="/UART_tb/TX_DIN" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">TX_DIN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_DIN[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UART_tb/uut/line" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">line</obj_property>
+      <obj_property name="ObjectShortName">line</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UART_tb/RX_STATUS" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RX_STATUS[7:0]</obj_property>
+      <obj_property name="ObjectShortName">RX_STATUS[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UART_tb/TX_STATUS" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">TX_STATUS[7:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_STATUS[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UART_tb/RX_DATA" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RX_DATA[7:0]</obj_property>
+      <obj_property name="ObjectShortName">RX_DATA[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UART_tb/RX_CONTROL" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RX_CONTROL[7:0]</obj_property>
+      <obj_property name="ObjectShortName">RX_CONTROL[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UART_tb/TX_CONTROL" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">TX_CONTROL[7:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_CONTROL[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UART_tb/CLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UART_tb/uut/rcver/recv_buf/buffer[0]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[0,7:0]</obj_property>
+      <obj_property name="ObjectShortName">buffer[0,7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UART_tb/uut/rcver/state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">state[2:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UART_tb/uut/rcver/rcv" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rcv[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rcv[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UART_tb/uut/rcver/recv_buf/rp" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rp[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rp[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UART_tb/uut/rcver/recv_buf/wp" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">wp[7:0]</obj_property>
+      <obj_property name="ObjectShortName">wp[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UART_tb/uut/rcver/ff" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ff</obj_property>
+      <obj_property name="ObjectShortName">ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UART_tb/uut/rcver/fe" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fe</obj_property>
+      <obj_property name="ObjectShortName">fe</obj_property>
+   </wvobject>
+   <wvobject fp_name="/UART_tb/uut/rcver/fifo_we" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fifo_we</obj_property>
+      <obj_property name="ObjectShortName">fifo_we</obj_property>
+   </wvobject>
+</wave_config>

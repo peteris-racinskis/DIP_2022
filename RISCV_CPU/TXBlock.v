@@ -38,7 +38,7 @@ module TXBlock(CONTROL,DATA,CLK,STATUS,LINE_OUT);
 	output reg LINE_OUT;
 	
 	reg [7:0] local_data;
-	reg [4:0] incr;
+	reg [3:0] incr;
 	reg [2:0] state = START;
 	reg bg_rst;
 	wire bg_end;

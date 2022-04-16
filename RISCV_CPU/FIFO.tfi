@@ -1,0 +1,15 @@
+
+
+
+// Instantiate the module
+FIFO instance_name (
+    .DIN(DIN), 
+    .RREQ(RREQ), 
+    .WE(WE), 
+    .CLK(CLK), 
+    .DO(DO), 
+    .FF(FF), 
+    .FE(FE)
+    );
+
+

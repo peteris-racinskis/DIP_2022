@@ -54,7 +54,6 @@ module TXBLockTest;
 		// Initialize Inputs
 		CONTROL = 0;
 		DATA = 0;
-		CLK = 0;
 
 		// Wait 100 ns for global reset to finish
 		#100;

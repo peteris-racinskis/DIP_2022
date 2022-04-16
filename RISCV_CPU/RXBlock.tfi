@@ -1,0 +1,13 @@
+
+
+
+// Instantiate the module
+RXBlock instance_name (
+    .LINE_IN(LINE_IN), 
+    .CONTROL(CONTROL), 
+    .CLK(CLK), 
+    .STATUS(STATUS), 
+    .DATA(DATA)
+    );
+
+

@@ -1,0 +1,13 @@
+
+
+
+// Instantiate the module
+TXBlock instance_name (
+    .CONTROL(CONTROL), 
+    .DATA(DATA), 
+    .CLK(CLK), 
+    .STATUS(STATUS), 
+    .LINE_OUT(LINE_OUT)
+    );
+
+
