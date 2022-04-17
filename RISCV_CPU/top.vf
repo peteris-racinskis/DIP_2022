@@ -7,7 +7,7 @@
 // \   \   \/     Version : 14.7
 //  \   \         Application : sch2hdl
 //  /   /         Filename : top.vf
-// /___/   /\     Timestamp : 04/17/2022 13:53:15
+// /___/   /\     Timestamp : 04/17/2022 16:23:43
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -22,24 +22,31 @@
 
 module top(CLK, 
            RST, 
-           A, 
+           RS232_Uart_RX, 
+           SW, 
            ADDRESS_MISALIGNED, 
-           B, 
-           C, 
-           N, 
-           V, 
-           Z);
+           AN, 
+           LED, 
+           RS232_Uart_TX, 
+           SEG, 
+           GPIO);
 
     input CLK;
     input RST;
-   output [31:0] A;
+    input RS232_Uart_RX;
+    input [7:0] SW;
    output ADDRESS_MISALIGNED;
-   output [31:0] B;
-   output C;
-   output N;
-   output V;
-   output Z;
+   output [7:0] AN;
+   output [7:0] LED;
+   output RS232_Uart_TX;
+   output [7:0] SEG;
+    inout [15:0] GPIO;
    
+   wire [31:0] A;
+   wire [31:0] B;
+   wire C;
+   wire N;
+   wire V;
    wire [31:0] XLXN_9;
    wire [3:0] XLXN_12;
    wire [6:0] XLXN_25;
@@ -69,13 +76,8 @@ module top(CLK,
    wire [1:0] XLXN_326;
    wire XLXN_327;
    wire XLXN_328;
-   wire [31:0] A_DUMMY;
-   wire [31:0] B_DUMMY;
-   wire Z_DUMMY;
+   wire Z;
    
-   assign A[31:0] = A_DUMMY[31:0];
-   assign B[31:0] = B_DUMMY[31:0];
-   assign Z = Z_DUMMY;
    InstrDecode  XLXI_2 (.INSTR(XLXN_108[31:0]), 
                        .FUNCT3(XLXN_26[3:0]), 
                        .FUNCT7(XLXN_25[6:0]), 
@@ -91,8 +93,8 @@ module top(CLK,
                    .D(XLXN_263[31:0]), 
                    .RST(RST), 
                    .WE(XLXN_261), 
-                   .A(A_DUMMY[31:0]), 
-                   .B(B_DUMMY[31:0]));
+                   .A(A[31:0]), 
+                   .B(B[31:0]));
    ALU  XLXI_10 (.A(XLXN_9[31:0]), 
                 .B(XLXN_42[31:0]), 
                 .OP(XLXN_12[3:0]), 
@@ -100,12 +102,12 @@ module top(CLK,
                 .N(N), 
                 .R(XLXN_232[31:0]), 
                 .V(V), 
-                .Z(Z_DUMMY));
-   BusMux2  XLXI_17 (.IN1(B_DUMMY[31:0]), 
+                .Z(Z));
+   BusMux2  XLXI_17 (.IN1(B[31:0]), 
                     .IN2(XLXN_118[31:0]), 
                     .SEL(XLXN_64), 
                     .R(XLXN_42[31:0]));
-   BusMux2  XLXI_18 (.IN1(A_DUMMY[31:0]), 
+   BusMux2  XLXI_18 (.IN1(A[31:0]), 
                     .IN2(XLXN_245[31:0]), 
                     .SEL(XLXN_65), 
                     .R(XLXN_9[31:0]));
@@ -119,8 +121,8 @@ module top(CLK,
                         .OPCODE(XLXN_266[2:0]), 
                         .PC(XLXN_245[31:0]), 
                         .RST(RST), 
-                        .RS1(A_DUMMY[31:0]), 
-                        .Z(Z_DUMMY), 
+                        .RS1(A[31:0]), 
+                        .Z(Z), 
                         .INCR(XLXN_243[31:0]), 
                         .MSL(ADDRESS_MISALIGNED));
    InstrCache  XLXI_21 (.CLK(CLK), 
@@ -128,7 +130,7 @@ module top(CLK,
                        .INSTR(XLXN_108[31:0]));
    CacheTop  XLXI_22 (.ADDR(XLXN_232[31:0]), 
                      .CLK(CLK), 
-                     .DIN(B_DUMMY[31:0]), 
+                     .DIN(B[31:0]), 
                      .LIM(XLXN_272[2:0]), 
                      .RREQ(XLXN_321), 
                      .RST(RST), 
@@ -138,18 +140,19 @@ module top(CLK,
                      .RDY(XLXN_328));
    IoCtl  XLXI_54 (.ADDR(XLXN_232[31:0]), 
                   .CLK(CLK), 
-                  .DIN(B_DUMMY[31:0]), 
+                  .DIN(B[31:0]), 
                   .RREQ(XLXN_321), 
                   .RST(RST), 
-                  .RX(), 
-                  .SW(), 
+                  .RX(RS232_Uart_RX), 
+                  .SW(SW[7:0]), 
                   .WE(XLXN_320), 
                   .DO(XLXN_319[31:0]), 
+                  .LED(LED[7:0]), 
                   .RDY(XLXN_327), 
-                  .SSGD(), 
-                  .SSGS(), 
-                  .TX(), 
-                  .GPIO());
+                  .SSGD(SEG[7:0]), 
+                  .SSGS(AN[7:0]), 
+                  .TX(RS232_Uart_TX), 
+                  .GPIO(GPIO[15:0]));
    BusMux3  XLXI_56 (.IN1(XLXN_232[31:0]), 
                     .IN2(XLXN_233[31:0]), 
                     .IN3(XLXN_319[31:0]), 

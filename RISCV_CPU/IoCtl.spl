@@ -13,6 +13,7 @@ TX
 =DO[31:0]=
 =SSGD[7:0]=
 =SSGS[7:0]=
+=LED[7:0]=
 [BiDir]
 =GPIO[15:0]=
 [ATTRIBUTES]

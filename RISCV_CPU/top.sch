@@ -6,21 +6,26 @@
         <trait edittrait="all:0" />
     </attr>
     <netlist>
-        <signal name="A(31:0)" />
+        <signal name="A(31:0)">
+        </signal>
         <signal name="XLXN_9(31:0)" />
         <signal name="XLXN_12(3:0)" />
         <signal name="XLXN_25(6:0)" />
         <signal name="XLXN_26(3:0)" />
         <signal name="XLXN_27(6:0)" />
         <signal name="XLXN_42(31:0)" />
-        <signal name="V" />
-        <signal name="N" />
-        <signal name="C" />
+        <signal name="V">
+        </signal>
+        <signal name="N">
+        </signal>
+        <signal name="C">
+        </signal>
         <signal name="XLXN_65" />
         <signal name="XLXN_108(31:0)" />
         <signal name="RST" />
         <signal name="XLXN_64" />
-        <signal name="B(31:0)" />
+        <signal name="B(31:0)">
+        </signal>
         <signal name="XLXN_232(31:0)" />
         <signal name="XLXN_233(31:0)" />
         <signal name="XLXN_243(31:0)" />
@@ -32,7 +37,8 @@
         <signal name="XLXN_261" />
         <signal name="XLXN_263(31:0)" />
         <signal name="XLXN_118(31:0)" />
-        <signal name="Z" />
+        <signal name="Z">
+        </signal>
         <signal name="XLXN_266(2:0)" />
         <signal name="ADDRESS_MISALIGNED" />
         <signal name="XLXN_269" />
@@ -44,15 +50,24 @@
         <signal name="XLXN_326(1:0)" />
         <signal name="XLXN_327" />
         <signal name="XLXN_328" />
-        <port polarity="Output" name="A(31:0)" />
-        <port polarity="Output" name="V" />
-        <port polarity="Output" name="N" />
-        <port polarity="Output" name="C" />
+        <signal name="RS232_Uart_RX" />
+        <signal name="RS232_Uart_TX" />
+        <signal name="SW(7:0)" />
+        <signal name="LED(7:0)" />
+        <signal name="SEG(7:0)" />
+        <signal name="AN(7:0)" />
+        <signal name="XLXN_335" />
+        <signal name="GPIO(15:0)" />
         <port polarity="Input" name="RST" />
-        <port polarity="Output" name="B(31:0)" />
         <port polarity="Input" name="CLK" />
-        <port polarity="Output" name="Z" />
         <port polarity="Output" name="ADDRESS_MISALIGNED" />
+        <port polarity="Input" name="RS232_Uart_RX" />
+        <port polarity="Output" name="RS232_Uart_TX" />
+        <port polarity="Input" name="SW(7:0)" />
+        <port polarity="Output" name="LED(7:0)" />
+        <port polarity="Output" name="SEG(7:0)" />
+        <port polarity="Output" name="AN(7:0)" />
+        <port polarity="BiDirectional" name="GPIO(15:0)" />
         <blockdef name="InstrDecode">
             <timestamp>2022-3-21T14:26:15</timestamp>
             <rect width="336" x="64" y="-448" height="448" />
@@ -206,8 +221,9 @@
             <rect width="256" x="64" y="-320" height="512" />
         </blockdef>
         <blockdef name="IoCtl">
-            <timestamp>2022-4-17T7:47:41</timestamp>
-            <rect width="256" x="64" y="-512" height="512" />
+            <timestamp>2022-4-17T11:16:17</timestamp>
+            <rect width="64" x="320" y="20" height="24" />
+            <line x2="384" y1="32" y2="32" x1="320" />
             <line x2="0" y1="-480" y2="-480" x1="64" />
             <line x2="0" y1="-416" y2="-416" x1="64" />
             <line x2="0" y1="-352" y2="-352" x1="64" />
@@ -229,6 +245,7 @@
             <line x2="384" y1="-160" y2="-160" x1="320" />
             <rect width="64" x="320" y="-92" height="24" />
             <line x2="384" y1="-80" y2="-80" x1="320" />
+            <rect width="256" x="64" y="-512" height="576" />
         </blockdef>
         <blockdef name="BusMux3">
             <timestamp>2022-4-17T8:0:44</timestamp>
@@ -248,17 +265,18 @@
             <blockpin signalname="XLXN_320" name="WE" />
             <blockpin signalname="XLXN_321" name="RREQ" />
             <blockpin signalname="RST" name="RST" />
-            <blockpin name="RX" />
+            <blockpin signalname="RS232_Uart_RX" name="RX" />
             <blockpin signalname="CLK" name="CLK" />
             <blockpin signalname="B(31:0)" name="DIN(31:0)" />
             <blockpin signalname="XLXN_232(31:0)" name="ADDR(31:0)" />
-            <blockpin name="SW(7:0)" />
+            <blockpin signalname="SW(7:0)" name="SW(7:0)" />
+            <blockpin signalname="GPIO(15:0)" name="GPIO(15:0)" />
             <blockpin signalname="XLXN_327" name="RDY" />
-            <blockpin name="TX" />
+            <blockpin signalname="RS232_Uart_TX" name="TX" />
             <blockpin signalname="XLXN_319(31:0)" name="DO(31:0)" />
-            <blockpin name="SSGD(7:0)" />
-            <blockpin name="SSGS(7:0)" />
-            <blockpin name="GPIO(15:0)" />
+            <blockpin signalname="SEG(7:0)" name="SSGD(7:0)" />
+            <blockpin signalname="AN(7:0)" name="SSGS(7:0)" />
+            <blockpin signalname="LED(7:0)" name="LED(7:0)" />
         </block>
         <block symbolname="RegFile" name="XLXI_5">
             <blockpin signalname="XLXN_261" name="WE" />
@@ -320,12 +338,6 @@
             <blockpin signalname="XLXN_328" name="RDY" />
             <blockpin signalname="XLXN_233(31:0)" name="DOUT(31:0)" />
         </block>
-        <block symbolname="BusMux2" name="XLXI_17">
-            <blockpin signalname="XLXN_64" name="SEL" />
-            <blockpin signalname="B(31:0)" name="IN1(31:0)" />
-            <blockpin signalname="XLXN_118(31:0)" name="IN2(31:0)" />
-            <blockpin signalname="XLXN_42(31:0)" name="R(31:0)" />
-        </block>
         <block symbolname="BranchLogic" name="XLXI_20">
             <blockpin signalname="XLXN_269" name="HOLD" />
             <blockpin signalname="Z" name="Z" />
@@ -365,11 +377,18 @@
             <blockpin signalname="XLXN_266(2:0)" name="OP_B(2:0)" />
             <blockpin signalname="XLXN_327" name="RDY_IO" />
         </block>
+        <block symbolname="BusMux2" name="XLXI_17">
+            <blockpin signalname="XLXN_64" name="SEL" />
+            <blockpin signalname="B(31:0)" name="IN1(31:0)" />
+            <blockpin signalname="XLXN_118(31:0)" name="IN2(31:0)" />
+            <blockpin signalname="XLXN_42(31:0)" name="R(31:0)" />
+        </block>
     </netlist>
     <sheet sheetnum="1" width="5382" height="3801">
         <attr value="CM" name="LengthUnitName" />
         <attr value="4" name="GridsPerUnit" />
         <branch name="A(31:0)">
+            <attrtext style="alignment:SOFT-LEFT;fontsize:28;fontname:Arial" attrname="Name" x="2416" y="1488" type="branch" />
             <wire x2="992" y1="1232" y2="1440" x1="992" />
             <wire x2="2336" y1="1440" y2="1440" x1="992" />
             <wire x2="2336" y1="1440" y2="1488" x1="2336" />
@@ -414,12 +433,15 @@
         <instance x="3408" y="1984" name="XLXI_10" orien="R0">
         </instance>
         <branch name="V">
+            <attrtext style="alignment:SOFT-LEFT;fontsize:28;fontname:Arial" attrname="Name" x="3936" y="1696" type="branch" />
             <wire x2="3936" y1="1696" y2="1696" x1="3792" />
         </branch>
         <branch name="N">
+            <attrtext style="alignment:SOFT-LEFT;fontsize:28;fontname:Arial" attrname="Name" x="3936" y="1824" type="branch" />
             <wire x2="3936" y1="1824" y2="1824" x1="3792" />
         </branch>
         <branch name="C">
+            <attrtext style="alignment:SOFT-LEFT;fontsize:28;fontname:Arial" attrname="Name" x="3936" y="1888" type="branch" />
             <wire x2="3936" y1="1888" y2="1888" x1="3792" />
         </branch>
         <instance x="2656" y="1856" name="XLXI_18" orien="R0">
@@ -467,6 +489,7 @@
             <wire x2="3200" y1="2560" y2="2560" x1="3136" />
         </branch>
         <branch name="B(31:0)">
+            <attrtext style="alignment:SOFT-LEFT;fontsize:28;fontname:Arial" attrname="Name" x="2464" y="1936" type="branch" />
             <wire x2="2384" y1="1888" y2="1888" x1="2176" />
             <wire x2="3216" y1="1888" y2="1888" x1="2384" />
             <wire x2="3216" y1="1888" y2="2640" x1="3216" />
@@ -479,8 +502,6 @@
             <wire x2="2384" y1="1936" y2="2064" x1="2384" />
             <wire x2="2400" y1="2064" y2="2064" x1="2384" />
         </branch>
-        <instance x="2400" y="2224" name="XLXI_17" orien="R0">
-        </instance>
         <branch name="XLXN_232(31:0)">
             <wire x2="4000" y1="2016" y2="2016" x1="3792" />
             <wire x2="4000" y1="2016" y2="2576" x1="4000" />
@@ -578,6 +599,7 @@
             <wire x2="2400" y1="2160" y2="2160" x1="2080" />
         </branch>
         <branch name="Z">
+            <attrtext style="alignment:SOFT-LEFT;fontsize:28;fontname:Arial" attrname="Name" x="3936" y="1760" type="branch" />
             <wire x2="3808" y1="400" y2="400" x1="992" />
             <wire x2="3808" y1="400" y2="1760" x1="3808" />
             <wire x2="3936" y1="1760" y2="1760" x1="3808" />
@@ -616,13 +638,7 @@
         </branch>
         <instance x="4736" y="2112" name="XLXI_56" orien="R0">
         </instance>
-        <iomarker fontsize="28" x="3936" y="1696" name="V" orien="R0" />
-        <iomarker fontsize="28" x="3936" y="1760" name="Z" orien="R0" />
-        <iomarker fontsize="28" x="3936" y="1824" name="N" orien="R0" />
-        <iomarker fontsize="28" x="3936" y="1888" name="C" orien="R0" />
-        <iomarker fontsize="28" x="2416" y="1488" name="A(31:0)" orien="R0" />
         <iomarker fontsize="28" x="896" y="784" name="RST" orien="R180" />
-        <iomarker fontsize="28" x="2464" y="1936" name="B(31:0)" orien="R0" />
         <iomarker fontsize="28" x="288" y="2352" name="CLK" orien="R180" />
         <iomarker fontsize="28" x="1472" y="1168" name="ADDRESS_MISALIGNED" orien="R0" />
         <instance x="4240" y="3504" name="XLXI_54" orien="R0">
@@ -657,10 +673,10 @@
         </instance>
         <branch name="XLXN_327">
             <wire x2="2752" y1="3392" y2="3392" x1="2704" />
-            <wire x2="2704" y1="3392" y2="3568" x1="2704" />
-            <wire x2="4688" y1="3568" y2="3568" x1="2704" />
+            <wire x2="2704" y1="3392" y2="3712" x1="2704" />
+            <wire x2="4688" y1="3712" y2="3712" x1="2704" />
             <wire x2="4688" y1="3024" y2="3024" x1="4624" />
-            <wire x2="4688" y1="3024" y2="3568" x1="4688" />
+            <wire x2="4688" y1="3024" y2="3712" x1="4688" />
         </branch>
         <branch name="XLXN_328">
             <wire x2="2752" y1="3008" y2="3008" x1="2672" />
@@ -669,5 +685,42 @@
             <wire x2="4864" y1="2384" y2="2384" x1="4640" />
             <wire x2="4864" y1="2384" y2="3632" x1="4864" />
         </branch>
+        <branch name="RS232_Uart_RX">
+            <wire x2="3952" y1="3472" y2="3472" x1="3888" />
+            <wire x2="3952" y1="3216" y2="3472" x1="3952" />
+            <wire x2="4240" y1="3216" y2="3216" x1="3952" />
+        </branch>
+        <branch name="RS232_Uart_TX">
+            <wire x2="4640" y1="3104" y2="3104" x1="4624" />
+            <wire x2="4944" y1="3104" y2="3104" x1="4640" />
+        </branch>
+        <iomarker fontsize="28" x="4944" y="3104" name="RS232_Uart_TX" orien="R0" />
+        <iomarker fontsize="28" x="3888" y="3472" name="RS232_Uart_RX" orien="R180" />
+        <branch name="SW(7:0)">
+            <wire x2="4240" y1="3472" y2="3472" x1="4208" />
+        </branch>
+        <iomarker fontsize="28" x="4208" y="3472" name="SW(7:0)" orien="R180" />
+        <branch name="LED(7:0)">
+            <wire x2="4640" y1="3536" y2="3536" x1="4624" />
+            <wire x2="4928" y1="3536" y2="3536" x1="4640" />
+        </branch>
+        <iomarker fontsize="28" x="4928" y="3536" name="LED(7:0)" orien="R0" />
+        <branch name="SEG(7:0)">
+            <wire x2="4640" y1="3264" y2="3264" x1="4624" />
+            <wire x2="4944" y1="3264" y2="3264" x1="4640" />
+        </branch>
+        <iomarker fontsize="28" x="4944" y="3264" name="SEG(7:0)" orien="R0" />
+        <branch name="AN(7:0)">
+            <wire x2="4640" y1="3344" y2="3344" x1="4624" />
+            <wire x2="4944" y1="3344" y2="3344" x1="4640" />
+        </branch>
+        <iomarker fontsize="28" x="4944" y="3344" name="AN(7:0)" orien="R0" />
+        <branch name="GPIO(15:0)">
+            <wire x2="4640" y1="3424" y2="3424" x1="4624" />
+            <wire x2="4928" y1="3424" y2="3424" x1="4640" />
+        </branch>
+        <iomarker fontsize="28" x="4928" y="3424" name="GPIO(15:0)" orien="R0" />
+        <instance x="2400" y="2224" name="XLXI_17" orien="R0">
+        </instance>
     </sheet>
 </drawing>

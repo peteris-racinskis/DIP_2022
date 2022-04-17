@@ -28,7 +28,7 @@ module BaudGenerator(RST,CLK,OUT);
 	
 	input RST, CLK;
 	output OUT;
-	reg [15:0] cnt;
+	reg [31:0] cnt;
 	wire half, full;
 	
 	assign OUT = SPLIT ? half : full;

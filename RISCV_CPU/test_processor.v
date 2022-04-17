@@ -9,24 +9,12 @@ module top_top_sch_tb();
    reg RST;
 
 // Output
-   wire [31:0] B;
-   wire [31:0] A;
-   wire V;
-   wire N;
-   wire C;
-   wire Z;
 
 // Bidirs
 
 // Instantiate the UUT
    top UUT (
-		.B(B), 
-		.A(A), 
 		.CLK(CLK), 
-		.V(V), 
-		.N(N), 
-		.C(C), 
-		.Z(Z), 
 		.RST(RST)
    );
 	

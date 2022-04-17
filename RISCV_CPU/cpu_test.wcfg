@@ -10,29 +10,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="59" />
-   <wvobject fp_name="/top_top_sch_tb/B" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">B[31:0]</obj_property>
-      <obj_property name="ObjectShortName">B[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_top_sch_tb/A" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">A[31:0]</obj_property>
-      <obj_property name="ObjectShortName">A[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_top_sch_tb/V" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">V</obj_property>
-      <obj_property name="ObjectShortName">V</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_top_sch_tb/N" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">N</obj_property>
-      <obj_property name="ObjectShortName">N</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_top_sch_tb/C" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">C</obj_property>
-      <obj_property name="ObjectShortName">C</obj_property>
-   </wvobject>
+   <WVObjectSize size="62" />
    <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_10/R" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">R[31:0]</obj_property>
       <obj_property name="ObjectShortName">R[31:0]</obj_property>
@@ -52,10 +30,6 @@
       <obj_property name="ElementShortName">OP[3:0]</obj_property>
       <obj_property name="ObjectShortName">OP[3:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_top_sch_tb/Z" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">Z</obj_property>
-      <obj_property name="ObjectShortName">Z</obj_property>
    </wvobject>
    <wvobject fp_name="/top_top_sch_tb/CLK" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">CLK</obj_property>
@@ -132,174 +106,6 @@
       <obj_property name="ElementShortName">CDOUT[31:0]</obj_property>
       <obj_property name="ObjectShortName">CDOUT[31:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/above" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">above[31:0]</obj_property>
-      <obj_property name="ObjectShortName">above[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">lookup[31:0,67:0]</obj_property>
-      <obj_property name="ObjectShortName">lookup[31:0,67:0]</obj_property>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[31]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[31,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[31,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[30]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[30,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[30,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[29]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[29,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[29,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[28]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[28,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[28,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[27]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[27,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[27,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[26]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[26,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[26,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[25]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[25,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[25,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[24]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[24,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[24,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[23]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[23,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[23,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[22]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[22,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[22,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[21]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[21,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[21,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[20]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[20,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[20,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[19]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[19,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[19,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[18]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[18,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[18,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[17]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[17,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[17,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[16]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[16,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[16,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[15]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[15,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[15,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[14]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[14,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[14,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[13]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[13,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[13,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[12]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[12,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[12,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[11]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[11,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[11,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[10]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[10,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[10,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[9]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[9,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[9,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[8]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[8,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[8,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[7]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[7,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[7,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[6]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[6,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[6,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[5]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[5,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[5,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[4]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[4,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[4,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[3]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[3,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[3,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[2]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[2,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[2,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[1]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[1,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[1,67:0]</obj_property>
-         <obj_property name="Radix">HEXRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/cache/lookup[0]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[0,67:0]</obj_property>
-         <obj_property name="ObjectShortName">lookup[0,67:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
    </wvobject>
    <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/controller/mask" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">mask[31:0]</obj_property>
@@ -386,6 +192,27 @@
       <obj_property name="ElementShortName">RDY</obj_property>
       <obj_property name="ObjectShortName">RDY</obj_property>
    </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_57/RDY_IO" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RDY_IO</obj_property>
+      <obj_property name="ObjectShortName">RDY_IO</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/cnt_state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cnt_state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt_state[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/io_flag" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">io_flag</obj_property>
+      <obj_property name="ObjectShortName">io_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/RREQ" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RREQ</obj_property>
+      <obj_property name="ObjectShortName">RREQ</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/WE" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">WE</obj_property>
+      <obj_property name="ObjectShortName">WE</obj_property>
+   </wvobject>
    <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/controller/state" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">state[3:0]</obj_property>
       <obj_property name="ObjectShortName">state[3:0]</obj_property>
@@ -460,5 +287,31 @@
    <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/RDY" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">RDY</obj_property>
       <obj_property name="ObjectShortName">RDY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/ssg_incr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ssg_incr[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ssg_incr[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/SSGD" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">SSGD[7:0]</obj_property>
+      <obj_property name="ObjectShortName">SSGD[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/SSGS" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">SSGS[7:0]</obj_property>
+      <obj_property name="ObjectShortName">SSGS[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/ssg_state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ssg_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ssg_state[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/bg/cnt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cnt[31:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/bg/REF" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">REF[31:0]</obj_property>
+      <obj_property name="ObjectShortName">REF[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
 </wave_config>
