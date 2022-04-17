@@ -47,6 +47,7 @@ module CacheTop(ADDR,DIN,WE,RREQ,LIM,SIGNED,RST,CLK,DOUT,RDY);
 	///   32+32 wide shift   ///
 	///  		register.       ///
 	////////////////////////////
+	/*
 	CacheLookup cache (
     .ADDR(ADDR), 
     .DIN(CDIN), 
@@ -56,7 +57,10 @@ module CacheTop(ADDR,DIN,WE,RREQ,LIM,SIGNED,RST,CLK,DOUT,RDY);
     .DOUT(CDOUT), 
     .FOUND(FOUND)
     );
-	 
+	*/
+	assign CDOUT = 0;
+	assign FOUND = 0;
+	
 	////////////////////////////
 	///  BRAM wrapper set up ///
 	///   to behave like an  ///

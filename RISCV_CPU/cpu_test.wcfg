@@ -424,22 +424,22 @@
    <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[4]" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">[4,31:0]</obj_property>
       <obj_property name="ObjectShortName">memory[4,31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[3]" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">[3,31:0]</obj_property>
       <obj_property name="ObjectShortName">memory[3,31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[2]" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">[2,31:0]</obj_property>
       <obj_property name="ObjectShortName">memory[2,31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[1]" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">[1,31:0]</obj_property>
       <obj_property name="ObjectShortName">memory[1,31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_56/R" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">R[31:0]</obj_property>
