@@ -1,0 +1,20 @@
+[Inputs]
+WE
+RREQ
+RST
+RX
+CLK
+=DIN[31:0]=
+=ADDR[31:0]=
+=SW[7:0]=
+[Outputs]
+RDY
+TX
+=DO[31:0]=
+=SSGD[7:0]=
+=SSGS[7:0]=
+[BiDir]
+=GPIO[15:0]=
+[ATTRIBUTES]
+VeriModel IoCtl
+

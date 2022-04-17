@@ -1,5 +1,6 @@
 [Inputs]
 RDY
+RDY_IO
 RST
 CLK
 =FUNCT7[6:0]=
@@ -13,8 +14,8 @@ WE
 CWE
 RREQ
 SIGNED
-CMUXSEL
 =LIM[2:0]=
+=CMUXSEL[1:0]=
 =OP[3:0]=
 =OP_B[2:0]=
 [BiDir]

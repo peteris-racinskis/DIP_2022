@@ -1,0 +1,11 @@
+[Inputs]
+=IN1[31:0]=
+=IN2[31:0]=
+=IN3[31:0]=
+=SEL[1:0]=
+[Outputs]
+=R[31:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel BusMux3
+

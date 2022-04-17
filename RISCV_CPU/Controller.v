@@ -1,13 +1,14 @@
 `timescale 1ns / 1ps
 
-module Controller(FUNCT7,FUNCT3,OPCODE,RDY,RST,CLK,HOLD,SELA,SELB,WE,CWE,RREQ,SIGNED,LIM,CMUXSEL,OP,OP_B);
+module Controller(FUNCT7,FUNCT3,OPCODE,RDY,RDY_IO,RST,CLK,HOLD,SELA,SELB,WE,CWE,RREQ,SIGNED,LIM,CMUXSEL,OP,OP_B);
 	 
 	input [6:0] FUNCT7, OPCODE;
 	input [3:0] FUNCT3;
-	input RDY, RST, CLK;
+	input RDY, RDY_IO, RST, CLK;
 	output reg [2:0] LIM;
+	output reg [1:0] CMUXSEL;
 	output SELA, SELB, WE, SIGNED;
-	output reg HOLD, RREQ, CWE, CMUXSEL;
+	output reg HOLD, RREQ, CWE;
 	//output HOLD,SELA,SELB,WE;
 	//output reg RREQ, CWE, CMUXSEL;
 	output reg [3:0] OP;
@@ -79,6 +80,10 @@ module Controller(FUNCT7,FUNCT3,OPCODE,RDY,RST,CLK,HOLD,SELA,SELB,WE,CWE,RREQ,SI
 	parameter R_UNSET = 2;
 	parameter W_UNSET = 3;
 	parameter WAIT = 4;
+	// CMUXSEL values
+	parameter CMUX_ALU = 0;
+	parameter CMUX_CACHE = 1;
+	parameter CMUX_IOCTL = 2;
 
 	// SELA == 1 => A register, else PC
 	assign SELA = !((OPCODE == LUI) | (OPCODE == AUIPC) | (OPCODE == JALR) | (OPCODE == JAL));
@@ -100,6 +105,7 @@ module Controller(FUNCT7,FUNCT3,OPCODE,RDY,RST,CLK,HOLD,SELA,SELB,WE,CWE,RREQ,SI
 	begin
 		if (RST) begin
 			state <= START;
+			CMUXSEL <= CMUX_ALU;
 		end else begin
 			case (state)
 				START: begin
@@ -107,11 +113,11 @@ module Controller(FUNCT7,FUNCT3,OPCODE,RDY,RST,CLK,HOLD,SELA,SELB,WE,CWE,RREQ,SI
 						//restart <= 0;
 						RREQ <= 0;
 						CWE <= 0;
-						CMUXSEL <= 1;
+						CMUXSEL <= CMUX_ALU;
 						if (OPCODE == LOADS) begin
 							HOLD <= 1;
 							RREQ <= 1;
-							CMUXSEL <= 0;
+							//CMUXSEL <= 0;
 							state <= R_UNSET;
 						end else if (OPCODE == STORES) begin
 							HOLD <= 1;
@@ -130,8 +136,9 @@ module Controller(FUNCT7,FUNCT3,OPCODE,RDY,RST,CLK,HOLD,SELA,SELB,WE,CWE,RREQ,SI
 				// Is this gonna work for loading memory into regfile?
 				// Or do I need more steps?
 				WAIT: begin
-						if (RDY) begin
+						if (RDY | RDY_IO) begin
 							//restart <= 1;
+							CMUXSEL <= RDY ? CMUX_CACHE : CMUX_IOCTL;
 							HOLD <= 0;
 							state <= START;
 						end

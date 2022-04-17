@@ -78,7 +78,7 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 						CDIN <= {SIGNED,LIM,(DIN & mask)};
 						// start the write loop on WE
 						if (WE & !io_flag) begin
-							CWE <= 1;
+							//CWE <= 1; // Don't cache on writes now. Too much redesign required.
 							MWE <= 1;
 							MADDR <= ADDR;
 							{mdin[3],mdin[2],mdin[1],mdin[0]} <= DIN;
@@ -121,7 +121,7 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 				// Need one cycle delay for the 
 				// memory value to propagate. 
 				CACHE_UPDATE: begin
-						CWE <= 1;
+						//CWE <= 1; don't cache on reads either. Just ignore the cache for now.
 						case (LIM)
 						// put SIGNED and LIM in front to extend CDIN
 							0: {CDIN,DOUT} <= {SIGNED,LIM,{2{{24{(SIGNED & flattened[7])}},flattened[7:0]}}};
