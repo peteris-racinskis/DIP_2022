@@ -29,12 +29,12 @@ module IoCtl(DIN,ADDR,WE,RREQ,RST,RX,SW,GPIO,CLK,DO,RDY,TX,SSGD,SSGS,LED);
 	//   |			|
 	//   |			|
 	//	   ----D----
-	parameter SSG_ONE = 8'b00000110; // BC
-	parameter SSG_TWO = 8'b01011011; // ABGED
-	parameter SSG_THREE = 8'b01001111; // ABCDG
-	parameter SSG_FOUR = 8'b01100110; // BCFG
-	parameter SSG_FIVE = 8'b1101101;//ACDFG
-	parameter SSG_SIX = 8'b1111101; //ACDEFG
+	parameter SSG_ONE = 8'b00000110; // BC, 6
+	parameter SSG_TWO = 8'b01011011; // ABGED, 91
+	parameter SSG_THREE = 8'b01001111; // ABCDG, 39
+	parameter SSG_FOUR = 8'b01100110; // BCFG, 102
+	parameter SSG_FIVE = 8'b1101101;//ACDFG, 109
+	parameter SSG_SIX = 8'b1111101; //ACDEFG, 125
 	
 	
 	input [31:0] DIN, ADDR;
@@ -147,6 +147,19 @@ module IoCtl(DIN,ADDR,WE,RREQ,RST,RX,SW,GPIO,CLK,DO,RDY,TX,SSGD,SSGS,LED);
 	begin
 		if (RST) begin
 			cnt_state <= START;
+			ld_wdata <= -1;
+			gpio_mode <= -1;
+			gpio_wdata <= -1;
+			ssg_data[0] <= SSG_ONE;
+			ssg_data[1] <= SSG_TWO;
+			ssg_data[2] <= SSG_THREE;
+			ssg_data[3] <= SSG_FOUR;
+			ssg_data[4] <= SSG_FIVE;
+			ssg_data[5] <= SSG_SIX;
+			ssg_enable <= 0;
+			rx_control <= 0;
+			tx_control <= 0;
+			tx_din <= 0;
 		end else begin
 			case (cnt_state)
 				START: begin
@@ -205,6 +218,7 @@ module IoCtl(DIN,ADDR,WE,RREQ,RST,RX,SW,GPIO,CLK,DO,RDY,TX,SSGD,SSGS,LED);
 	end
 	
 	// Initialization
+	/*
 	initial
 	begin
 		ld_wdata <= -1;
@@ -221,5 +235,5 @@ module IoCtl(DIN,ADDR,WE,RREQ,RST,RX,SW,GPIO,CLK,DO,RDY,TX,SSGD,SSGS,LED);
 		tx_control = 0;
 		tx_din = 0;
 	end
-
+	*/
 endmodule

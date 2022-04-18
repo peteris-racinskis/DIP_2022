@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/user/repos/DIP_2022/RISCV_CPU/top_top_sch_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="top_top_sch_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="34" />
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_21/INSTR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INSTR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">INSTR[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_20/PC" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_20/INCR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">INCR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">INCR[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_21/PC" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/ADDRESS_MISALIGNED" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ADDRESS_MISALIGNED</obj_property>
+      <obj_property name="ObjectShortName">ADDRESS_MISALIGNED</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_57/CMUXSEL" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">CMUXSEL[1:0]</obj_property>
+      <obj_property name="ObjectShortName">CMUXSEL[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/controller/MADDR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">MADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MADDR[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_2/IMM" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">IMM[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IMM[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_20/HOLD" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">HOLD</obj_property>
+      <obj_property name="ObjectShortName">HOLD</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/DCLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">DCLK</obj_property>
+      <obj_property name="ObjectShortName">DCLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/RDY" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RDY</obj_property>
+      <obj_property name="ObjectShortName">RDY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_57/RDY_IO" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RDY_IO</obj_property>
+      <obj_property name="ObjectShortName">RDY_IO</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/controller/state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">state[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/cnt_state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cnt_state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt_state[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/io_flag" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">io_flag</obj_property>
+      <obj_property name="ObjectShortName">io_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/RREQ" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RREQ</obj_property>
+      <obj_property name="ObjectShortName">RREQ</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/WE" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">WE</obj_property>
+      <obj_property name="ObjectShortName">WE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/controller/state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">state[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[15]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[15,31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[15,31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[14]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[14,31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[14,31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[13]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[13,31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[13,31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[12]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[12,31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[12,31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[11]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[11,31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[11,31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[10]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[10,31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[10,31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[9]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[9,31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[9,31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[8]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[8,31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[8,31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[7]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[7,31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[7,31:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[6]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[6,31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[6,31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[5]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[5,31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[5,31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[4]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[4,31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[4,31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[3]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[3,31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[3,31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[2]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[2,31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[2,31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[1]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[1,31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[1,31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_22/controller/flattened" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">flattened[31:0]</obj_property>
+      <obj_property name="ObjectShortName">flattened[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+</wave_config>

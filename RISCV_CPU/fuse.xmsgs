@@ -8,7 +8,10 @@
 <msg type="warning" file="HDLCompiler" num="248" delta="unknown" >"/home/user/repos/DIP_2022/RISCV_CPU/IoCtl.v" Line 71: Block identifier is required on this block
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"/home/user/repos/DIP_2022/RISCV_CPU/test_processor.v" Line 16: Port <arg fmt="%s" index="1">RS232_Uart_RX</arg> is not connected to this instance
+<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"/home/user/repos/DIP_2022/RISCV_CPU/test_processor.v" Line 22: Target &lt;<arg fmt="%s" index="1">LED</arg>&gt; of concurrent assignment or output port connection should be a net type.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"/home/user/repos/DIP_2022/RISCV_CPU/test_processor.v" Line 18: Port <arg fmt="%s" index="1">RS232_Uart_RX</arg> is not connected to this instance
 </msg>
 
 </messages>

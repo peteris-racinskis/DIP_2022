@@ -7,15 +7,19 @@ module top_top_sch_tb();
 // Inputs
    reg CLK;
    reg RST;
+	reg [7:0] SW;
 
 // Output
+	reg [7:0] LED;
 
 // Bidirs
 
 // Instantiate the UUT
    top UUT (
 		.CLK(CLK), 
-		.RST(RST)
+		.RST(RST),
+		.SW(SW),
+		.LED(LED)
    );
 	
 	always
@@ -28,8 +32,9 @@ module top_top_sch_tb();
 	
 	initial
 	begin
+		SW = 8'b01010101;
 		RST = 1;
-		#200;
+		#2000;
 		RST = 0;
 	end
 endmodule

@@ -6,39 +6,34 @@
         <trait edittrait="all:0" />
     </attr>
     <netlist>
-        <signal name="A(31:0)">
-        </signal>
+        <signal name="A(31:0)" />
         <signal name="XLXN_9(31:0)" />
         <signal name="XLXN_12(3:0)" />
         <signal name="XLXN_25(6:0)" />
         <signal name="XLXN_26(3:0)" />
         <signal name="XLXN_27(6:0)" />
         <signal name="XLXN_42(31:0)" />
-        <signal name="V">
-        </signal>
-        <signal name="N">
-        </signal>
-        <signal name="C">
-        </signal>
+        <signal name="V" />
+        <signal name="N" />
+        <signal name="C" />
         <signal name="XLXN_65" />
         <signal name="XLXN_108(31:0)" />
         <signal name="RST" />
         <signal name="XLXN_64" />
-        <signal name="B(31:0)">
-        </signal>
+        <signal name="B(31:0)" />
         <signal name="XLXN_232(31:0)" />
         <signal name="XLXN_233(31:0)" />
         <signal name="XLXN_243(31:0)" />
         <signal name="XLXN_245(31:0)" />
-        <signal name="CLK" />
+        <signal name="DCLK">
+        </signal>
         <signal name="XLXN_257(4:0)" />
         <signal name="XLXN_258(4:0)" />
         <signal name="XLXN_259(4:0)" />
         <signal name="XLXN_261" />
         <signal name="XLXN_263(31:0)" />
         <signal name="XLXN_118(31:0)" />
-        <signal name="Z">
-        </signal>
+        <signal name="Z" />
         <signal name="XLXN_266(2:0)" />
         <signal name="ADDRESS_MISALIGNED" />
         <signal name="XLXN_269" />
@@ -56,10 +51,10 @@
         <signal name="LED(7:0)" />
         <signal name="SEG(7:0)" />
         <signal name="AN(7:0)" />
-        <signal name="XLXN_335" />
         <signal name="GPIO(15:0)" />
+        <signal name="CLK" />
+        <signal name="XLXN_337" />
         <port polarity="Input" name="RST" />
-        <port polarity="Input" name="CLK" />
         <port polarity="Output" name="ADDRESS_MISALIGNED" />
         <port polarity="Input" name="RS232_Uart_RX" />
         <port polarity="Output" name="RS232_Uart_TX" />
@@ -68,6 +63,7 @@
         <port polarity="Output" name="SEG(7:0)" />
         <port polarity="Output" name="AN(7:0)" />
         <port polarity="BiDirectional" name="GPIO(15:0)" />
+        <port polarity="Input" name="CLK" />
         <blockdef name="InstrDecode">
             <timestamp>2022-3-21T14:26:15</timestamp>
             <rect width="336" x="64" y="-448" height="448" />
@@ -261,12 +257,18 @@
             <rect width="64" x="320" y="-236" height="24" />
             <line x2="384" y1="-224" y2="-224" x1="320" />
         </blockdef>
+        <blockdef name="ClkDiv">
+            <timestamp>2022-4-18T7:1:8</timestamp>
+            <rect width="256" x="64" y="-128" height="128" />
+            <line x2="0" y1="-96" y2="-96" x1="64" />
+            <line x2="384" y1="-96" y2="-96" x1="320" />
+        </blockdef>
         <block symbolname="IoCtl" name="XLXI_54">
             <blockpin signalname="XLXN_320" name="WE" />
             <blockpin signalname="XLXN_321" name="RREQ" />
             <blockpin signalname="RST" name="RST" />
             <blockpin signalname="RS232_Uart_RX" name="RX" />
-            <blockpin signalname="CLK" name="CLK" />
+            <blockpin signalname="DCLK" name="CLK" />
             <blockpin signalname="B(31:0)" name="DIN(31:0)" />
             <blockpin signalname="XLXN_232(31:0)" name="ADDR(31:0)" />
             <blockpin signalname="SW(7:0)" name="SW(7:0)" />
@@ -280,7 +282,7 @@
         </block>
         <block symbolname="RegFile" name="XLXI_5">
             <blockpin signalname="XLXN_261" name="WE" />
-            <blockpin signalname="CLK" name="CLK" />
+            <blockpin signalname="DCLK" name="CLK" />
             <blockpin signalname="RST" name="RST" />
             <blockpin signalname="XLXN_257(4:0)" name="AW(4:0)" />
             <blockpin signalname="XLXN_259(4:0)" name="AR(4:0)" />
@@ -306,7 +308,7 @@
             <blockpin signalname="XLXN_9(31:0)" name="R(31:0)" />
         </block>
         <block symbolname="PC" name="XLXI_19">
-            <blockpin signalname="CLK" name="CLK" />
+            <blockpin signalname="DCLK" name="CLK" />
             <blockpin signalname="RST" name="RST" />
             <blockpin signalname="XLXN_243(31:0)" name="INCR(31:0)" />
             <blockpin signalname="XLXN_245(31:0)" name="PC(31:0)" />
@@ -322,7 +324,7 @@
             <blockpin signalname="XLXN_257(4:0)" name="RD(4:0)" />
         </block>
         <block symbolname="InstrCache" name="XLXI_21">
-            <blockpin signalname="CLK" name="CLK" />
+            <blockpin signalname="DCLK" name="CLK" />
             <blockpin signalname="XLXN_243(31:0)" name="PC(31:0)" />
             <blockpin signalname="XLXN_108(31:0)" name="INSTR(31:0)" />
         </block>
@@ -331,7 +333,7 @@
             <blockpin signalname="XLXN_321" name="RREQ" />
             <blockpin signalname="XLXN_271" name="SIGNED" />
             <blockpin signalname="RST" name="RST" />
-            <blockpin signalname="CLK" name="CLK" />
+            <blockpin signalname="DCLK" name="CLK" />
             <blockpin signalname="XLXN_232(31:0)" name="ADDR(31:0)" />
             <blockpin signalname="B(31:0)" name="DIN(31:0)" />
             <blockpin signalname="XLXN_272(2:0)" name="LIM(2:0)" />
@@ -360,7 +362,7 @@
         <block symbolname="Controller" name="XLXI_57">
             <blockpin signalname="XLXN_328" name="RDY" />
             <blockpin signalname="RST" name="RST" />
-            <blockpin signalname="CLK" name="CLK" />
+            <blockpin signalname="DCLK" name="CLK" />
             <blockpin signalname="XLXN_25(6:0)" name="FUNCT7(6:0)" />
             <blockpin signalname="XLXN_26(3:0)" name="FUNCT3(3:0)" />
             <blockpin signalname="XLXN_27(6:0)" name="OPCODE(6:0)" />
@@ -382,6 +384,10 @@
             <blockpin signalname="B(31:0)" name="IN1(31:0)" />
             <blockpin signalname="XLXN_118(31:0)" name="IN2(31:0)" />
             <blockpin signalname="XLXN_42(31:0)" name="R(31:0)" />
+        </block>
+        <block symbolname="ClkDiv" name="XLXI_58">
+            <blockpin signalname="CLK" name="CLK" />
+            <blockpin signalname="DCLK" name="DIV" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="5382" height="3801">
@@ -536,19 +542,23 @@
             <wire x2="2240" y1="1360" y2="1792" x1="2240" />
             <wire x2="2656" y1="1792" y2="1792" x1="2240" />
         </branch>
-        <branch name="CLK">
+        <branch name="DCLK">
+            <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="288" y="2352" type="branch" />
             <wire x2="352" y1="2352" y2="2352" x1="288" />
             <wire x2="352" y1="2352" y2="3136" x1="352" />
-            <wire x2="1952" y1="3136" y2="3136" x1="352" />
+            <wire x2="656" y1="3136" y2="3136" x1="352" />
+            <wire x2="1952" y1="3136" y2="3136" x1="656" />
             <wire x2="2752" y1="3136" y2="3136" x1="1952" />
             <wire x2="1952" y1="3136" y2="3536" x1="1952" />
             <wire x2="3184" y1="3536" y2="3536" x1="1952" />
+            <wire x2="656" y1="3136" y2="3312" x1="656" />
             <wire x2="368" y1="848" y2="848" x1="352" />
             <wire x2="352" y1="848" y2="1632" x1="352" />
             <wire x2="1792" y1="1632" y2="1632" x1="352" />
             <wire x2="352" y1="1632" y2="2224" x1="352" />
             <wire x2="432" y1="2224" y2="2224" x1="352" />
             <wire x2="352" y1="2224" y2="2352" x1="352" />
+            <wire x2="656" y1="3312" y2="3312" x1="640" />
             <wire x2="4080" y1="2512" y2="2512" x1="3184" />
             <wire x2="4256" y1="2512" y2="2512" x1="4080" />
             <wire x2="4080" y1="2512" y2="3280" x1="4080" />
@@ -639,7 +649,6 @@
         <instance x="4736" y="2112" name="XLXI_56" orien="R0">
         </instance>
         <iomarker fontsize="28" x="896" y="784" name="RST" orien="R180" />
-        <iomarker fontsize="28" x="288" y="2352" name="CLK" orien="R180" />
         <iomarker fontsize="28" x="1472" y="1168" name="ADDRESS_MISALIGNED" orien="R0" />
         <instance x="4240" y="3504" name="XLXI_54" orien="R0">
         </instance>
@@ -721,6 +730,14 @@
         </branch>
         <iomarker fontsize="28" x="4928" y="3424" name="GPIO(15:0)" orien="R0" />
         <instance x="2400" y="2224" name="XLXI_17" orien="R0">
+        </instance>
+        <iomarker fontsize="28" x="224" y="3312" name="CLK" orien="R180" />
+        <text style="fontsize:48;fontname:Arial" x="608" y="3356">REMEMBER TO MUL BAUD BY 10!!!</text>
+        <branch name="CLK">
+            <wire x2="240" y1="3312" y2="3312" x1="224" />
+            <wire x2="256" y1="3312" y2="3312" x1="240" />
+        </branch>
+        <instance x="256" y="3408" name="XLXI_58" orien="R0">
         </instance>
     </sheet>
 </drawing>

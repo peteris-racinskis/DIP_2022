@@ -76,11 +76,11 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 						// If I'm using the data channel to match for hits,
 						// also need to do this on reads!!!
 						CDIN <= {SIGNED,LIM,(DIN & mask)};
+						MADDR <= ADDR;
 						// start the write loop on WE
 						if (WE & !io_flag) begin
 							//CWE <= 1; // Don't cache on writes now. Too much redesign required.
 							MWE <= 1;
-							MADDR <= ADDR;
 							{mdin[3],mdin[2],mdin[1],mdin[0]} <= DIN;
 							state <= WAIT_MWRITE;
 						// start the read loop on READ REQUEST signal
@@ -96,7 +96,6 @@ module CacheController(WE,ADDR,DIN,FOUND,MD,RREQ,RST,CLK,MADDR,MWE,MRDY,CDOUT,CD
 							state <= START;
 						// Cache miss
 						end else begin
-							MADDR <= ADDR;
 							state <= WAIT_MREAD;
 						end
 					end

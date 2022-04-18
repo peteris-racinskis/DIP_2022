@@ -7,7 +7,7 @@
 // \   \   \/     Version : 14.7
 //  \   \         Application : sch2hdl
 //  /   /         Filename : top.vf
-// /___/   /\     Timestamp : 04/17/2022 16:23:43
+// /___/   /\     Timestamp : 04/18/2022 10:01:57
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -45,6 +45,7 @@ module top(CLK,
    wire [31:0] A;
    wire [31:0] B;
    wire C;
+   wire DCLK;
    wire N;
    wire V;
    wire [31:0] XLXN_9;
@@ -89,7 +90,7 @@ module top(CLK,
    RegFile  XLXI_5 (.AR(XLXN_259[4:0]), 
                    .AW(XLXN_257[4:0]), 
                    .BR(XLXN_258[4:0]), 
-                   .CLK(CLK), 
+                   .CLK(DCLK), 
                    .D(XLXN_263[31:0]), 
                    .RST(RST), 
                    .WE(XLXN_261), 
@@ -111,7 +112,7 @@ module top(CLK,
                     .IN2(XLXN_245[31:0]), 
                     .SEL(XLXN_65), 
                     .R(XLXN_9[31:0]));
-   PC  XLXI_19 (.CLK(CLK), 
+   PC  XLXI_19 (.CLK(DCLK), 
                .INCR(XLXN_243[31:0]), 
                .RST(RST), 
                .PC(XLXN_245[31:0]));
@@ -125,11 +126,11 @@ module top(CLK,
                         .Z(Z), 
                         .INCR(XLXN_243[31:0]), 
                         .MSL(ADDRESS_MISALIGNED));
-   InstrCache  XLXI_21 (.CLK(CLK), 
+   InstrCache  XLXI_21 (.CLK(DCLK), 
                        .PC(XLXN_243[31:0]), 
                        .INSTR(XLXN_108[31:0]));
    CacheTop  XLXI_22 (.ADDR(XLXN_232[31:0]), 
-                     .CLK(CLK), 
+                     .CLK(DCLK), 
                      .DIN(B[31:0]), 
                      .LIM(XLXN_272[2:0]), 
                      .RREQ(XLXN_321), 
@@ -139,7 +140,7 @@ module top(CLK,
                      .DOUT(XLXN_233[31:0]), 
                      .RDY(XLXN_328));
    IoCtl  XLXI_54 (.ADDR(XLXN_232[31:0]), 
-                  .CLK(CLK), 
+                  .CLK(DCLK), 
                   .DIN(B[31:0]), 
                   .RREQ(XLXN_321), 
                   .RST(RST), 
@@ -158,7 +159,7 @@ module top(CLK,
                     .IN3(XLXN_319[31:0]), 
                     .SEL(XLXN_326[1:0]), 
                     .R(XLXN_263[31:0]));
-   Controller  XLXI_57 (.CLK(CLK), 
+   Controller  XLXI_57 (.CLK(DCLK), 
                        .FUNCT3(XLXN_26[3:0]), 
                        .FUNCT7(XLXN_25[6:0]), 
                        .OPCODE(XLXN_27[6:0]), 
@@ -176,4 +177,6 @@ module top(CLK,
                        .SELB(XLXN_64), 
                        .SIGNED(XLXN_271), 
                        .WE(XLXN_261));
+   ClkDiv  XLXI_58 (.CLK(CLK), 
+                   .DIV(DCLK));
 endmodule
