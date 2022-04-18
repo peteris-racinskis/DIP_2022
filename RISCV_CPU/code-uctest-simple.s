@@ -77,17 +77,6 @@ main:
 # Update the LEDs to match the switches
     lb x1, 0(x2)        # load SW
     sb x1, 1(x2)        # store into LD
-    /*
-    lb x11, 9(zero)
-    lb x12, 10(zero)
-    lb x13, 11(zero)
-    lb x14, 12(zero)
-    li x1, 9
-    lb x2, 1(x1)
-    lb x3, 2(x1)
-    lb x4, 3(x1)
-    */
-skip_incr_and_tx:
     # Display rx data at the current location
     andi x7, x1, 0x0f       # put SW[3:0] into x7
     #addi x7, x7, digit_base 
@@ -95,16 +84,13 @@ skip_incr_and_tx:
     srli x8, x8, 4          # x8 >> 4 
     lb x7, digit_base(x7)   # load mem[x7+digit_base] into x7
     lb x8, digit_base(x8)   # load mem[x8+digit_base] into x8
-    
-    
     addi x9, x2, io_digit_base
     sb x7, 0(x9)# x7 -> mem[io_base  + io_digit_base + lsb_index]
     sb x8, 1(x9)# x8 -> mem[io_base + io_digit_base + msb_index]
-
+    # wait for 100 cycles (~0.01ms)
     li x1, 0
-    li x3, 100            # wait for 10k cycles (~1ms)
+    li x3, 100            
 wait_cnt:
     addi x1, x1, 1
     blt x1, x3, wait_cnt
     jal zero, main          # repeat the entire loop again
-    
