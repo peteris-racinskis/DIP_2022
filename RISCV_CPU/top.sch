@@ -25,8 +25,7 @@
         <signal name="XLXN_233(31:0)" />
         <signal name="XLXN_243(31:0)" />
         <signal name="XLXN_245(31:0)" />
-        <signal name="DCLK">
-        </signal>
+        <signal name="DCLK" />
         <signal name="XLXN_257(4:0)" />
         <signal name="XLXN_258(4:0)" />
         <signal name="XLXN_259(4:0)" />
@@ -53,7 +52,7 @@
         <signal name="AN(7:0)" />
         <signal name="GPIO(15:0)" />
         <signal name="CLK" />
-        <signal name="XLXN_337" />
+        <signal name="TX_LED" />
         <port polarity="Input" name="RST" />
         <port polarity="Output" name="ADDRESS_MISALIGNED" />
         <port polarity="Input" name="RS232_Uart_RX" />
@@ -64,6 +63,7 @@
         <port polarity="Output" name="AN(7:0)" />
         <port polarity="BiDirectional" name="GPIO(15:0)" />
         <port polarity="Input" name="CLK" />
+        <port polarity="Output" name="TX_LED" />
         <blockdef name="InstrDecode">
             <timestamp>2022-3-21T14:26:15</timestamp>
             <rect width="336" x="64" y="-448" height="448" />
@@ -217,7 +217,8 @@
             <rect width="256" x="64" y="-320" height="512" />
         </blockdef>
         <blockdef name="IoCtl">
-            <timestamp>2022-4-17T11:16:17</timestamp>
+            <timestamp>2022-4-18T16:9:39</timestamp>
+            <line x2="384" y1="96" y2="96" x1="320" />
             <rect width="64" x="320" y="20" height="24" />
             <line x2="384" y1="32" y2="32" x1="320" />
             <line x2="0" y1="-480" y2="-480" x1="64" />
@@ -241,7 +242,7 @@
             <line x2="384" y1="-160" y2="-160" x1="320" />
             <rect width="64" x="320" y="-92" height="24" />
             <line x2="384" y1="-80" y2="-80" x1="320" />
-            <rect width="256" x="64" y="-512" height="576" />
+            <rect width="256" x="64" y="-512" height="640" />
         </blockdef>
         <blockdef name="BusMux3">
             <timestamp>2022-4-17T8:0:44</timestamp>
@@ -275,6 +276,7 @@
             <blockpin signalname="GPIO(15:0)" name="GPIO(15:0)" />
             <blockpin signalname="XLXN_327" name="RDY" />
             <blockpin signalname="RS232_Uart_TX" name="TX" />
+            <blockpin signalname="TX_LED" name="TX_LED" />
             <blockpin signalname="XLXN_319(31:0)" name="DO(31:0)" />
             <blockpin signalname="SEG(7:0)" name="SSGD(7:0)" />
             <blockpin signalname="AN(7:0)" name="SSGS(7:0)" />
@@ -683,9 +685,9 @@
         <branch name="XLXN_327">
             <wire x2="2752" y1="3392" y2="3392" x1="2704" />
             <wire x2="2704" y1="3392" y2="3712" x1="2704" />
-            <wire x2="4688" y1="3712" y2="3712" x1="2704" />
-            <wire x2="4688" y1="3024" y2="3024" x1="4624" />
-            <wire x2="4688" y1="3024" y2="3712" x1="4688" />
+            <wire x2="4736" y1="3712" y2="3712" x1="2704" />
+            <wire x2="4736" y1="3024" y2="3024" x1="4624" />
+            <wire x2="4736" y1="3024" y2="3712" x1="4736" />
         </branch>
         <branch name="XLXN_328">
             <wire x2="2752" y1="3008" y2="3008" x1="2672" />
@@ -739,5 +741,10 @@
         </branch>
         <instance x="256" y="3408" name="XLXI_58" orien="R0">
         </instance>
+        <branch name="TX_LED">
+            <wire x2="4640" y1="3600" y2="3600" x1="4624" />
+            <wire x2="4928" y1="3600" y2="3600" x1="4640" />
+        </branch>
+        <iomarker fontsize="28" x="4928" y="3600" name="TX_LED" orien="R0" />
     </sheet>
 </drawing>

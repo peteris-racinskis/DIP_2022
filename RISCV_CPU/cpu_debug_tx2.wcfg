@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/user/repos/DIP_2022/RISCV_CPU/top_top_sch_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="top_top_sch_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="11" />
+   <wvobject fp_name="/top_top_sch_tb/LED" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">LED[7:0]</obj_property>
+      <obj_property name="ObjectShortName">LED[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/top_tx" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">top_tx</obj_property>
+      <obj_property name="ObjectShortName">top_tx</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/tmter/incr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">incr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">incr[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/CLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/DCLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">DCLK</obj_property>
+      <obj_property name="ObjectShortName">DCLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_58/cnt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cnt[31:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/RST" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RST</obj_property>
+      <obj_property name="ObjectShortName">RST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/SW" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">SW[7:0]</obj_property>
+      <obj_property name="ObjectShortName">SW[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/tmter/BAUD" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">BAUD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BAUD[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/tmter/bg/REF" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">REF[31:0]</obj_property>
+      <obj_property name="ObjectShortName">REF[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/TX_LED" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">TX_LED</obj_property>
+      <obj_property name="ObjectShortName">TX_LED</obj_property>
+   </wvobject>
+</wave_config>

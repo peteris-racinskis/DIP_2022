@@ -7,7 +7,7 @@
 // \   \   \/     Version : 14.7
 //  \   \         Application : sch2hdl
 //  /   /         Filename : top.vf
-// /___/   /\     Timestamp : 04/18/2022 10:01:57
+// /___/   /\     Timestamp : 04/18/2022 19:11:46
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -29,6 +29,7 @@ module top(CLK,
            LED, 
            RS232_Uart_TX, 
            SEG, 
+           TX_LED, 
            GPIO);
 
     input CLK;
@@ -40,6 +41,7 @@ module top(CLK,
    output [7:0] LED;
    output RS232_Uart_TX;
    output [7:0] SEG;
+   output TX_LED;
     inout [15:0] GPIO;
    
    wire [31:0] A;
@@ -153,6 +155,7 @@ module top(CLK,
                   .SSGD(SEG[7:0]), 
                   .SSGS(AN[7:0]), 
                   .TX(RS232_Uart_TX), 
+                  .TX_LED(TX_LED), 
                   .GPIO(GPIO[15:0]));
    BusMux3  XLXI_56 (.IN1(XLXN_232[31:0]), 
                     .IN2(XLXN_233[31:0]), 

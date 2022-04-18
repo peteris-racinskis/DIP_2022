@@ -18,9 +18,9 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module TXBlock(CONTROL,DATA,CLK,STATUS,LINE_OUT);
+module TXBlock(CONTROL,DATA,RST,CLK,STATUS,LINE_OUT);
 	
-	parameter BAUD = 115200;
+	parameter BAUD = 300;
 	// states
 	parameter START = 1;
 	parameter WAIT = 2;
@@ -33,7 +33,7 @@ module TXBlock(CONTROL,DATA,CLK,STATUS,LINE_OUT);
 	parameter SND = 255;
 	
 	input [7:0] CONTROL, DATA;
-	input CLK;
+	input CLK, RST;
 	output reg [7:0] STATUS;
 	output reg LINE_OUT;
 	
@@ -54,37 +54,43 @@ module TXBlock(CONTROL,DATA,CLK,STATUS,LINE_OUT);
 	 
 	 always @(posedge CLK)
 	 begin
-		case (state)
-			START: begin
-				LINE_OUT <= 1;
-				STATUS <= RDY;
-				bg_rst <= 1;
-				state <= WAIT;
-			end
-			WAIT: begin
-				if (CONTROL == SND) begin
-					bg_rst <= 0;
-					state <= TxBIT;
-					LINE_OUT <= 0; // send a start bit
-					local_data <= DATA;
-					incr <= 0;
-					STATUS <= BSY;
+		if (RST) begin
+			LINE_OUT <= 1;
+			state <= START;
+		end else begin
+			case (state)
+				START: begin
+					LINE_OUT <= 1;
+					STATUS <= RDY;
+					bg_rst <= 1;
+					state <= WAIT;
 				end
-			end
-			TxBIT: begin
-				if (bg_end) begin
-					incr <= incr + 1;
-					if (incr == 8) begin
-						LINE_OUT <= 1; // send a stop bit
-					end else if (incr == 9) begin
-						state <= START;
-					end else begin
-						LINE_OUT <= local_data[incr];
+				WAIT: begin
+					if (CONTROL == SND) begin
+						bg_rst <= 0;
+						state <= TxBIT;
+						LINE_OUT <= 0; // send a start bit
+						local_data <= DATA;
+						incr <= 0;
+						STATUS <= BSY;
 					end
 				end
-			end
-			default: state <= START;
-		endcase
+				TxBIT: begin
+					if (bg_end) begin
+						incr <= incr + 1;
+						if (incr >= 8) begin
+							LINE_OUT <= 1; // send a stop bit (longer than normal)
+							if (incr == 10) begin
+								state <= START;
+							end
+						end else begin
+							LINE_OUT <= local_data[incr];
+						end
+					end
+				end
+				default: state <= START;
+			endcase
+		end
 	 end
 	 
 

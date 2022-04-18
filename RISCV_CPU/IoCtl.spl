@@ -10,6 +10,7 @@ CLK
 [Outputs]
 RDY
 TX
+TX_LED
 =DO[31:0]=
 =SSGD[7:0]=
 =SSGS[7:0]=

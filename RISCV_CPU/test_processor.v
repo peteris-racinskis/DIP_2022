@@ -10,7 +10,8 @@ module top_top_sch_tb();
 	reg [7:0] SW;
 
 // Output
-	reg [7:0] LED;
+	wire [7:0] LED;
+	wire top_tx;
 
 // Bidirs
 
@@ -19,15 +20,16 @@ module top_top_sch_tb();
 		.CLK(CLK), 
 		.RST(RST),
 		.SW(SW),
-		.LED(LED)
+		.LED(LED),
+		.RS232_Uart_TX(top_tx)
    );
 	
 	always
 	begin
 		CLK = 0;
-		#20;
+		#5;
 		CLK = 1;
-		#20;
+		#5;
 	end
 	
 	initial

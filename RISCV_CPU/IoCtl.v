@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module IoCtl(DIN,ADDR,WE,RREQ,RST,RX,SW,GPIO,CLK,DO,RDY,TX,SSGD,SSGS,LED);
+module IoCtl(DIN,ADDR,WE,RREQ,RST,RX,SW,GPIO,CLK,DO,RDY,TX,TX_LED,SSGD,SSGS,LED);
 	
 	parameter BAUD = 600;
 	// 7 segment states
@@ -44,11 +44,11 @@ module IoCtl(DIN,ADDR,WE,RREQ,RST,RX,SW,GPIO,CLK,DO,RDY,TX,SSGD,SSGS,LED);
 	output [31:0] DO;
 	output [7:0] SSGS;
 	output reg [7:0] SSGD, LED;
-	output reg RDY;
-	output TX;
+	output reg RDY, TX;
+	output TX_LED;
 	
 	wire [7:0] byte_in, io_addr, tx_status, rx_status, rx_do;
-	wire io_flag, bg_pulse;
+	wire io_flag, bg_pulse, tx_out;
 	reg [15:0] gpio_mode, gpio_wdata, gpio_rdata;
 	reg [7:0] byte_out, sw_rdata, ld_wdata, ssg_enable, ssgs_inv, tx_control,rx_control,tx_din;
 	reg [7:0] ssg_data [5:0];
@@ -62,6 +62,7 @@ module IoCtl(DIN,ADDR,WE,RREQ,RST,RX,SW,GPIO,CLK,DO,RDY,TX,SSGD,SSGS,LED);
 	assign io_flag = ADDR[31];
 	assign io_addr = ADDR[7:0];
 	assign SSGS = {2'b00,ssgs_inv[0],ssgs_inv[5:1]}; // is the cathode already inverted?
+	assign TX_LED = ~(|tx_status);
 	
 	
 	// set gpio_mode bit to 1 for output
@@ -129,9 +130,10 @@ module IoCtl(DIN,ADDR,WE,RREQ,RST,RX,SW,GPIO,CLK,DO,RDY,TX,SSGD,SSGS,LED);
 	TXBlock tmter (
     .CONTROL(tx_control), 
     .DATA(tx_din), 
-    .CLK(CLK), 
+    .CLK(CLK),
+	 .RST(RST),
     .STATUS(tx_status), 
-    .LINE_OUT(TX)
+    .LINE_OUT(tx_out)
     );
 	
 	RXBlock rcver (
@@ -146,6 +148,7 @@ module IoCtl(DIN,ADDR,WE,RREQ,RST,RX,SW,GPIO,CLK,DO,RDY,TX,SSGD,SSGS,LED);
 	always @(posedge CLK)
 	begin
 		if (RST) begin
+			TX <= 1;
 			cnt_state <= START;
 			ld_wdata <= -1;
 			gpio_mode <= -1;
@@ -161,6 +164,7 @@ module IoCtl(DIN,ADDR,WE,RREQ,RST,RX,SW,GPIO,CLK,DO,RDY,TX,SSGD,SSGS,LED);
 			tx_control <= 0;
 			tx_din <= 0;
 		end else begin
+			TX <= tx_out;
 			case (cnt_state)
 				START: begin
 					RDY <= 1;

@@ -12,7 +12,7 @@ module ClkDiv(CLK,DIV);
 	
 	always @(posedge CLK)
 	begin
-		cnt <= (cnt >= SPLIT) ? 0 : cnt + 1;
+		cnt <= (cnt >= SPLIT - 1) ? 0 : cnt + 1;
 	end
 
 endmodule

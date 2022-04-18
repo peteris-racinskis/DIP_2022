@@ -23,7 +23,7 @@ module BaudGenerator(RST,CLK,OUT);
 	//parameter REF = 10417;	// 9600 @ 100MHz
 	// NOT USING 100MHz anymore. Now clkdiv puts it at 10MHz
 	parameter BAUD = 115200;
-	parameter REF = 10000000 / BAUD;	// 115200 @ 100MHz
+	parameter REF = 10000000 / BAUD;	// 115200 @ 10MHz
 	parameter H_REF = REF / 2;
 	parameter SPLIT = 0;
 	
