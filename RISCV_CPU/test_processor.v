@@ -4,11 +4,14 @@
 
 module top_top_sch_tb();
 	
+	integer test_bit_period = 10 * 100000000 / 9600;
+	
 	integer i;
 // Inputs
    reg CLK;
    reg RST;
 	reg [7:0] SW;
+	reg RX;
 
 // Output
 	wire [7:0] LED;
@@ -19,6 +22,7 @@ module top_top_sch_tb();
 
 	reg [15:0] r_GPIO;
 	reg [15:0] w_GPIO;
+	reg [9:0] msg;
 	//reg [15:0] m_GPIO;
 // Instantiate the UUT
    top UUT (
@@ -26,9 +30,21 @@ module top_top_sch_tb();
 		.RST(RST),
 		.SW(SW),
 		.LED(LED),
+		.RS232_Uart_RX(RX),
 		.RS232_Uart_TX(top_tx),
 		.GPIO(GPIO)
    );
+	
+	task send_msg;
+		integer cnt;
+		begin
+			for (i=0;i<10;i=i+1) begin
+				RX = msg[i];
+				#test_bit_period;
+			end
+			RX = 1;
+		end
+	endtask
 	
 	always
 	begin
@@ -45,22 +61,19 @@ module top_top_sch_tb();
 	
 	
 	assign GPIO = {{8{1'b0}},8'bZ};
-	// mirror the actual chip assignment for test
-	/*
-	generate
-		genvar j;
-		for (j=0;j<16;j=j+1) begin
-			assign GPIO[j] = m_GPIO[j] ? 1'bz : w_GPIO[j];
-		end
-	endgenerate
-	*/
 	
 	initial
 	begin
 		SW = 8'b01010101;
+		RX = 1;
+		msg = 10'b0101010101;
 		w_GPIO = {8'b00001111,{8{1'b0}}};
 		RST = 1;
 		#2000;
 		RST = 0;
+		#1000;
+		send_msg();
+		#60000000;
+		send_msg();
 	end
 endmodule

@@ -10,7 +10,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="16" />
+   <WVObjectSize size="23" />
    <wvobject fp_name="/top_top_sch_tb/LED" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">LED[7:0]</obj_property>
       <obj_property name="ObjectShortName">LED[7:0]</obj_property>
@@ -78,5 +78,37 @@
    <wvobject fp_name="/top_top_sch_tb/r_GPIO" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">r_GPIO[15:0]</obj_property>
       <obj_property name="ObjectShortName">r_GPIO[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/RX" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RX</obj_property>
+      <obj_property name="ObjectShortName">RX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/rcver/rcv" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rcv[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rcv[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/rcver/bg_mid" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">bg_mid</obj_property>
+      <obj_property name="ObjectShortName">bg_mid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/rcver/STATUS" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">STATUS[7:0]</obj_property>
+      <obj_property name="ObjectShortName">STATUS[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[1]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[1,31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[1,31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_5/memory[3]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[3,31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[3,31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
 </wave_config>

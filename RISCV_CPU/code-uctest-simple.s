@@ -1,16 +1,17 @@
 .equ    io_offs, 2147483648
 .equ    msg_base, 0
-.equ    digit_base, 9
+.equ    digit_base, 10
 .equ    digit_incr, 24
 .equ    io_digit_enable, 14
 .equ    io_digit_base, 8
 .equ    "Rece", 0x65636552 # byte order duh
 .equ    "ived", 0x64657669
-.equ    "n", 0x0a
+.equ    "crlf", 0x0a0d
 .equ    SW,0
 .equ    LD,1
 .equ    GPIO_mode_lsb, 2
 .equ    GPIO_mode_msb, 3
+.equ    GPIO_rdata_msb, 5
 .equ    GPIO_wdata_lsb, 6
 .equ    RX_status, 15
 .equ    RX_control, 16
@@ -38,8 +39,8 @@ data_setup:
     sw x1, 0(x2)
     li x1, "ived" # e
     sw x1, 4(x2)
-    li x1, "n" # c
-    sb x1, 8(x2)
+    li x1, "crlf" # c
+    sh x1, 8(x2)
     li x2, digit_base # base address for digits
     li x1, 0x3f # ssg 0
     sb x1, 0(x2)
@@ -77,15 +78,17 @@ data_setup:
     li x1, 255 # for ssg control
     sb x1, io_digit_enable(x2) # enable the digit display
     li x1, DISABLE
+    li x4, 0    # load a zero to start with
     sb x1, GPIO_mode_msb(x2) # Turn msb gpio bank into inputs (simulation use only for now)
 main:
 # Update the LEDs to match the switches
     lb x1, SW(x2)        # load SW
+    lb x10, GPIO_rdata_msb(x2) # read GPIO inputs
     sb x1, LD(x2)        # store into LD
     sb x1, GPIO_wdata_lsb(x2) # store into GPIO lsb too
-    # Display rx data at the current location
+
+    # Display SW in displays 0,1
     andi x7, x1, 0x0f       # put SW[3:0] into x7
-    #addi x7, x7, digit_base 
     andi x8, x1, 0xf0       # put SW[7:4] into x8
     srli x8, x8, 4          # x8 >> 4 
     lb x7, digit_base(x7)   # load mem[x7+digit_base] into x7
@@ -93,11 +96,42 @@ main:
     addi x9, x2, io_digit_base
     sb x7, 0(x9)# x7 -> mem[io_base  + io_digit_base + lsb_index]
     sb x8, 1(x9)# x8 -> mem[io_base + io_digit_base + msb_index]
-    # wait for 100 cycles (~0.01ms)
 
-    # Send "Received\n" message regardless
+    # Display GPIO msb in displays 2,3
+    andi x7, x10, 0x0f       # put SW[3:0] into x7
+    andi x8, x10, 0xf0       # put SW[7:4] into x8
+    srli x8, x8, 4          # x8 >> 4 
+    lb x7, digit_base(x7)   # load mem[x7+digit_base] into x7
+    lb x8, digit_base(x8)   # load mem[x8+digit_base] into x8
+    addi x9, x2, io_digit_base
+    sb x7, 2(x9)# x7 -> mem[io_base  + io_digit_base + lsb_index]
+    sb x8, 3(x9)# x8 -> mem[io_base + io_digit_base + msb_index]
+
+
+# Check if anything was received and display; respond with "Received\n"
+    li x5, 0            # to see if anything was received
+    li x6, RX_READ          # for setting control bytes
+while_data:
+    lb x3, RX_status(x2)    # get RX fifo buffer status
+    beq x3, zero, skip_rx   # bypass if nothing found
+    sb x6, RX_control(x2)   # toggle read
+    sb zero, RX_control(x2) # toggle read
+    lb x4, RX_do(x2)        # get the fifo byte
+    li x5, 1                # record that rx happened
+    # Display RX data last byte in displays 4,5
+    andi x7, x4, 0x0f       # put rx_do[3:0] into x7
+    andi x8, x4, 0xf0       # put rx_do[7:4] into x8
+    srli x8, x8, 4          # x8 >> 4 
+    lb x7, digit_base(x7)   # load mem[x7+digit_base] into x7
+    lb x8, digit_base(x8)   # load mem[x8+digit_base] into x8
+    addi x9, x2, io_digit_base
+    sb x7, 4(x9)# x7 -> mem[io_base  + io_digit_base + lsb_index]
+    sb x8, 5(x9)# x8 -> mem[io_base + io_digit_base + msb_index]
+    jal zero, while_data    # loop
+skip_rx:
+    beq x5, zero, skip_tx # skip the transmit section if no new data
     li x1, 0                # i = 0
-    li x3, 8                # i =< 8
+    li x3, 9                # i =< 9 (added 1 more character)
 tx_loop:
     lb x6, msg_base(x1)     # get msg[i] (byte)
     sb x6, TX_din(x2)       # put into TX_din register
@@ -109,7 +143,7 @@ wait_tx:
     bne x7, zero, wait_tx   # while not rdy, wait
     addi x1, x1, 1
     ble x1, x3, tx_loop     # loop until x1 > 8 (message is 9 bytes long)
-
+skip_tx:
     # Wait for 1ms
     li x1, 0
     li x3, 100000            
