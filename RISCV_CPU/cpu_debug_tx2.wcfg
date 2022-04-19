@@ -10,7 +10,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="11" />
+   <WVObjectSize size="16" />
    <wvobject fp_name="/top_top_sch_tb/LED" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">LED[7:0]</obj_property>
       <obj_property name="ObjectShortName">LED[7:0]</obj_property>
@@ -58,5 +58,25 @@
    <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/TX_LED" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">TX_LED</obj_property>
       <obj_property name="ObjectShortName">TX_LED</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/gpio_wdata" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">gpio_wdata[15:0]</obj_property>
+      <obj_property name="ObjectShortName">gpio_wdata[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/gpio_rdata" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">gpio_rdata[15:0]</obj_property>
+      <obj_property name="ObjectShortName">gpio_rdata[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/UUT/XLXI_54/gpio_mode" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">gpio_mode[15:0]</obj_property>
+      <obj_property name="ObjectShortName">gpio_mode[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/GPIO" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">GPIO[15:0]</obj_property>
+      <obj_property name="ObjectShortName">GPIO[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_top_sch_tb/r_GPIO" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">r_GPIO[15:0]</obj_property>
+      <obj_property name="ObjectShortName">r_GPIO[15:0]</obj_property>
    </wvobject>
 </wave_config>

@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module TXBlock(CONTROL,DATA,RST,CLK,STATUS,LINE_OUT);
 	
-	parameter BAUD = 300;
+	parameter BAUD = 9600;
 	// states
 	parameter START = 1;
 	parameter WAIT = 2;
@@ -80,7 +80,7 @@ module TXBlock(CONTROL,DATA,RST,CLK,STATUS,LINE_OUT);
 						incr <= incr + 1;
 						if (incr >= 8) begin
 							LINE_OUT <= 1; // send a stop bit (longer than normal)
-							if (incr == 10) begin
+							if (incr == 10) begin // will using 1/2 stop bit make a difference?
 								state <= START;
 							end
 						end else begin

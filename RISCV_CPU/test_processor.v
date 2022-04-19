@@ -3,7 +3,8 @@
 `timescale 1ns / 1ps
 
 module top_top_sch_tb();
-
+	
+	integer i;
 // Inputs
    reg CLK;
    reg RST;
@@ -14,14 +15,19 @@ module top_top_sch_tb();
 	wire top_tx;
 
 // Bidirs
+	wire [15:0] GPIO;
 
+	reg [15:0] r_GPIO;
+	reg [15:0] w_GPIO;
+	//reg [15:0] m_GPIO;
 // Instantiate the UUT
    top UUT (
 		.CLK(CLK), 
 		.RST(RST),
 		.SW(SW),
 		.LED(LED),
-		.RS232_Uart_TX(top_tx)
+		.RS232_Uart_TX(top_tx),
+		.GPIO(GPIO)
    );
 	
 	always
@@ -32,9 +38,27 @@ module top_top_sch_tb();
 		#5;
 	end
 	
+	always @(posedge CLK)
+	begin
+		r_GPIO <= GPIO;
+	end
+	
+	
+	assign GPIO = {{8{1'b0}},8'bZ};
+	// mirror the actual chip assignment for test
+	/*
+	generate
+		genvar j;
+		for (j=0;j<16;j=j+1) begin
+			assign GPIO[j] = m_GPIO[j] ? 1'bz : w_GPIO[j];
+		end
+	endgenerate
+	*/
+	
 	initial
 	begin
 		SW = 8'b01010101;
+		w_GPIO = {8'b00001111,{8{1'b0}}};
 		RST = 1;
 		#2000;
 		RST = 0;

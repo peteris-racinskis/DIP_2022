@@ -111,8 +111,8 @@
     #NET "USB2_DATA"  LOC = L17 | IOSTANDARD = LVCMOS33;  #Bank = 1, pin name = IO_L40P_GCLK11_M1A5_1, Sch name = USBH2-DATA
     
 ## RS232
-    NET "RS232_Uart_TX"  LOC = T19 | IOSTANDARD = LVCMOS33;
-    NET "RS232_Uart_RX"  LOC = T20 | IOSTANDARD = LVCMOS33;
+    NET "RS232_Uart_RX"  LOC = T19 | IOSTANDARD = LVCMOS33;
+    NET "RS232_Uart_TX"  LOC = T20 | IOSTANDARD = LVCMOS33;
     
 ## HDMI
     #NET "HDMI_TX_P[0]"  LOC = D10 | IOSTANDARD = TMDS_33;  #Bank = 0, pin name = IO_L33P_0, Sch name = HDMI-TX-0 P
@@ -160,7 +160,7 @@
     #NET "JA10"  LOC = W15 | IOSTANDARD = LVCMOS33;  #Bank = 2, pin name = IO_L14P_D11_2, Sch name = JA10
     
 ## JB
-    #NET "JB1"  LOC = Y16 | IOSTANDARD = LVCMOS33;  #Bank = 2, pin name = IO_L14N_D12_2, Sch name = JB1
+    #NET "RS232_Uart_TX"  LOC = Y16 | IOSTANDARD = LVCMOS33;  #Bank = 2, pin name = IO_L14N_D12_2, Sch name = JB1
     #NET "JB2"  LOC = AB14 | IOSTANDARD = LVCMOS33;  #Bank = 2, pin name = IO_L15N_2, Sch name = JB2
     #NET "JB3"  LOC = Y14 | IOSTANDARD = LVCMOS33;  #Bank = 2, pin name = IO_L16N_VREF_2, Sch name = JB3
     #NET "JB4"  LOC = U14 | IOSTANDARD = LVCMOS33;  #Bank = 2, pin name = IO_L20N_2, Sch name = JB4

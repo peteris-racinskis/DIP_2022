@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module RXBlock(LINE_IN,CONTROL,CLK,STATUS,DATA);
 
-	parameter BAUD = 115200;
+	parameter BAUD = 9600;
 	// status
 	parameter HAVE_DATA = 255;
 	parameter NO_DATA = 0;

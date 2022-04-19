@@ -2,6 +2,7 @@
 
 module IoCtl(DIN,ADDR,WE,RREQ,RST,RX,SW,GPIO,CLK,DO,RDY,TX,TX_LED,SSGD,SSGS,LED);
 	
+	// 7 segment refresh rate (per digit)
 	parameter BAUD = 600;
 	// 7 segment states
 	parameter SSG_START = 1;

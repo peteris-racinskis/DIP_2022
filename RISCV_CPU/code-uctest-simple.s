@@ -9,6 +9,9 @@
 .equ    "n", 0x0a
 .equ    SW,0
 .equ    LD,1
+.equ    GPIO_mode_lsb, 2
+.equ    GPIO_mode_msb, 3
+.equ    GPIO_wdata_lsb, 6
 .equ    RX_status, 15
 .equ    RX_control, 16
 .equ    RX_do, 17
@@ -73,10 +76,13 @@ data_setup:
     li x2, io_offs      # IO address offset
     li x1, 255 # for ssg control
     sb x1, io_digit_enable(x2) # enable the digit display
+    li x1, DISABLE
+    sb x1, GPIO_mode_msb(x2) # Turn msb gpio bank into inputs (simulation use only for now)
 main:
 # Update the LEDs to match the switches
-    lb x1, 0(x2)        # load SW
-    sb x1, 1(x2)        # store into LD
+    lb x1, SW(x2)        # load SW
+    sb x1, LD(x2)        # store into LD
+    sb x1, GPIO_wdata_lsb(x2) # store into GPIO lsb too
     # Display rx data at the current location
     andi x7, x1, 0x0f       # put SW[3:0] into x7
     #addi x7, x7, digit_base 
@@ -88,8 +94,25 @@ main:
     sb x7, 0(x9)# x7 -> mem[io_base  + io_digit_base + lsb_index]
     sb x8, 1(x9)# x8 -> mem[io_base + io_digit_base + msb_index]
     # wait for 100 cycles (~0.01ms)
+
+    # Send "Received\n" message regardless
+    li x1, 0                # i = 0
+    li x3, 8                # i =< 8
+tx_loop:
+    lb x6, msg_base(x1)     # get msg[i] (byte)
+    sb x6, TX_din(x2)       # put into TX_din register
+    li x6, TX_TRANSMIT      # 255 activates the transmitter
+    sb x6, TX_control(x2)   # put into the control register
+    sb zero, TX_control(x2) # immediately unset
+wait_tx:
+    lb x7, TX_status(x2)    # get transmitter status
+    bne x7, zero, wait_tx   # while not rdy, wait
+    addi x1, x1, 1
+    ble x1, x3, tx_loop     # loop until x1 > 8 (message is 9 bytes long)
+
+    # Wait for 1ms
     li x1, 0
-    li x3, 100            
+    li x3, 100000            
 wait_cnt:
     addi x1, x1, 1
     blt x1, x3, wait_cnt

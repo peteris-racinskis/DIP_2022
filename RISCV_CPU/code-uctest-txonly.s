@@ -4,11 +4,14 @@
 .equ    digit_incr, 24
 .equ    io_digit_enable, 14
 .equ    io_digit_base, 8
-.equ    "Rece", 0x52656365
-.equ    "ived", 0x69766564
+.equ    "Rece", 0x65636552 # byte order duh
+.equ    "ived", 0x64657669
 .equ    "n", 0x0a
 .equ    SW,0
 .equ    LD,1
+.equ    GPIO_mode_lsb, 2
+.equ    GPIO_mode_msb, 3
+.equ    GPIO_wdata_lsb, 6
 .equ    RX_status, 15
 .equ    RX_control, 16
 .equ    RX_do, 17
@@ -37,11 +40,14 @@ data_setup:
     li x1, "n" # c
     sb x1, 8(x2)
     li x2, io_offs      # IO address offset
+    li x1, DISABLE
+    sb x1, GPIO_mode_msb(x2) # Turn msb gpio bank into inputs (simulation use only for now)
 main:
 # Update the LEDs to match the switches
 # Keep this as a quick test to see if the loop is not stuck
-    lb x1, 0(x2)        # load SW
-    sb x1, 1(x2)        # store into LD
+    lb x1, SW(x2)        # load SW
+    sb x1, LD(x2)        # store into LD
+    sb x1, GPIO_wdata_lsb(x2) # store into GPIO lsb too
 
     # Send "Received\n" message regardless
     li x1, 0                # i = 0
