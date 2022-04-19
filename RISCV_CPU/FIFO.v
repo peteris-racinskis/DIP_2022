@@ -28,7 +28,8 @@ module FIFO(DIN,RREQ,WE,CLK,DO,FF,FE);
 	reg [7:0] buffer [255:0];
 	reg [7:0] rp, wp;
 	
-	assign FE = &(rp - wp); // rp - wp == -1 = 11111111; and reduce checks that everything is a 1
+	//assign FE = &(rp - wp); // rp - wp == -1 = 11111111; and reduce checks that everything is a 1
+	assign FE = ~(|(rp - wp)); // rp == wp. Does this work now that I fixed fifo read count?
 	assign FF = &(wp - rp); // wastes a byte but I'm lazy
 	
 	always @(posedge CLK)

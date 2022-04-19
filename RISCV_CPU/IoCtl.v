@@ -170,6 +170,7 @@ module IoCtl(DIN,ADDR,WE,RREQ,RST,RX,SW,GPIO,CLK,DO,RDY,TX,TX_LED,SSGD,SSGS,LED)
 				START: begin
 					RDY <= 1;
 					cnt_state <= WAIT;
+					rx_control <= 0; // Reset fifo read so that only one byte gets read
 				end
 				WAIT: begin
 					RDY <= 0;

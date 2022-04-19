@@ -115,7 +115,7 @@ while_data:
     lb x3, RX_status(x2)    # get RX fifo buffer status
     beq x3, zero, skip_rx   # bypass if nothing found
     sb x6, RX_control(x2)   # toggle read
-    sb zero, RX_control(x2) # toggle read
+    #sb zero, RX_control(x2) # toggle read
     lb x4, RX_do(x2)        # get the fifo byte
     li x5, 1                # record that rx happened
     # Display RX data last byte in displays 4,5
